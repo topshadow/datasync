@@ -166,7 +166,7 @@ namespace WebApplication1.Controllers
 
                     var fullYearRes = await this.getCurYearVisitPlan(new GetCurYearVisitPlanInput { empiId = empiId, cookie = body.cookie, random = body.random });
                     var datestr = body.inputDate.ToShortDateString();
-
+                    Console.WriteLine("datestr:" + datestr);
                     var record = fullYearRes.body.Where(record => record.planDate == datestr).FirstOrDefault();
                     if (record != null)
                     {

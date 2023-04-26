@@ -84,3 +84,18 @@ content-type: application/json;charset=UTF-8
 "psychologyChange":"1","cure":"1","currentSymptoms":"1,2,3,4","inputDate":"2023-04-24T16:00:00.000Z",
 "obeyDoctor":"1","inputUser":"","referralReason":"","medicine":"","medicineBadEffect":"n","medicineBadEffectText":"",
 "medicineNot":"","medicineOtherNot":"","visitEvaluate":"1","nextDate":"2023-07-28T16:00:00.000Z","auxiliaryCheck":""}
+
+
+
+###
+POST http://localhost:5062/Hypertens/autoAddVisitRecordInput
+accept: application/json, text/plain, */*
+accept-language: zh-CN,zh;q=0.9,en;q=0.8
+content-type: application/json;charset=UTF-8
+
+
+{"idcard":"440525195409243438",
+"random":"047aabcd7d4f07ab7e2bcb950c81a3d8bea9c9d2a2485e4179843a7e23cc56cf0472a39c594f3ce1ee01022cfa26238822de7251afb4d1523aacc78a45dd7bd357ec2ab67938d570e3aef8a901266807fb5d62d35f1f7042c036148c5615fa62148c2e7a598ff2435bf8c5fa334fa72c0762213fe4691ab0cfcaaa4707106adf090856a1524821a1dbc6b267dbc5ecc5aae4294381b001a504880096d1506c09b65d5486afabeeddb1c0971b559d7bf54e94d554c52a5b908c4a13a4863d31a596c1983fee57b2eba0b0e496b72ea6336f8d190a9da62732ddf4fb250d3bc73f5fd682","cookie":"JSESSIONID=B13AA5F4F6433F5493010238AD7B7627; 605065=%u51AF%u4F73%u6770@photo/605065.jpg; cur_cauid=; 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg",
+"constriction":"130","diastolic":"84","weight":"63.0","targetWeight":"62.0","bmi":"21.23","targetBmi":"20.96","heartRate":"77","smokeCount":"10","targetSmokeCount":"","drinkCount":"1","targetDrinkCount":"","trainMinute":"20","trainTimesWeek":"1","targetTrainMinute":"30","targetTrainTimesWeek":"1","salt":"1","targetSalt":"1","visitWay":"1","psychologyChange":"1","cure":"1","currentSymptoms":"1,2,3,4","inputDate":"2023-04-24T16:00:00.000Z","obeyDoctor":"1","inputUser":"","referralReason":"",
+"medicine":"","medicineBadEffect":"n",
+"medicineBadEffectText":"","medicineNot":"","medicineOtherNot":"","visitEvaluate":"1","nextDate":"2023-07-28T16:00:00.000Z","auxiliaryCheck":""}
