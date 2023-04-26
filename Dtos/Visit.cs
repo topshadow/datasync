@@ -719,43 +719,44 @@ namespace WebApplication1.Dtos
         /// <value></value>
         public string idcard { get; set; }
 
-        public string bmi { get; set; }
-        public string targetBmi { get; set; }
-        public string constriction { get; set; }
-        public string cure { get; set; }
-        public string currentSymptoms { get; set; }
-        public string diastolic { get; set; }
-        public string drinkCount { get; set; }
-        public string targetDrinkCount { get; set; }
+        public string bmi { get; set; } = "90";
+        public string targetBmi { get; set; } = "50";
+        public string constriction { get; set; } = "11";
+        public string cure { get; set; } = "1";
+        public string currentSymptoms { get; set; } = "0";
+        public string diastolic { get; set; } = "50";
+        public string drinkCount { get; set; } = "1";
+        public string targetDrinkCount { get; set; } = "3";
         public DateTime inputDate { get; set; }
-        public string weight { get; set; }
-        public string targetWeight { get; set; }
-        public string heartRate { get; set; }
-        public string inputUser { get; set; }
-        public string smokeCount { get; set; }
-        public string targetSmokeCount { get; set; }
+        public string weight { get; set; } = "60";
+        public string targetWeight { get; set; } = "65";
+        public string heartRate { get; set; } = "70";
+        public string inputUser { get; set; } = "605100";
+        public string smokeCount { get; set; } = "1";
+        public string targetSmokeCount { get; set; } = "1";
         public string psychologyChange { get; set; }
-        public string obeyDoctor { get; set; }
-        public string referralReason { get; set; }
-        public string medicine { get; set; }
-        public string medicineBadEffect { get; set; }
-        public string medicineBadEffectText { get; set; }
-        public string medicineNot { get; set; }
-        public string medicineOtherNot { get; set; }
-        public string salt { get; set; }
-        public string targetSalt { get; set; }
-        public string targetTrainMinute { get; set; }
-        public string targetTrainTimesWeek { get; set; }
-        public string trainMinute { get; set; }
-        public string trainTimesWeek { get; set; }
-        public string visitWay { get; set; }
+        public string obeyDoctor { get; set; } = "1";
+        public string referralReason { get; set; } = String.Empty;
+        public string medicine { get; set; } = String.Empty;
+        public string medicineBadEffect { get; set; } = String.Empty;
+        public string medicineBadEffectText { get; set; } = String.Empty;
+        public string medicineNot { get; set; } = String.Empty;
+        public string medicineOtherNot { get; set; } = String.Empty;
+        public string salt { get; set; } = "1";
+        public string targetSalt { get; set; } = "1";
+        public string targetTrainMinute { get; set; } = "1";
+        public string targetTrainTimesWeek { get; set; } = "1";
+        public string trainMinute { get; set; } = "1";
+        public string trainTimesWeek { get; set; } = "1";
+        public string visitWay { get; set; } = "1";
         public string auxiliaryCheck { get; set; }
         /// <summary>
         /// 下次随访日期
         /// </summary>
         /// <value></value>
         public DateTime nextDate { get; set; }
-        public string visitEvaluate { get; set; }
+        public string visitEvaluate { get; set; } = "1";
+        public string targetSmeCount { get; set; } = "1";
 
     }
     public class AutoAddVisitRecordResult
@@ -886,7 +887,7 @@ namespace WebApplication1.Dtos
 
         public string targetHurt { get; set; } = "";
         public string targetSalt { get; set; } = "";
-        public string targetSmokeCount { get; set; } = "0";
+        public string targetSmokeCount { get; set; } = "1";
         public string targetTrainMinute { get; set; } = "11";
         public string targetTrainTimesWeek { get; set; } = "11";
         public string targetWeight { get; set; } = String.Empty;

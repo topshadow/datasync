@@ -176,6 +176,7 @@ namespace WebApplication1.Controllers
 
                         var saveUpdateInput = new SaveHypertensionVisitInput
                         {
+                            op = String.IsNullOrEmpty(record.visitId) ? "create" : "update",
                             body = new SaveHypertensionVisitInputBody
                             {
 
@@ -190,7 +191,7 @@ namespace WebApplication1.Controllers
                                 bmi = body.bmi,
                                 targetBmi = body.targetBmi,
                                 smokeCount = body.smokeCount,
-                                targetSmokeCount = body.targetSmokeCount,
+                                targetSmokeCount = body.targetSmeCount,
                                 drinkCount = body.drinkCount,
                                 targetDrinkCount = body.targetDrinkCount,
                                 trainMinute = body.trainMinute,
@@ -213,11 +214,12 @@ namespace WebApplication1.Controllers
                                 medicineNot = body.medicineNot,
                                 medicineOtherNot = body.medicineOtherNot,
                                 visitEvaluate = body.visitEvaluate,
+
                                 nextDate = body.nextDate.ToString("yyyy-MM-dd"),
                                 salt = body.salt,
                                 inputUser = "605100",
                                 targetSalt = body.targetSalt,
-                                auxiliaryCheck = body.auxiliaryCheck
+                                // auxiliaryCheck = body.auxiliaryCheck
                             }
                         };
                         var res = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?random=" + body.random, saveUpdateInput);
