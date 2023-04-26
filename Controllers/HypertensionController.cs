@@ -228,7 +228,7 @@ namespace WebApplication1.Controllers
                         var data = await res.Content.ReadFromJsonAsync<SaveHypertensionVisitResult>();
                         if (data.code == 200)
                         {
-                            return new AutoAddVisitRecordResult { ok = true, message = "200" };
+                            return new AutoAddVisitRecordResult { ok = true, message = "上传成功" };
                         }
                         else
                         {
