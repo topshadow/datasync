@@ -195,6 +195,9 @@ namespace WebApplication1.Controllers
                                 targetDrinkCount = body.targetDrinkCount,
                                 trainMinute = body.trainMinute,
                                 trainTimesWeek = body.trainTimesWeek,
+                                targetTrainTimesWeek = body.targetTrainTimesWeek,
+                                targetTrainMinute = body.targetTrainMinute,
+
                                 visitWay = body.visitWay,
                                 cure = body.cure,
                                 obeyDoctor = body.obeyDoctor,

@@ -88,7 +88,7 @@ content-type: application/json;charset=UTF-8
 
 
 ###
-POST http://localhost:5062/Hypertens/autoAddVisitRecordInput
+POST http://115.159.222.238:8091/Hypertens/autoAddVisitRecordInput
 accept: application/json, text/plain, */*
 accept-language: zh-CN,zh;q=0.9,en;q=0.8
 content-type: application/json;charset=UTF-8
