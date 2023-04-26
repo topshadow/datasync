@@ -7,8 +7,8 @@ referrerPolicy: strict-origin-when-cross-origin"
 
 {
 "idcard":"440525195409243438",
-"random":"04888f9d70bfee2e5898d40fa611a899fb234cb3fb263a94d1a27100ff40b0a7c86d112682bda498a842f832ec9bbb194c4ab93625ac13107add234dd22cacc45eb8198b2e8172f5fd20fa91958c605c19c039b11593ac8dbf2f4e79066f6335c0af87eeadd380324e44562c4a8e7809681eb9b913ec46348f6a674d2e02e62fe1f7a985e189e8f5defe2531105b831588aa9436b5fdf7b43edbde67d3e942f40a6ad27af1d3e789b4503793918413198e05fc31da78ec089baeceff154854e92b153a924bf6053456e6936e8c711b5a2f5a6e68da1c61d367a4bd6960d21b2ab9594a",
-"cookie":"JSESSIONID=068BE914F66CFAB0CE8136769A9C2631; 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg; cur_cauid=",
+"random":"04da70d09ff606d430e9a1c1bc82b1fc3e2b5ccc7df3274c25e3464e090a7021257989b514f105ad674fddafe6af1e480d393f5c9e0bd5f0c76b3a2709b6715819f42a4623cd550cd857b0466e44d26b13f7ed8cb34b15229c3984c4c2eaf5f92f2dca67d97c910f941af615acd79be33033abe2ae145b818e30825033585e4c151920952cf6d22300ea35ad9d4c328c524e9a9a8662d84a5fc93294ba972ac6185eddb579df9bb0f8455cf10b56168ded40366cd3748c6629295feda599a2f4cb98a972453d24ef68a5a24c0ad27c6b85d8360bf04ea779b413633fa90ec04e7b3c77",
+"cookie":"JSESSIONID=83857903518B44AFA3E2079812321CD9; 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg; cur_cauid=",
 "constriction":"1",
 "diastolic":"2",
 "weight":"1.0",
@@ -46,7 +46,7 @@ referrerPolicy: strict-origin-when-cross-origin"
 
 ###
 
-POST http://localhost:5062/Hypertens/autoAddVisitRecordInput
+POST http://115.159.222.238:8091/Hypertens/autoAddVisitRecordInput
 accept: application/json, text/plain, */*
 accept-language: zh-CN,zh;q=0.9,en;q=0.8
 content-type: application/json;charset=UTF-8
@@ -76,8 +76,9 @@ accept-language: zh-CN,zh;q=0.9,en;q=0.8
 content-type: application/json;charset=UTF-8
 
 {"idcard":"440525195409243438",
-"random":"0408c4cea63856d1a18155422a9b4749ee941cae467586f2f888514af6206c83ae1ccb7613ad80c674eab8ddb1eae84a5f20fb955fdd9c0ae7e97d13464b8e5cd8644d1c8470c25116a76b094bf75b934f17df079fae2489655996f57b4f87c9c58637d25278b2115206c925c41cbe35051d39d42a7d3c39900d7b60aad7da95509d4fab6de6beabdbd55c00f8b281351b8a29df6a12aa597356c356205d7ac284ec0e8139a05d757861cd5e9b0d29ad99bcaa80cd85c1f6e3bdd3672298f9134712900c661b803643e2651de826f6464054f88def86abd54ab0b5652fbb7f23e06e54",
-"cookie":"JSESSIONID=7C710106DD28E0336B1F60A5B013DE34; 605065=%u51AF%u4F73%u6770@photo/605065.jpg; cur_cauid=; 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg","constriction":"130","diastolic":"84","weight":"63.0","targetWeight":"62.0","bmi":"21.23","targetBmi":"20.96","heartRate":"77","smokeCount":"10","targetSmokeCount":"","drinkCount":"1",
+"random":"04da70d09ff606d430e9a1c1bc82b1fc3e2b5ccc7df3274c25e3464e090a7021257989b514f105ad674fddafe6af1e480d393f5c9e0bd5f0c76b3a2709b6715819f42a4623cd550cd857b0466e44d26b13f7ed8cb34b15229c3984c4c2eaf5f92f2dca67d97c910f941af615acd79be33033abe2ae145b818e30825033585e4c151920952cf6d22300ea35ad9d4c328c524e9a9a8662d84a5fc93294ba972ac6185eddb579df9bb0f8455cf10b56168ded40366cd3748c6629295feda599a2f4cb98a972453d24ef68a5a24c0ad27c6b85d8360bf04ea779b413633fa90ec04e7b3c77",
+"cookie":"JSESSIONID=83857903518B44AFA3E2079812321CD9; 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg; cur_cauid=",
+"constriction":"130","diastolic":"84","weight":"63.0","targetWeight":"62.0","bmi":"21.23","targetBmi":"20.96","heartRate":"77","smokeCount":"10","targetSmokeCount":"","drinkCount":"1",
 "targetDrinkCount":"","trainMinute":"20","trainTimesWeek":"1","targetTrainMinute":"30",
 "targetTrainTimesWeek":"1","salt":"1","targetSalt":"1","visitWay":"1",
 "psychologyChange":"1","cure":"1","currentSymptoms":"1,2,3,4","inputDate":"2023-04-24T16:00:00.000Z",
