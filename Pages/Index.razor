@@ -1,0 +1,97 @@
+﻿@using PuppeteerSharp;
+@page "/"
+
+
+<PageTitle>Index</PageTitle>
+
+
+<label for="">用户名:</label> <input @bind-value="username" />
+<label>密码</label> <input @bind-value="password" />
+
+<button @onclick="Login">登陆</button>
+
+
+@code{
+    public string username="605065";
+    public string password="123";
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            await base.OnAfterRenderAsync(firstRender);
+
+
+
+        }
+
+
+        public  async Task  Login(){
+                using var browserFetcher = new BrowserFetcher();
+await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
+var browser = await Puppeteer.LaunchAsync(new LaunchOptions
+{
+    
+    IgnoreHTTPSErrors=true,
+    Devtools=true,
+    Headless = false,
+    Args= new string[]{"--disable-web-security"},
+    @* UserDataDir="c:\\data" *@
+});
+var page = await browser.NewPageAsync();
+var capchaSrc="";
+page.Response+=async (sender, e)=>{
+    if(e.Response.Url.EndsWith("index.html")){
+        e.Response.Headers.Add("Access-Control-Allow-Private-Network","true");
+    }
+    if(e.Response.Url.StartsWith("data:image/png;base64,")){
+          if (e.Response.Url.Length > capchaSrc.Length) {
+       capchaSrc=  e.Response.Url;
+          }
+
+
+    }
+
+};
+      
+
+
+
+await page.GoToAsync("http://ph01.gd.xianyuyigongti.com:9002/chis/index.html");
+await page.AddScriptTagAsync(new AddTagOptions{Url="http://localhost:5062/fix.js",});
+
+
+var timer = new System.Timers.Timer(3000);
+timer.AutoReset=false;
+           timer.Elapsed += async (s,e)=>{
+await page.EvaluateExpressionAsync("document.getElementById('ext-comp-1001').value="+"\""+username + "\"");
+await page.EvaluateExpressionAsync("document.getElementById('pwd').value="+"\""+password + "\"");
+var setVarExpreess="window.capchaSrc="+"`"+capchaSrc+"`";
+Console.WriteLine(setVarExpreess);
+    await    page.EvaluateExpressionAsync(setVarExpreess);
+
+   await page. EvaluateExpressionAsync(" setTimeout(()=>{startCapcha()},1000) ");
+        var starDragTimmer= new System.Timers.Timer(3000);
+        starDragTimmer.AutoReset=false;
+        starDragTimmer.Elapsed+=async (s2,e2)=>{
+            var x = await page.EvaluateExpressionAsync<decimal>("window['xy'].x");
+
+var y = await page.EvaluateExpressionAsync<decimal>("window['xy'].y");
+                Console.WriteLine("获取点数据x:"+x+"  y:"+y);
+              await  page.Mouse.MoveAsync(226, 425,new PuppeteerSharp.Input.MoveOptions{Steps=1});
+              await page.Mouse.DownAsync();
+              Thread.Sleep(300);
+              await  page.Mouse.MoveAsync(226+x+20, 450,new PuppeteerSharp.Input.MoveOptions{Steps=1});
+              Thread.Sleep(300);
+              await page.Mouse.UpAsync();
+        };
+        starDragTimmer.Start();
+
+           };
+    
+           timer.Start();
+
+
+
+        }
+
+}
+
