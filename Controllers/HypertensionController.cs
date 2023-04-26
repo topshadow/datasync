@@ -165,7 +165,7 @@ namespace WebApplication1.Controllers
                     // {
 
                     var fullYearRes = await this.getCurYearVisitPlan(new GetCurYearVisitPlanInput { empiId = empiId, cookie = body.cookie, random = body.random });
-                    var datestr = body.inputDate.ToShortDateString();
+                    var datestr = body.inputDate.ToString("yyyy-MM-dd");
                     Console.WriteLine("datestr:" + datestr);
                     var record = fullYearRes.body.Where(record => record.planDate == datestr).FirstOrDefault();
                     if (record != null)
@@ -185,7 +185,7 @@ namespace WebApplication1.Controllers
                                 phrId = phrId,
                                 targetWeight = body.targetWeight,
                                 heartRate = body.heartRate,
-                                visitDate = string.Format("{0:d}", DateTime.Now),
+                                visitDate = DateTime.Now.ToString("yyyy-MM-dd"),
                                 weight = body.weight,
                                 bmi = body.bmi,
                                 targetBmi = body.targetBmi,
@@ -210,7 +210,7 @@ namespace WebApplication1.Controllers
                                 medicineNot = body.medicineNot,
                                 medicineOtherNot = body.medicineOtherNot,
                                 visitEvaluate = body.visitEvaluate,
-                                nextDate = body.nextDate.ToShortDateString(),
+                                nextDate = body.nextDate.ToString("yyyy-MM-dd"),
                                 salt = body.salt,
                                 inputUser = "605100",
                                 targetSalt = body.targetSalt,
