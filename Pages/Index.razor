@@ -12,7 +12,7 @@
 
 
 @code{
-    public string username="605065";
+    public string username="605100";
     public string password="123";
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -25,6 +25,8 @@
 
 
         public  async Task  Login(){
+            var isGetPublicKey=false;
+
                 using var browserFetcher = new BrowserFetcher();
 await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
 var browser = await Puppeteer.LaunchAsync(new LaunchOptions
@@ -38,7 +40,9 @@ var browser = await Puppeteer.LaunchAsync(new LaunchOptions
 });
 var page = await browser.NewPageAsync();
 var capchaSrc="";
+
 page.Response+=async (sender, e)=>{
+    
     if(e.Response.Url.EndsWith("index.html")){
         e.Response.Headers.Add("Access-Control-Allow-Private-Network","true");
     }
@@ -49,6 +53,9 @@ page.Response+=async (sender, e)=>{
 
 
     }
+    if(e.Response.Url.EndsWith("publicKey")){
+        isGetPublicKey=true;
+    }
 
 };
       
@@ -57,40 +64,88 @@ page.Response+=async (sender, e)=>{
 
 await page.GoToAsync("http://ph01.gd.xianyuyigongti.com:9002/chis/index.html");
 await page.AddScriptTagAsync(new AddTagOptions{Url="http://localhost:5062/fix.js",});
+var timer = new System.Timers.Timer(10000);
 
 
-var timer = new System.Timers.Timer(3000);
-timer.AutoReset=false;
-           timer.Elapsed += async (s,e)=>{
+
+     @* timer.AutoReset=false; *@
+           timer.Elapsed +=async (e,o)=> {
+            if(isGetPublicKey){
+                Console.WriteLine("登陆成功");
+            timer.Stop();
+           }
+           
+            await autoRun(page,capchaSrc);capchaSrc=String.Empty;
+           
+           };
+           timer.Start();
+
+
+        }
+
+        public async Task autoRun(IPage page,string capchaSrc){
+Console.WriteLine("auto run");
+    
 await page.EvaluateExpressionAsync("document.getElementById('ext-comp-1001').value="+"\""+username + "\"");
 await page.EvaluateExpressionAsync("document.getElementById('pwd').value="+"\""+password + "\"");
 var setVarExpreess="window.capchaSrc="+"`"+capchaSrc+"`";
-Console.WriteLine(setVarExpreess);
+@* Console.WriteLine(setVarExpreess); *@
     await    page.EvaluateExpressionAsync(setVarExpreess);
 
    await page. EvaluateExpressionAsync(" setTimeout(()=>{startCapcha()},1000) ");
-        var starDragTimmer= new System.Timers.Timer(3000);
+        var starDragTimmer= new System.Timers.Timer(2000);
         starDragTimmer.AutoReset=false;
         starDragTimmer.Elapsed+=async (s2,e2)=>{
             var x = await page.EvaluateExpressionAsync<decimal>("window['xy'].x");
 
 var y = await page.EvaluateExpressionAsync<decimal>("window['xy'].y");
                 Console.WriteLine("获取点数据x:"+x+"  y:"+y);
-              await  page.Mouse.MoveAsync(226, 425,new PuppeteerSharp.Input.MoveOptions{Steps=1});
-              await page.Mouse.DownAsync();
-              Thread.Sleep(300);
-              await  page.Mouse.MoveAsync(226+x+20, 450,new PuppeteerSharp.Input.MoveOptions{Steps=1});
-              Thread.Sleep(300);
-              await page.Mouse.UpAsync();
+                var target=x*(400/310)+20;
+         await    autoInputCapcha(page,target,60);
+              
         };
         starDragTimmer.Start();
 
-           };
+           
     
-           timer.Start();
+        }
+
+        public async Task  autoInputCapcha(IPage page,decimal target,int step){
 
 
+ await  page.Mouse.MoveAsync(226, 425,new PuppeteerSharp.Input.MoveOptions{Steps=1});
+              
+              @* await page.Mouse.ClickAsync(226, 425,new PuppeteerSharp.Input.ClickOptions{Button=PuppeteerSharp.Input.MouseButton.Left});
+               *@
+               await page.Mouse.DownAsync();
+              Thread.Sleep(300);
+            var r=  new Random();
+           var stepLength= target/step;
+        for(var i=0;i<step;i++){
+        if(i<20){
+await  page.Mouse.MoveAsync(226+(stepLength*i+(r.NextInt64(0,10)) ), 450+r.NextInt64(1,100),new PuppeteerSharp.Input.MoveOptions{Steps=3});
+              Thread.Sleep(1);
 
+              
+        }else if(i>=20&&i<80){
+
+await  page.Mouse.MoveAsync(226+(stepLength*i+(r.NextInt64(0,10)) ), 450+r.NextInt64(1,100),new PuppeteerSharp.Input.MoveOptions{Steps=3});
+              Thread.Sleep(2);
+              
+        }else{
+await  page.Mouse.MoveAsync(226+(stepLength*i+(r.NextInt64(0,10)) ), 450+r.NextInt64(1,100),new PuppeteerSharp.Input.MoveOptions{Steps=3});
+              Thread.Sleep(step*10);
+
+        }
+              
+        }
+        await page.Mouse.MoveAsync(226+target,450,new PuppeteerSharp.Input.MoveOptions{Steps=1});
+
+           
+              
+              await page.Mouse.UpAsync();
+              Thread.Sleep(1000);
+              await page.EvaluateExpressionAsync("""document.getElementById("logon").click()""");
         }
 
 }

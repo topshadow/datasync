@@ -51,16 +51,19 @@ if (!app.Environment.IsDevelopment())
 
 
 app.UseStaticFiles();
-app.UseCors("all");
+// app.UseCors("all");
 
 app.UseRouting();
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// if (app.Environment.IsDevelopment())
+// {
+//     app.UseSwagger();
+//     app.UseSwaggerUI();
+// }
 app.MapControllers();
 app.MapBlazorHub();
+// app.MapControllers();
+
 app.MapFallbackToPage("/_Host");
+
 
 app.Run();

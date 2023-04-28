@@ -1,4 +1,5 @@
 function startCapcha() {
+    window['xy'] = undefined;
     let pwd = document.getElementById('pwd');
     var ev = new Event("blur", { "bubbles": true, "cancelable": false });
     pwd.dispatchEvent(ev)
@@ -68,6 +69,9 @@ function startCapcha() {
                 else {
                     startX = 0;
                 }
+            }
+            if (window['xy']) {
+                break;
             }
         }
 
