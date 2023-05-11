@@ -1,0 +1,34 @@
+{
+    "status": 200,
+    "message": "成功",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "p_id": 0,
+                "org_id": 306582797094981,
+                "from_code": "123",
+                "to_code": "456",
+                "from_name": "魏晓东",
+                "to_name": "魏晓东",
+                "type": 2,
+                "to_type": "2",
+                "note1": "605100",
+                "note2": "Admin123!",
+                "note3": "这个字段用于多个第三方系统区别使用例如：GDGWPRT",
+                "sort": 0
+            }
+        ],
+        "first_page_url": "http://10.1.7.107:9502/hospital/multiple/public/get_mc_doctor?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http://10.1.7.107:9502/hospital/multiple/public/get_mc_doctor?page=1",
+        "next_page_url": null,
+        "path": "http://10.1.7.107:9502/hospital/multiple/public/get_mc_doctor",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": 1,
+        "total": 1
+    }
+}

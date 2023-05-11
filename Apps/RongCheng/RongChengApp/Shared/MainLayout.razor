@@ -1,0 +1,156 @@
+﻿@namespace RongChengApp.Shared
+@inherits LayoutComponentBase
+
+@inject MasaBlazor MasaBlazor
+
+
+
+
+<MApp >
+  <MNavigationDrawer  App @bind-Value="_drawer"  MiniVariant MiniVariantWidth="60"      Floating=false    Fixed Absolute=false  Color=@(_isDark?"":" light-blue "+ "darken-1")  Class="white--text "   >
+    <div style="display:flex;align-items: center;justify-content: center;height: 64px;padding:12px ;">
+<MImage
+Src="https://cdn.masastack.com/stack/images/website/masa-blazor/parallax/material.jpg"
+	Height="36"
+	Width="36"
+    MaxWidth="40" Class="rounded-circle">
+</MImage>
+</div>
+<div class="white--text">
+<PSidebar @bind-Value="selectedKey"
+          Dense
+          Color="#033"
+          Outlined
+        
+          Items="menus"
+          Title="m => m.Label"
+          Icon="m => m.Icon"
+          Key="m => m.Value"
+          Children="m => m.SubMenus"
+          TItem="Menu"
+          OnClick="Click"
+          
+        
+          >
+
+</PSidebar>
+<div style="position:absolute;left: 0;bottom:0;">
+<PSidebar @bind-Value="selectedKey"
+          Dense
+          Color="#033"
+          Outlined
+        
+          Items="settings"
+          Title="m => m.Label"
+          Icon="m => m.Icon"
+          Key="m => m.Value"
+          Children="m => m.SubMenus"
+          TItem="Menu"
+          OnClick="Click"
+          
+        
+          >
+
+</PSidebar>
+</div>
+</div>
+    
+  </MNavigationDrawer>
+
+
+  <MAppBar App  Color=@(_isDark?"": "blue")>
+
+    
+            <MAppBarNavIcon class="white--text" @onclick="() => _drawer = !_drawer"></MAppBarNavIcon>
+        <MToolbarTitle  > <span class="white--text">页面标题</span> </MToolbarTitle>
+
+            <MSpacer></MSpacer>
+
+
+         <MMenu Left Bottom>
+            <ActivatorContent>
+                <MButton Icon Class="text--white">
+                    @if(!_isDark){
+<MIcon Icon="@("weather-night")" Color="#fff" OnClick="()=>IsDarkChanged(!_isDark)">mdi-weather-night</MIcon>
+
+                    }else{
+<MIcon Icon="@("white-balance-sunny")" Color="#fff" OnClick="()=>IsDarkChanged(!_isDark)">mdi-weather-night</MIcon>
+                    }
+</MButton>
+                <MButton Icon >
+                    <MIcon>mdi-dots-vertical</MIcon>
+                </MButton>
+<MSwitch Value="_isDark" TValue="bool" ValueChanged="IsDarkChanged"  Style="position: relative;top:10px;" />
+
+            </ActivatorContent>
+
+
+         </MMenu>
+
+
+
+  </MAppBar>
+
+  <!-- 根据应用组件来调整你的内容 -->
+  <MMain>
+    <!-- 给应用提供合适的间距 -->
+    <MContainer Fluid>
+        <ChildContent>
+@Body
+</ChildContent>
+    </MContainer>
+  </MMain>
+
+  <MFooter App>
+    <!-- -->
+  </MFooter>
+</MApp>
+
+@code{
+public bool _isDark{get;set;}
+    public Boolean _drawer{get;set;}=true;
+
+   private void IsDarkChanged(bool isDark)
+    {
+        _isDark = isDark;
+        MasaBlazor.Theme.Dark=isDark;
+    }
+        protected override Task OnInitializedAsync()
+    {
+        _isDark = MasaBlazor?.Theme?.Dark ?? false;
+        return base.OnInitializedAsync();
+    }
+
+    static List<Menu> menus = new()
+    {
+        new Menu() { Label = "Home", Icon = "mdi-home-circle orange--text h3", Value = "Home" },
+        new Menu()
+        {
+            Label = "Users",
+            Icon = "mdi-account-circle orange--text h3",
+            Value = "Users",
+            
+        
+        },
+    };
+    static List<Menu> settings=new (){
+        new Menu(){Label="设置",Icon="mdi-cog orange--text"}};
+
+    StringNumber selectedKey = "Management";
+
+    void Click(Menu item)
+    {
+    // code with clicked item
+    }
+
+    class Menu
+    {
+        public string Label { get; set; }
+
+        public string Value { get; set; }
+
+        public string Icon { get; set; }
+
+        public List<Menu> SubMenus { get; set; }
+    }
+}

@@ -1,0 +1,77 @@
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/logon/myApps?urt=45476&uid=605100&pwd=Admin123!&captcha=0LJBG3fvxWAUqVJV&checkCaptcha=check&deep=3&d=04e449b4cfe7cb3d33ba4ea25ecc226119fef05fec6aa0a12a6cfc12300d976418fb994e20a756ff277190731e308f92668965c43abc9391477423716907927dad1323066d3034815b1293e78b37d610e9710577a4df4a094f0bca66f17a305d377a94278064af2b7b0382979821
+Content-Type: application/json
+Cookie: 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg; userId=605100; password_605100=Admin123%21; userUnit_605100pwd=445202605; forget=true; JSESSIONID=A2F6B8730987D8326C70279C5F2D3884; userRole_605100pwd=45476; userTokens_605100pwd=%5B%7B%22properties%22%3A%7B%22HI%22%3A%22false%22%2C%22refUserId%22%3A%22605100%22%2C%22refRoleId%22%3A%22chis.01%22%2C%22fds%22%3A%22%27605100%27%22%2C%22cdhmds%22%3A%22%27605100%27%22%2C%22centerUnit%22%3A%22445202605%22%2C%22SFQYSPT%22%3A%22false%22%2C%22mhcmds%22%3A%22%27605100%27%22%2C%22mds%22%3A%22%27605100%27%22%2C%22userId%22%3A%22605100%22%7D%2C%22id%22%3A45476%2C%22userId%22%3A%22605100%22%2C%22roleId%22%3A%22chis.01%22%2C%22manageUnitId%22%3A%22445202605%22%2C%22organId%22%3A%22chis.4452%22%2C%22regionCode%22%3A%22445202006202%22%2C%22lastLoginTime%22%3A%222023-05-08%2018%3A46%3A35%22%2C%22domain%22%3A%22chis%22%2C%22logoff%22%3A%220%22%2C%22displayName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3-%u8D23%u4EFB%u533B%u751F%22%2C%22role%22%3A%7B%22id%22%3A%22chis.01%22%2C%22properties%22%3A%7B%22version%22%3A%221386315507069%22%7D%2C%22name%22%3A%22%u8D23%u4EFB%u533B%u751F%22%2C%22pageCount%22%3A0%2C%22type%22%3A%22T01%22%2C%22lastModify%22%3A1680172108000%7D%2C%22userName%22%3A%22%u9B4F%u6653%u4E1C%22%2C%22roleName%22%3A%22%u8D23%u4EFB%u533B%u751F%22%2C%22manageUnitName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22manageUnit%22%3A%7B%22id%22%3A%22445202605%22%2C%22name%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22type%22%3A%22B%22%2C%22ref%22%3A%22445202605%22%2C%22pyCode%22%3A%22rcqrdsqwsfwzx%22%7D%2C%22organName%22%3A%22%u63ED%u9633%u5E02%u536B%u751F%u548C%u8BA1%u5212%u751F%u80B2%u5C40%22%7D%2C%7B%22properties%22%3A%7B%22HI%22%3A%22false%22%2C%22refUserId%22%3A%22605100%22%2C%22refRoleId%22%3A%22chis.20%22%2C%22fds%22%3A%22%27605100%27%22%2C%22cdhmds%22%3A%22%27605100%27%22%2C%22centerUnit%22%3A%22445202605%22%2C%22SFQYSPT%22%3A%22false%22%2C%22mhcmds%22%3A%22%27605100%27%22%2C%22mds%22%3A%22%27605100%27%22%2C%22userId%22%3A%22605100%22%7D%2C%22id%22%3A47416%2C%22userId%22%3A%22605100%22%2C%22roleId%22%3A%22chis.20%22%2C%22manageUnitId%22%3A%22445202605%22%2C%22organId%22%3A%22chis.4452%22%2C%22regionCode%22%3A%224452%22%2C%22lastLoginTime%22%3A%222023-05-08%2019%3A34%3A11%22%2C%22domain%22%3A%22chis%22%2C%22logoff%22%3A%220%22%2C%22displayName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3-%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22role%22%3A%7B%22id%22%3A%22chis.20%22%2C%22properties%22%3A%7B%22version%22%3A%221445568104459%22%7D%2C%22name%22%3A%22%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22pageCount%22%3A1%2C%22type%22%3A%22T20%22%2C%22lastModify%22%3A1680159308000%7D%2C%22userName%22%3A%22%u9B4F%u6653%u4E1C%22%2C%22roleName%22%3A%22%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22manageUnitName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22manageUnit%22%3A%7B%22id%22%3A%22445202605%22%2C%22name%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22type%22%3A%22B%22%2C%22ref%22%3A%22445202605%22%2C%22pyCode%22%3A%22rcqrdsqwsfwzx%22%7D%2C%22organName%22%3A%22%u63ED%u9633%u5E02%u536B%u751F%u548C%u8BA1%u5212%u751F%u80B2%u5C40%22%7D%5D
+Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+
+
+{
+"url":"logon/myApp?urt=45476&uid=605100&pwd=Admin123!&captcha=0LJBG3fvxWAUqVJV&checkCaptcha=check&deep=3&d=04e449b4cfe7cb3d33ba4ea25ecc226119fef05fec6aa0a12a6cfc12300d976418fb994e20a756ff277190731e308f92668965c43abc9391477423716907927dad1323066d3034815b1293e78b37d610e9710577a4df4a094f0bca66f17a305d377a94278064af2b7b0382979821",
+"httpMethod":"POST"
+}
+###    logon/myApps?urt=45476&uid=605100&pwd=Admin123!&captcha=EH4Y8a7fqYjLM3bY&checkCaptcha=check&deep=3&d=0429311971189b0f28dd58ad9a3012e772eea1546bd134dfb606273a5ee46ab2537306c1d02f10135a1102634561352b9136bc39569b66c9a867c44715a015628fa058c8594ddb31937ad38915b735959907f98b6759fde9bae55a98c91ccaf2654f82afd932fe4ad0abfd18e4a3
+
+
+###
+### 04a64358b1454d431412f7845c238f7ed1f171db2b7c88425d4cac1823ea16ff295c576899bf0303246fe9a5b89cd53186867165970f7c72f24830346e391e50d9cb91068189ac500dcac9e77c202bb124b1f25fa161a6bc83ff262f45bf8ed4848de7a03913ce8e2ed751546b54
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/logon/myRoles
+Content-Type: application/json
+Host: ph01.gd.xianyuyigongti.com:9002
+Accept: */*
+Accept-Encoding: gzip, deflate
+
+{"captcha":"sxsrzMCHRg8B8F0w","d":"04a64358b1454d431412f7845c238f7ed1f171db2b7c88425d4cac1823ea16ff295c576899bf0303246fe9a5b89cd53186867165970f7c72f24830346e391e50d9cb91068189ac500dcac9e77c202bb124b1f25fa161a6bc83ff262f45bf8ed4848de7a03913ce8e2ed751546b54","pwd":"Admin123!","url":"logon/myRoles","uid":"605100"}
+
+
+###
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest
+Content-Type: application/json
+encoding: utf-8
+Cookie: JSESSIONID=2B5C0367FBF33933E10473E613CC531C;
+Host: ph01.gd.xianyuyigongti.com:9002
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+X-Requested-With: XMLHttpRequest
+Origin: http://ph01.gd.xianyuyigongti.com:9002
+Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+
+
+
+{"serviceId":"chis.myWorkListService","method":"execute","schema":"chis.application.pub.schemas.PUB_WorkListNew","pageSize":50,"pageNo":1,"serviceAction":"getMyWorkList"}
+
+
+
+###
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?start=0&limit=50
+Content-Type: application/json
+Cookie: 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg; userId=605100; password_605100=Admin123%21; userRole_605100pwd=45476; userUnit_605100pwd=445202605; forget=true; JSESSIONID=AC3BD6AC747300D87DC3ECF7B862FB7F; userTokens_605100pwd=undefined
+Host: ph01.gd.xianyuyigongti.com:9002
+Origin: http://ph01.gd.xianyuyigongti.com:9002
+Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+
+{"serviceId":"chis.listSqlQuery","method":"execute","schema":"chis.application.hr.schemas.EHR_HealthRecordAndMPIList","cnd":["and",["and",["eq",["$","a.review"],["s","0"]],["eq",["$","a.status"],["s","0"]]],["and",["gt",["$","to_char(b.createTime,'yyyy-MM-dd')"],["s","2023-01-02"]]]],"pageSize":50,"pageNo":1,"serviceAction":""}
+
+
+
+
+###
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest
+content-type: application/json
+encoding: utf-8
+referrer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+referrerPolicy: strict-origin-when-cross-origin
+Cookie: 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg; userId=605100; password_605100=Admin123%21; userRole_605100pwd=45476; userUnit_605100pwd=445202605; forget=true; JSESSIONID=309FB872AC91074C0F44DB2931FCF093; userTokens_605100pwd=%5B%7B%22properties%22%3A%7B%22HI%22%3A%22false%22%2C%22refUserId%22%3A%22605100%22%2C%22refRoleId%22%3A%22chis.01%22%2C%22fds%22%3A%22%27605100%27%22%2C%22cdhmds%22%3A%22%27605100%27%22%2C%22centerUnit%22%3A%22445202605%22%2C%22SFQYSPT%22%3A%22false%22%2C%22mhcmds%22%3A%22%27605100%27%22%2C%22mds%22%3A%22%27605100%27%22%2C%22userId%22%3A%22605100%22%7D%2C%22id%22%3A45476%2C%22userId%22%3A%22605100%22%2C%22roleId%22%3A%22chis.01%22%2C%22manageUnitId%22%3A%22445202605%22%2C%22organId%22%3A%22chis.4452%22%2C%22regionCode%22%3A%22445202006202%22%2C%22lastLoginTime%22%3A%222023-05-09%2017%3A17%3A16%22%2C%22domain%22%3A%22chis%22%2C%22logoff%22%3A%220%22%2C%22displayName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3-%u8D23%u4EFB%u533B%u751F%22%2C%22role%22%3A%7B%22id%22%3A%22chis.01%22%2C%22properties%22%3A%7B%22version%22%3A%221386315507069%22%7D%2C%22name%22%3A%22%u8D23%u4EFB%u533B%u751F%22%2C%22pageCount%22%3A0%2C%22type%22%3A%22T01%22%2C%22lastModify%22%3A1680172108000%7D%2C%22userName%22%3A%22%u9B4F%u6653%u4E1C%22%2C%22roleName%22%3A%22%u8D23%u4EFB%u533B%u751F%22%2C%22manageUnitName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22manageUnit%22%3A%7B%22id%22%3A%22445202605%22%2C%22name%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22type%22%3A%22B%22%2C%22ref%22%3A%22445202605%22%2C%22pyCode%22%3A%22rcqrdsqwsfwzx%22%7D%2C%22organName%22%3A%22%u63ED%u9633%u5E02%u536B%u751F%u548C%u8BA1%u5212%u751F%u80B2%u5C40%22%7D%2C%7B%22properties%22%3A%7B%22HI%22%3A%22false%22%2C%22refUserId%22%3A%22605100%22%2C%22refRoleId%22%3A%22chis.20%22%2C%22fds%22%3A%22%27605100%27%22%2C%22cdhmds%22%3A%22%27605100%27%22%2C%22centerUnit%22%3A%22445202605%22%2C%22SFQYSPT%22%3A%22false%22%2C%22mhcmds%22%3A%22%27605100%27%22%2C%22mds%22%3A%22%27605100%27%22%2C%22userId%22%3A%22605100%22%7D%2C%22id%22%3A47416%2C%22userId%22%3A%22605100%22%2C%22roleId%22%3A%22chis.20%22%2C%22manageUnitId%22%3A%22445202605%22%2C%22organId%22%3A%22chis.4452%22%2C%22regionCode%22%3A%224452%22%2C%22lastLoginTime%22%3A%222023-05-09%2017%3A55%3A23%22%2C%22domain%22%3A%22chis%22%2C%22logoff%22%3A%220%22%2C%22displayName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3-%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22role%22%3A%7B%22id%22%3A%22chis.20%22%2C%22properties%22%3A%7B%22version%22%3A%221445568104459%22%7D%2C%22name%22%3A%22%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22pageCount%22%3A1%2C%22type%22%3A%22T20%22%2C%22lastModify%22%3A1680159308000%7D%2C%22userName%22%3A%22%u9B4F%u6653%u4E1C%22%2C%22roleName%22%3A%22%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22manageUnitName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22manageUnit%22%3A%7B%22id%22%3A%22445202605%22%2C%22name%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22type%22%3A%22B%22%2C%22ref%22%3A%22445202605%22%2C%22pyCode%22%3A%22rcqrdsqwsfwzx%22%7D%2C%22organName%22%3A%22%u63ED%u9633%u5E02%u536B%u751F%u548C%u8BA1%u5212%u751F%u80B2%u5C40%22%7D%5D
+Host: ph01.gd.xianyuyigongti.com:9002
+Origin: http://ph01.gd.xianyuyigongti.com:9002
+Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+
+{"serviceId":"chis.diabetesVisitService",
+"serviceAction":"initializeForm",
+"method":"execute",
+"body":{
+    "planId":"0000000002249711","sn":1,
+"beginDate":"2022-08-21","endDate":"2022-11-29",
+"visitId":"0000000000122712","planDate":"2022-10-10",
+"visitDate":"2022-10-10","businessType":"2","businessType_text":"糖尿病随访",
+"empiId":"4D86075B69803B4BE05010AC32141F56","remark":"","extend2":"","inputUser":""
+}}

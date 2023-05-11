@@ -1,0 +1,82 @@
+﻿@using PuppeteerSharp;
+@using RongChengApp.Services
+@using System.Drawing;
+@using System.Net.Http;
+@page "/"
+@using HSSB;
+
+@inject AutoLoginService AutoLoginService
+
+<PageTitle>Index</PageTitle>
+
+<br/>
+<label>base64</label>
+<label for="">用户名:</label> <input @bind-value="username" />
+<label>密码</label> <input @bind-value="password" />
+<button @onclick="loadImage">解析图片</button>
+@if(!String.IsNullOrEmpty(AutoLoginService.Cookie)){
+@AutoLoginService.Cookie
+
+}
+
+
+
+@* <button @onclick="async()=>await autoLogin()">自动登录</button> *@
+@if(AutoLoginService.result!=null){
+<table>
+    <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>password</th>
+        <th>状态</th>
+        <th>cookie</th>
+        
+
+    </thead>
+    <tbody>       @foreach(var item in AutoLoginService.result.data.data){
+            <td>@item.id</td>
+            <td>@item.note1</td>
+            <td>@item.note2</td>
+            <td>@item.status</td>
+            <td>@item.cookie</td>
+            
+        }
+        <tr></tr>
+    </tbody>
+</table>
+}
+
+
+@code{
+    public string username="605100";
+    public string password="123";
+    public string uuid{get;set;}=Guid.NewGuid().ToString();
+    public string base64Str{get;set;}=String.Empty;
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            await base.OnAfterRenderAsync(firstRender);
+
+
+
+        }
+
+
+       
+
+       
+
+        public async Task loadImage(){
+    
+
+await AutoLoginService.AutoLoginByServer();
+
+ 
+        }
+
+
+
+ 
+
+
+}
+
