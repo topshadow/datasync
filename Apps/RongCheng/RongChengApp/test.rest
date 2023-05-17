@@ -1,3 +1,5 @@
+@cookie=cookie:JSESSIONID=D6529014F1C1FDD95D12C7E13D37DE53;
+
 POST http://ph01.gd.xianyuyigongti.com:9002/chis/logon/myApps?urt=45476&uid=605100&pwd=Admin123!&captcha=0LJBG3fvxWAUqVJV&checkCaptcha=check&deep=3&d=04e449b4cfe7cb3d33ba4ea25ecc226119fef05fec6aa0a12a6cfc12300d976418fb994e20a756ff277190731e308f92668965c43abc9391477423716907927dad1323066d3034815b1293e78b37d610e9710577a4df4a094f0bca66f17a305d377a94278064af2b7b0382979821
 Content-Type: application/json
 Cookie: 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg; userId=605100; password_605100=Admin123%21; userUnit_605100pwd=445202605; forget=true; JSESSIONID=A2F6B8730987D8326C70279C5F2D3884; userRole_605100pwd=45476; userTokens_605100pwd=%5B%7B%22properties%22%3A%7B%22HI%22%3A%22false%22%2C%22refUserId%22%3A%22605100%22%2C%22refRoleId%22%3A%22chis.01%22%2C%22fds%22%3A%22%27605100%27%22%2C%22cdhmds%22%3A%22%27605100%27%22%2C%22centerUnit%22%3A%22445202605%22%2C%22SFQYSPT%22%3A%22false%22%2C%22mhcmds%22%3A%22%27605100%27%22%2C%22mds%22%3A%22%27605100%27%22%2C%22userId%22%3A%22605100%22%7D%2C%22id%22%3A45476%2C%22userId%22%3A%22605100%22%2C%22roleId%22%3A%22chis.01%22%2C%22manageUnitId%22%3A%22445202605%22%2C%22organId%22%3A%22chis.4452%22%2C%22regionCode%22%3A%22445202006202%22%2C%22lastLoginTime%22%3A%222023-05-08%2018%3A46%3A35%22%2C%22domain%22%3A%22chis%22%2C%22logoff%22%3A%220%22%2C%22displayName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3-%u8D23%u4EFB%u533B%u751F%22%2C%22role%22%3A%7B%22id%22%3A%22chis.01%22%2C%22properties%22%3A%7B%22version%22%3A%221386315507069%22%7D%2C%22name%22%3A%22%u8D23%u4EFB%u533B%u751F%22%2C%22pageCount%22%3A0%2C%22type%22%3A%22T01%22%2C%22lastModify%22%3A1680172108000%7D%2C%22userName%22%3A%22%u9B4F%u6653%u4E1C%22%2C%22roleName%22%3A%22%u8D23%u4EFB%u533B%u751F%22%2C%22manageUnitName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22manageUnit%22%3A%7B%22id%22%3A%22445202605%22%2C%22name%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22type%22%3A%22B%22%2C%22ref%22%3A%22445202605%22%2C%22pyCode%22%3A%22rcqrdsqwsfwzx%22%7D%2C%22organName%22%3A%22%u63ED%u9633%u5E02%u536B%u751F%u548C%u8BA1%u5212%u751F%u80B2%u5C40%22%7D%2C%7B%22properties%22%3A%7B%22HI%22%3A%22false%22%2C%22refUserId%22%3A%22605100%22%2C%22refRoleId%22%3A%22chis.20%22%2C%22fds%22%3A%22%27605100%27%22%2C%22cdhmds%22%3A%22%27605100%27%22%2C%22centerUnit%22%3A%22445202605%22%2C%22SFQYSPT%22%3A%22false%22%2C%22mhcmds%22%3A%22%27605100%27%22%2C%22mds%22%3A%22%27605100%27%22%2C%22userId%22%3A%22605100%22%7D%2C%22id%22%3A47416%2C%22userId%22%3A%22605100%22%2C%22roleId%22%3A%22chis.20%22%2C%22manageUnitId%22%3A%22445202605%22%2C%22organId%22%3A%22chis.4452%22%2C%22regionCode%22%3A%224452%22%2C%22lastLoginTime%22%3A%222023-05-08%2019%3A34%3A11%22%2C%22domain%22%3A%22chis%22%2C%22logoff%22%3A%220%22%2C%22displayName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3-%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22role%22%3A%7B%22id%22%3A%22chis.20%22%2C%22properties%22%3A%7B%22version%22%3A%221445568104459%22%7D%2C%22name%22%3A%22%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22pageCount%22%3A1%2C%22type%22%3A%22T20%22%2C%22lastModify%22%3A1680159308000%7D%2C%22userName%22%3A%22%u9B4F%u6653%u4E1C%22%2C%22roleName%22%3A%22%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22manageUnitName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22manageUnit%22%3A%7B%22id%22%3A%22445202605%22%2C%22name%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22type%22%3A%22B%22%2C%22ref%22%3A%22445202605%22%2C%22pyCode%22%3A%22rcqrdsqwsfwzx%22%7D%2C%22organName%22%3A%22%u63ED%u9633%u5E02%u536B%u751F%u548C%u8BA1%u5212%u751F%u80B2%u5C40%22%7D%5D
@@ -59,7 +61,7 @@ content-type: application/json
 encoding: utf-8
 referrer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
 referrerPolicy: strict-origin-when-cross-origin
-Cookie: 605100=%u9B4F%u6653%u4E1C@photo/605100.jpg; userId=605100; password_605100=Admin123%21; userRole_605100pwd=45476; userUnit_605100pwd=445202605; forget=true; JSESSIONID=309FB872AC91074C0F44DB2931FCF093; userTokens_605100pwd=%5B%7B%22properties%22%3A%7B%22HI%22%3A%22false%22%2C%22refUserId%22%3A%22605100%22%2C%22refRoleId%22%3A%22chis.01%22%2C%22fds%22%3A%22%27605100%27%22%2C%22cdhmds%22%3A%22%27605100%27%22%2C%22centerUnit%22%3A%22445202605%22%2C%22SFQYSPT%22%3A%22false%22%2C%22mhcmds%22%3A%22%27605100%27%22%2C%22mds%22%3A%22%27605100%27%22%2C%22userId%22%3A%22605100%22%7D%2C%22id%22%3A45476%2C%22userId%22%3A%22605100%22%2C%22roleId%22%3A%22chis.01%22%2C%22manageUnitId%22%3A%22445202605%22%2C%22organId%22%3A%22chis.4452%22%2C%22regionCode%22%3A%22445202006202%22%2C%22lastLoginTime%22%3A%222023-05-09%2017%3A17%3A16%22%2C%22domain%22%3A%22chis%22%2C%22logoff%22%3A%220%22%2C%22displayName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3-%u8D23%u4EFB%u533B%u751F%22%2C%22role%22%3A%7B%22id%22%3A%22chis.01%22%2C%22properties%22%3A%7B%22version%22%3A%221386315507069%22%7D%2C%22name%22%3A%22%u8D23%u4EFB%u533B%u751F%22%2C%22pageCount%22%3A0%2C%22type%22%3A%22T01%22%2C%22lastModify%22%3A1680172108000%7D%2C%22userName%22%3A%22%u9B4F%u6653%u4E1C%22%2C%22roleName%22%3A%22%u8D23%u4EFB%u533B%u751F%22%2C%22manageUnitName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22manageUnit%22%3A%7B%22id%22%3A%22445202605%22%2C%22name%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22type%22%3A%22B%22%2C%22ref%22%3A%22445202605%22%2C%22pyCode%22%3A%22rcqrdsqwsfwzx%22%7D%2C%22organName%22%3A%22%u63ED%u9633%u5E02%u536B%u751F%u548C%u8BA1%u5212%u751F%u80B2%u5C40%22%7D%2C%7B%22properties%22%3A%7B%22HI%22%3A%22false%22%2C%22refUserId%22%3A%22605100%22%2C%22refRoleId%22%3A%22chis.20%22%2C%22fds%22%3A%22%27605100%27%22%2C%22cdhmds%22%3A%22%27605100%27%22%2C%22centerUnit%22%3A%22445202605%22%2C%22SFQYSPT%22%3A%22false%22%2C%22mhcmds%22%3A%22%27605100%27%22%2C%22mds%22%3A%22%27605100%27%22%2C%22userId%22%3A%22605100%22%7D%2C%22id%22%3A47416%2C%22userId%22%3A%22605100%22%2C%22roleId%22%3A%22chis.20%22%2C%22manageUnitId%22%3A%22445202605%22%2C%22organId%22%3A%22chis.4452%22%2C%22regionCode%22%3A%224452%22%2C%22lastLoginTime%22%3A%222023-05-09%2017%3A55%3A23%22%2C%22domain%22%3A%22chis%22%2C%22logoff%22%3A%220%22%2C%22displayName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3-%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22role%22%3A%7B%22id%22%3A%22chis.20%22%2C%22properties%22%3A%7B%22version%22%3A%221445568104459%22%7D%2C%22name%22%3A%22%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22pageCount%22%3A1%2C%22type%22%3A%22T20%22%2C%22lastModify%22%3A1680159308000%7D%2C%22userName%22%3A%22%u9B4F%u6653%u4E1C%22%2C%22roleName%22%3A%22%u8D23%u4EFB%u533B%u751F%u52A9%u7406%22%2C%22manageUnitName%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22manageUnit%22%3A%7B%22id%22%3A%22445202605%22%2C%22name%22%3A%22%u6995%u57CE%u533A%u6995%u4E1C%u793E%u533A%u536B%u751F%u670D%u52A1%u4E2D%u5FC3%22%2C%22type%22%3A%22B%22%2C%22ref%22%3A%22445202605%22%2C%22pyCode%22%3A%22rcqrdsqwsfwzx%22%7D%2C%22organName%22%3A%22%u63ED%u9633%u5E02%u536B%u751F%u548C%u8BA1%u5212%u751F%u80B2%u5C40%22%7D%5D
+Cookie: JSESSIONID=5EE28C1CE1D1640FB16774947388936A;
 Host: ph01.gd.xianyuyigongti.com:9002
 Origin: http://ph01.gd.xianyuyigongti.com:9002
 Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
@@ -75,3 +77,217 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 "visitDate":"2022-10-10","businessType":"2","businessType_text":"糖尿病随访",
 "empiId":"4D86075B69803B4BE05010AC32141F56","remark":"","extend2":"","inputUser":""
 }}
+
+### 测试批量更新
+
+POST http://localhost/EHR/batUpdateEhrs
+Content-Type: application/json
+
+{"items":[
+{
+"user_id":"418159857049669",
+"empiId":"875f62096e46447780fb11473f9b912f",
+"phrId":"44520200621302093",
+"idCard":"421182199311130057",
+"personName":"杨杰",
+"sexCode":"1",
+"birthday":"1993-11-13",
+"workPlace":"工作单位",
+"mobileNumber":"13419597065",
+"contact":"节",
+"contactPhone":"13419597066",
+"signFlag":"n",
+"registeredPermanent":"1",
+"nationCode":"01",
+"bloodTypeCode":"1",
+"rhBloodCode":"3",
+"educationCode":"91",
+"workCode":"0",
+"maritalStatusCode":"40",
+"insuranceCode":"01,02,03,04,05,06,07,99",
+"insuranceType":"报销",
+"personGroup":"06,99,09,",
+"QTRQDESC":null,
+"diseasetext_check_gm":"0102,0103,0104,0109",
+"a_qt1":"过敏",
+"diseasetext_check_bl":"1202,1203,1204",
+"confirm_gxy":1,
+"confirm_tnb":1,
+"confirmdate_tnb":"2023-02-01T00:00:00",
+"confirm_gxb":1,
+"confirmdate_gxb":"2023-02-01T00:00:00",
+"confirm_mxzsxfjb":1,
+"confirmdate_mxzsxfjb":"2023-02-01T00:00:00",
+"confirm_exzl":1,
+"confirmdate_exzl":"2023-02-01T00:00:00",
+"diseasetext_exzl":"sad",
+"confirm_zyb":1,
+"confirmdate_zyb":"2023-02-01T00:00:00",
+"diseasetext_zyb":"aa",
+"confirm_yzjsza":1,
+"confirmdate_zxjsjb":null,
+"confirm_jhb":1,
+"confirmdate_jhb":"2023-02-01T00:00:00",
+"confirm_gy":1,
+"confirmdate_gzjb":null,
+"confirm_ncz":1,
+"confirmdate_nzz":"2023-02-01T00:00:00",
+"confirm_qtfdcrb":1,
+"confirmdate_qtfdcrb":"2023-02-01T00:00:00",
+"confirm_qt":1,
+"confirmdate_qt":null,
+"diseasetext_qt":"其他疾病描述",
+"diseasetext_ss":"0302",
+"diseasetext_ss0":"第二手术",
+"startdate_ss0":"2023-02-01T00:00:00",
+"diseasetext_ss1":null,
+"startdate_ss1":"2023-02-01T00:00:00",
+"diseasetext_ws":"0602",
+"startdate_ws0":"2023-02-01T00:00:00",
+"diseasetext_ws0":"外伤2",
+"startdate_ws1":null,
+"diseasetext_sx":"0402",
+"diseasetext_sx0":"输血原因1",
+"startdate_sx0":"2023-02-01T00:00:00",
+"diseasetext_sx1":"输血原因2",
+"startdate_sx1":"2023-02-01T00:00:00",
+"diseasetext_check_fq":"0702,0799",
+"qt_fq1":"fuqinqt",
+"diseasetextCheckMQ":"0806,0807,0808,0809,0810,0811,0899",
+"qt_mq1":"111",
+"diseasetextCheckXDJM":"0902,0999",
+"qt_xdjm1":null,
+"diseasetextCheckZN":"1002,1099",
+"qt_zn1":"qitazn",
+"diseasetextRedioYCBS":"0502",
+"diseasetextYCBS":"aaa",
+"diseasetextCheckCJ":"1103,1107,1199",
+"cjqk_qtcj1":"2222",
+"shhjCheckCFPFSS":"1",
+"shhjCheckRLLX":"1",
+"shhjCheckYS":"1",
+"shhjCheckCS":"1",
+"shhjCheckQCL":"1",
+"deadFlag":"n",
+"deadDate":null,
+"deadReason":null,
+"regionCode":"445202006213",
+"masterFlag":"n",
+"manaDoctorId":"605100",
+"manaUnitId":"445202605",
+"createUser":"605100",
+"createDate":"2023-05-05 00:00:00",
+"diseasetext_check_jb":"0202,0203,0204,0205,0206,0212,0208,0209,0210,0207,0298,0299"
+}] }
+
+### 测试提交
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest
+Content-Type: application/json
+encoding: utf-8
+referrer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+referrerPolicy: strict-origin-when-cross-origin
+Cookie: {{cookie}}
+Host: ph01.gd.xianyuyigongti.com:9002
+Origin: http://ph01.gd.xianyuyigongti.com:9002
+Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+
+
+{
+"user_id":"418159857049669",
+"empiId":"875f62096e46447780fb11473f9b912f",
+"phrId":"44520200621302093",
+"idCard":"421182199311130057",
+"personName":"杨杰1",
+"sexCode":"1",
+"birthday":"1993-11-13",
+"workPlace":"工作单位",
+"mobileNumber":"13419597065",
+"contact":"节",
+"contactPhone":"13419597066",
+"signFlag":"n",
+"registeredPermanent":"1",
+"nationCode":"01",
+"bloodTypeCode":"1",
+"rhBloodCode":"3",
+"educationCode":"91",
+"workCode":"0",
+"maritalStatusCode":"40",
+"insuranceCode":"01,02,03,04,05,06,07,99",
+"insuranceType":"报销",
+"personGroup":"06,99,09,",
+"QTRQDESC":null,
+"diseasetext_check_gm":"0102,0103,0104,0109",
+"a_qt1":"过敏",
+"diseasetext_check_bl":"1202,1203,1204",
+"confirm_gxy":1,
+"confirm_tnb":1,
+"confirmdate_tnb":"2023-03-01",
+"confirm_gxb":1,
+"confirmdate_gxb":"2023-02-01",
+"confirm_mxzsxfjb":1,
+"confirmdate_mxzsxfjb":"2023-01-01",
+"confirm_exzl":1,
+"confirmdate_exzl":"2023-05-01",
+"diseasetext_exzl":"sad",
+"confirm_zyb":1,
+"confirmdate_zyb":"2023-02-01",
+"diseasetext_zyb":"aa",
+"confirm_yzjsza":1,
+"confirmdate_zxjsjb":null,
+"confirm_jhb":1,
+"confirmdate_jhb":"2023-05-01",
+"confirm_gy":1,
+"confirmdate_gzjb":null,
+"confirm_ncz":1,
+"confirmdate_nzz":"2023-11-01",
+"confirm_qtfdcrb":1,
+"confirmdate_qtfdcrb":"2024-01-01",
+"confirm_qt":1,
+"confirmdate_qt":null,
+"diseasetext_qt":"其他疾病描述",
+"diseasetext_ss":"0302",
+"diseasetext_ss0":"第二手术",
+"startdate_ss0":"2023-05-30",
+"diseasetext_ss1":null,
+"startdate_ss1":"2023-05-09",
+"diseasetext_ws":"0602",
+"startdate_ws0":"2023-05-16",
+"diseasetext_ws0":"外伤2",
+"startdate_ws1":null,
+"diseasetext_sx":"0402",
+"diseasetext_sx0":"输血原因1",
+"startdate_sx0":"2023-05-18",
+"diseasetext_sx1":"输血原因2",
+"startdate_sx1":"2023-05-24",
+"diseasetext_check_fq":"0702,0799",
+"qt_fq1":"fuqinqt",
+"diseasetextCheckMQ":"0806,0807,0808,0809,0810,0811,0899",
+"qt_mq1":"111",
+"diseasetextCheckXDJM":"0902,0999",
+"qt_xdjm1":null,
+"diseasetextCheckZN":"1002,1099",
+"qt_zn1":"qitazn",
+"diseasetextRedioYCBS":"0502",
+"diseasetextYCBS":"aaa",
+"diseasetextCheckCJ":"1103,1107,1199",
+"cjqk_qtcj1":"2222",
+"shhjCheckCFPFSS":"1",
+"shhjCheckRLLX":"1",
+"shhjCheckYS":"1",
+"shhjCheckCS":"1",
+"shhjCheckQCL":"1",
+"deadFlag":"n",
+"deadDate":null,
+"deadReason":null,
+"regionCode":"445202006213",
+"masterFlag":"n",
+"manaDoctorId":"605100",
+"manaUnitId":"445202605",
+"createUser":"605100",
+"createDate":"2023-05-0500:00:00",
+"diseasetext_check_jb":"0202,0203,0204,0205,0206,0212,0208,0209,0210,0207,0298,0299"
+}
+
+///
+2023-02-01T00:00:00

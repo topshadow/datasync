@@ -1,5 +1,4 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -10,6 +9,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RongChengAppTest", "Apps\RongCheng\RongChengAppTest\RongChengAppTest.csproj", "{BC0FCF86-3CD2-466E-AB90-1842D6610195}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RongChengApp", "Apps\RongCheng\RongChengApp\RongChengApp.csproj", "{605C370A-084C-4175-8427-31C9C4137BCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks", "Frameworks", "{0197C3AB-0C37-4334-829A-17C2D3D7D041}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks (2)", "Frameworks (2)", "{F1D020B5-394C-4B07-A8F7-8CD0BE907EE8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wing.Framework.Common", "Frameworks\Common\Wing.Framework.Common.csproj", "{728984A6-B5DB-4EA5-B9A6-326B98E9D199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spider", "Frameworks\Spider\Spider.csproj", "{D836DC92-5A82-46A2-83B6-D8BA2528E9E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +32,14 @@ Global
 		{605C370A-084C-4175-8427-31C9C4137BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{605C370A-084C-4175-8427-31C9C4137BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{605C370A-084C-4175-8427-31C9C4137BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{728984A6-B5DB-4EA5-B9A6-326B98E9D199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{728984A6-B5DB-4EA5-B9A6-326B98E9D199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{728984A6-B5DB-4EA5-B9A6-326B98E9D199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{728984A6-B5DB-4EA5-B9A6-326B98E9D199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D836DC92-5A82-46A2-83B6-D8BA2528E9E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D836DC92-5A82-46A2-83B6-D8BA2528E9E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D836DC92-5A82-46A2-83B6-D8BA2528E9E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D836DC92-5A82-46A2-83B6-D8BA2528E9E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -33,6 +48,8 @@ Global
 		{DA7AE1EA-EAF0-4FC8-B249-A340340AAE7F} = {9EF5848D-6DDE-4ACF-88C1-EA974FE563F2}
 		{BC0FCF86-3CD2-466E-AB90-1842D6610195} = {DA7AE1EA-EAF0-4FC8-B249-A340340AAE7F}
 		{605C370A-084C-4175-8427-31C9C4137BCD} = {DA7AE1EA-EAF0-4FC8-B249-A340340AAE7F}
+		{728984A6-B5DB-4EA5-B9A6-326B98E9D199} = {0197C3AB-0C37-4334-829A-17C2D3D7D041}
+		{D836DC92-5A82-46A2-83B6-D8BA2528E9E1} = {0197C3AB-0C37-4334-829A-17C2D3D7D041}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E70E453D-6A25-4F82-A911-EBEC319B2740}

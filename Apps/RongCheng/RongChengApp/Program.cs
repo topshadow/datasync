@@ -4,14 +4,33 @@ using RongChengApp.Data;
 using System;
 using RongChengApp.Services;
 using System.Net;
+using Autofac.Extensions;
+using Autofac;
+using System.Reflection;
+using Autofac.Extensions.DependencyInjection;
+using RongChengApp.Services.Filters;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterAssemblyTypes(Assembly.GetAssembly(typeof(ConfigService)))
+    .Where(t => t.Name.EndsWith("Service")).SingleInstance();
+
+});
 // var ip = IPAddress.Parse("127.0.0.1");
 // var hostname = Dns.GetHostName();
 // Console.WriteLine(hostname);
 // Add services to the container.
+
+
 builder.Services.AddHttpClient();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    // options.Filters.Add<WebApiExceptionFilterAttribute>();
+});
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<ConfigService>();
@@ -53,7 +72,6 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -74,7 +92,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-// app.MapControllers();
+app.MapControllers();
 app.MapBlazorHub();
 // app.MapControllers();
 

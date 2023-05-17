@@ -8,7 +8,7 @@ namespace RongChengApp.Dtos
 
     public class SaveBasicPersonalInformationInput
     {
-        public string? serviceId { get; set; } = "saveBasicPersonalInformation";
+        public string? serviceId { get; set; } = "chis.basicPersonalInformationService";
         public string serviceAction { get; set; } = "saveBasicPersonalInformation";
         public string op { get; set; } = "update";
         public SaveBasicPersonalInformationInputBody body { get; set; }
@@ -20,67 +20,71 @@ namespace RongChengApp.Dtos
     }
     public class SaveBasicPersonalInformationInputBody
     {
+        public string? phrId { get; set; }
+
         public string? empiId { get; set; } = "b9d8e98c2f334c57b36be9d8c6c12a87";
-        public string? phrId { get; set; } = "44520311521400001";
         public string? middleId { get; set; } = "44520311521400001";
-        public string? cardNo { get; set; } = "";
-        public string? personName { get; set; } = "杨越2";
+        public string? cardNo { get; set; }
+        public string? personName { get; set; }
         public string? sexCode { get; set; } = "0";
         public DateTime? birthday { get; set; }
         [DefaultValue("421182199311130058")]
-        public string? idCard { get; set; } = "421182199311130058";
-        public string? workPlac { get; set; } = "a";
+        public string? idCard { get; set; }
+        public string? workPlace { get; set; } = "a";
         public string? mobileNumber { get; set; } = "13419597065";
         public string? contact { get; set; }
         public string? contactPhone { get; set; }
         public string? registeredPermanent { get; set; }
         public string? homePlace { get; set; }
         public string? homePlaceNumber { get; set; }
-        public string? address { get; set; } = "广东省揭阳市大南海华侨管理区溪西镇永安村委会";
+        /// <summary>
+        /// 例如= "广东省揭阳市大南海华侨管理区溪西镇永安村委会";
+        /// </summary>
+        /// <value></value>
+        public string? address { get; set; }
         public string? adressNumber { get; set; }
-        public string? signFlag { get; set; } = "n";
-        public string? recordSource { get; set; } = "2";
-        public string? nationCode { get; set; } = "02";
+        public string? signFlag { get; set; }
+        public string? recordSource { get; set; }
+        public string? nationCode { get; set; }
         public string? bloodTypeCode { get; set; }
         public string? rhBloodCode { get; set; }
-        public string? educationCode { get; set; } = "31";
-        public string? workCode { get; set; } = "9-9";
-        public string? maritalStatusCode { get; set; } = "40";
-        public string? personGroup { get; set; } = "04,09,10,11,12,13,14,99";
-        public string? insuranceCode { get; set; } = "01,03,04,05,06,07,99";
-        public string? insuranceType { get; set; } = "其他医疗费用";
-        public string? masterFlag { get; set; } = "n";
+        public string? educationCode { get; set; }
+        public string? workCode { get; set; }
+        public string? maritalStatusCode { get; set; }
+        public string? personGroup { get; set; }
+        public string? insuranceCode { get; set; }
+        public string? insuranceType { get; set; }
+        public string? masterFlag { get; set; }
         public string? familyId { get; set; }
-        public string? diseasetext_check_gm { get; set; } = "0102,0103,0104,0109";
-        public string? a_qt1 { get; set; } = "过敏文本";
-        public string? diseasetext_check_bl { get; set; } = "1201";
-        public string? diseasetext_radio_jb { get; set; } = "02";
-        public string? diseasetext_check_jb { get; set; } = "0202,0203,0204,0205,0206,0207,0208,0209,0210,0212,0298,0299";
-
-        public DateTime? confirmdate_gxy { get; set; }
-        public DateTime? confirmdate_gxb { get; set; }
-        public DateTime? confirmdate_exzl { get; set; }
-        public DateTime? confirmdate_zxjsjb { get; set; }
-        public DateTime? confirmdate_gzjb { get; set; }
-        public DateTime? confirmdate_zyb { get; set; }
+        public string? diseasetext_check_gm { get; set; }
+        public string? a_qt1 { get; set; }
+        public string? diseasetext_check_bl { get; set; }
+        public string? diseasetext_radio_jb { get; set; }
+        public string? diseasetext_check_jb { get; set; }
+        public string? confirmdate_gxy { get; set; }
+        public string? confirmdate_gxb { get; set; }
+        public string? confirmdate_exzl { get; set; }
+        public string? confirmdate_zxjsjb { get; set; }
+        public string? confirmdate_gzjb { get; set; }
+        public string? confirmdate_zyb { get; set; }
         public string? confirmdate_px { get; set; }
         public string? confirmdate_qt { get; set; }
-        public DateTime? confirmdate_tnb { get; set; }
-        public DateTime? confirmdate_mxzsxfjb { get; set; }
-        public DateTime? confirmdate_nzz { get; set; }
+        public string? confirmdate_tnb { get; set; }
+        public string? confirmdate_mxzsxfjb { get; set; }
+        public string? confirmdate_nzz { get; set; }
 
-        public DateTime? confirmdate_jhb { get; set; }
+        public string? confirmdate_jhb { get; set; }
         public string? confirmdate_xtjx { get; set; }
         public string? confirmdate_szjb { get; set; }
-        public DateTime? confirmdate_qtfdcrb { get; set; }
+        public string? confirmdate_qtfdcrb { get; set; }
         public string? diseasetext_zyb { get; set; }
         public string? diseasetext_exzl { get; set; } = "exzlms";
         public string? diseasetext_qt { get; set; } = "jbqt";
         public string? diseasetext_ss { get; set; } = "0302";
         public string? diseasetext_ss0 { get; set; } = "a手术";
-        public DateTime? startdate_ss0 { get; set; }
+        public string? startdate_ss0 { get; set; }
         public string? diseasetext_ss1 { get; set; } = "b手术";
-        public DateTime? startdate_ss1 { get; set; }
+        public string? startdate_ss1 { get; set; }
         public string? diseasetext_ws { get; set; } = "0601";
         public string? diseasetext_ws0 { get; set; } = "";
         public string? startdate_ws0 { get; set; }
@@ -88,9 +92,9 @@ namespace RongChengApp.Dtos
         public string? startdate_ws1 { get; set; } = "";
         public string? diseasetext_sx { get; set; } = "0402";
         public string? diseasetext_sx0 { get; set; } = "sx0";
-        public DateTime? startdate_sx0 { get; set; }
+        public string? startdate_sx0 { get; set; }
         public string? diseasetext_sx1 { get; set; } = "sx1";
-        public DateTime? startdate_sx1 { get; set; }
+        public string? startdate_sx1 { get; set; }
         public string? diseasetext_check_fq { get; set; } = "0701";
         public string? qt_fq1 { get; set; }
         public string? diseasetextCheckMQ { get; set; } = "0801";
@@ -120,16 +124,19 @@ namespace RongChengApp.Dtos
         ///        "text":"榕城区榕东社区卫生服务中心","k5202605"
         /// </summary>
         /// <value></value>
-        public KeyText createUnit { get; set; }
+        public KeyText? createUnit { get; set; } = new KeyText { text = "榕城区榕东社区卫生服务中心", key = "k5202605" };
 
         public string createUser { get; set; } = "605100";
-        public DateTime? createDate { get; set; }
+        /// <summary>
+        /// 日期格式2023-05-16 10:00:00 转为2023-05-16T10:00:00
+        /// </summary>
+        /// <value></value>
+        public string? createDate { get; set; }
         public string? addressCode { get; set; } = null;
         public string? homePlaceCode { get; set; } = null;
         public string? QTRQDESC { get; set; }
-        // public string? ey { get; set; }
-
     }
+
 
     public class LoadBasicPersonalInformationInput
     {
@@ -141,7 +148,7 @@ namespace RongChengApp.Dtos
     }
     public class LoadBasicPersonalInformationInputBody
     {
-        public string empiId { get; set; } = "2d0c5855195b46e0a3898d7ba9caf3e8";
+        public string? empiId { get; set; }
         public string regionCode { get; set; } = string.Empty;
 
     }
@@ -154,9 +161,35 @@ namespace RongChengApp.Dtos
         /// <value></value>
         public string empiIds { get; set; } = String.Empty;
     }
+    /// <summary>
+    /// 批量搜索患者信息
+    /// </summary>
     public class BatSearchPersonInfoResult
     {
-        public List<LoadBasicPersonalInformationResult> body { get; set; } = new List<LoadBasicPersonalInformationResult>();
+        public List<SearchPersonAllInfoResult> body { get; set; } = new List<SearchPersonAllInfoResult>();
+    }
+
+    /// <summary>
+    /// 搜索个人所有信息
+    /// </summary>
+    public class SearchPersonAllInfoResult
+    {
+        /// <summary>
+        /// 个人基本信息
+        /// </summary>
+        /// <value></value>
+        public LoadBasicPersonalInformationResult personInfo { get; set; }
+        /// <summary>
+        /// 糖尿病档案信息
+        /// </summary>
+        /// <value></value>
+        public PUBDiabetesRecordServiceResult? pubRecordInfo { get; set; }
+        /// <summary>
+        /// 高血压档案信息
+        /// </summary>
+        /// <value></value>
+        public InitializeRecordResult? hypertensionResult { get; set; }
+
     }
 
 }

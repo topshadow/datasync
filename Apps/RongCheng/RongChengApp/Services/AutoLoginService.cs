@@ -1,19 +1,56 @@
 using RongChengApp.Dtos;
 // using PuppeteerSharp;
 using System.Drawing;
-using System.Drawing.Imaging;
+// using System.Drawing.Imaging;
 using System.Text;
 using System.Security.Cryptography;
 using HSSB;
 namespace RongChengApp.Services
 {
+    public class DateTimeSign
+    {
+        public DateTime time { get; set; }
+        public string random { get; set; }
+    }
     /// <summary>
     /// 自动登录
     /// 单例
     /// </summary>
     public class AutoLoginService
     {
-        public string Cookie { get; set; }
+        public List<DateTimeSign> dateTimeSigns { get; set; } = new List<DateTimeSign>();
+        /// <summary>
+        /// 批量生成的字典  
+        /// 如 2023-05-01 00  040c1137d6955a6c7db79ed....
+        /// 如 2023-05-01 01  040c1137d6955a6c7db79ed....
+        /// 
+        /// </summary>
+        /// <typeparam name="string"></typeparam>
+        /// <typeparam name="string"></typeparam>
+        /// <returns></returns>
+        public Dictionary<string, string> dicts { get; set; } = new Dictionary<string, string>();
+
+        public string d
+        {
+            get
+            {
+                var now = DateTime.Now;
+                var sign = dateTimeSigns
+                  .Where(time => time.time.Year == now.Year
+                  && time.time.Month == now.Month
+                  && time.time.Day == now.Day
+                  && time.time.Hour == now.Hour).FirstOrDefault();
+                if (sign != null)
+                {
+                    return sign.random;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string Cookie { get; set; } = String.Empty;
 
         private readonly IHttpClientFactory httpClientFactory;
         private readonly string serverurl = "http://localhost/mock.json";
@@ -52,12 +89,10 @@ namespace RongChengApp.Services
         // public async Task Login(string username, string password)
         // {
         //     var isGetPublicKey = false;
-
         //     using var browserFetcher = new BrowserFetcher();
         //     await browserFetcher.DownloadAsync(BrowserFetcher.DefaultChromiumRevision);
         //     var browser = await Puppeteer.LaunchAsync(new LaunchOptions
         //     {
-
         //         IgnoreHTTPSErrors = true,
         //         Devtools = true,
         //         Headless = false,
@@ -68,7 +103,6 @@ namespace RongChengApp.Services
 
         //     page.Response += async (sender, e) =>
         //     {
-
         //         if (e.Response.Url.EndsWith("index.html"))
         //         {
         //             e.Response.Headers.Add("Access-Control-Allow-Private-Network", "true");
@@ -79,8 +113,6 @@ namespace RongChengApp.Services
         //             {
         //                 capchaSrc = e.Response.Url;
         //             }
-
-
         //         }
         //         if (e.Response.Url.EndsWith("publicKey"))
         //         {
@@ -96,9 +128,7 @@ namespace RongChengApp.Services
         //                     Console.WriteLine(cookie);
         //                 }
         //             }
-
         //         }
-
         //     };
 
 
@@ -114,10 +144,8 @@ namespace RongChengApp.Services
         //             Console.WriteLine("登陆成功");
         //             timer.Stop();
         //         }
-
         //         await autoRun(page, capchaSrc, username, password);
         //         capchaSrc = String.Empty;
-
         //     };
         //     timer.Start();
 
@@ -153,11 +181,7 @@ namespace RongChengApp.Services
         // }
         // public async Task autoInputCapcha(IPage page, decimal target, int step)
         // {
-
-
         //     await page.Mouse.MoveAsync(226, 425, new PuppeteerSharp.Input.MoveOptions { Steps = 1 });
-
-
         //     await page.Mouse.DownAsync();
         //     Thread.Sleep(300);
         //     var r = new Random();
@@ -168,28 +192,18 @@ namespace RongChengApp.Services
         //         {
         //             await page.Mouse.MoveAsync(226 + (stepLength * i + (r.NextInt64(0, 10))), 450 + r.NextInt64(1, 20), new PuppeteerSharp.Input.MoveOptions { Steps = 3 });
         //             Thread.Sleep(1);
-
-
         //         }
         //         else if (i >= 20 && i < 40)
         //         {
-
         //             await page.Mouse.MoveAsync(226 + (stepLength * i + (r.NextInt64(0, 10))), 450 + r.NextInt64(1, 20), new PuppeteerSharp.Input.MoveOptions { Steps = 3 });
-
-
         //         }
         //         else
         //         {
         //             await page.Mouse.MoveAsync(226 + (stepLength * i + (r.NextInt64(0, 10))), 450 + r.NextInt64(1, 100), new PuppeteerSharp.Input.MoveOptions { Steps = 3 });
         //             Thread.Sleep((step));
-
         //         }
-
         //     }
         //     await page.Mouse.MoveAsync(226 + target + r.NextInt64(15, 25), 450, new PuppeteerSharp.Input.MoveOptions { Steps = 1 });
-
-
-
         //     await page.Mouse.UpAsync();
         //     Thread.Sleep(1000);
         //     await page.EvaluateExpressionAsync("""document.getElementById("logon").click()""");
@@ -223,34 +237,25 @@ namespace RongChengApp.Services
             List<Point> whitePoints = new List<Point>();
             byte[] bytes = Convert.FromBase64String(base64Str);
             var stream = new MemoryStream(bytes);
-            var image = Image.FromStream(stream);
-            var uuid = Guid.NewGuid().ToString();
-            image.Save(uuid + ".bmp", ImageFormat.Bmp);
-            Console.WriteLine($"成功保存图片到本地,{uuid}.bmp");
-            var bitmap = new Bitmap(uuid + ".bmp", true);
-
-
-
-
-            for (var x = 0; x < image.Width; x++)
+            // var image = Image.FromStream(stream);
+            // var uuid = Guid.NewGuid().ToString();
+            // image.Save(uuid + ".bmp", ImageFormat.Bmp);
+            // Console.WriteLine($"成功保存图片到本地,{uuid}.bmp");
+            var bitmap = new Bitmap(stream, true);
+            for (var x = 0; x < bitmap.Width; x++)
             {
-                for (var y = 0; y < image.Height; y++)
+                for (var y = 0; y < bitmap.Height; y++)
                 {
-
                     var color = bitmap.GetPixel(x, y);
                     // Console.WriteLine($"r:{color.R},g:{color.G},b:{color.B}");
                     if (color.R == 255 && color.G == 255 && color.B == 255)
                     {
-
                         whitePoints.Add(new Point { X = x, Y = y });
-
                     }
-
-
                 }
             }
             Console.WriteLine(whitePoints.Count);
-            for (var y = 0; y < image.Height; y++)
+            for (var y = 0; y < bitmap.Height; y++)
             {
                 var yPoints = whitePoints.Where(p => p.Y == y);
                 var start = 0;
@@ -293,14 +298,9 @@ namespace RongChengApp.Services
             };
             var pointJsonStr = System.Text.Json.JsonSerializer.Serialize(pointJsonObj);
             byte[] bytes = Encoding.UTF8.GetBytes(pointJsonStr);
-
-            // Array.Copy(Convert.FromBase64String(key), a)
             using (Aes aes = Aes.Create())
             {
                 aes.GenerateIV();
-                // string encrypted = AESEncrypt(pointJsonStr, key);
-                // Console.WriteLine(encrypted);
-
                 var encrypt = AesDecrypt(pointJsonStr, key);
                 Console.WriteLine($"encrypt:{encrypt}");
                 var capchaMockData = new CapchaMockData { pointJson = encrypt, token = token, clientUid = slider };
@@ -315,11 +315,10 @@ namespace RongChengApp.Services
                     var result = await rtn.Content.ReadFromJsonAsync<GetCapchaResult>();
                     if (result.repData != null)
                     {
-                        var publickKey = "04C7E34D7FB4EECE60C29ED53867F98AA072C0B562787BCA312919EB3E12753BAC462AC485866DC7264CCF03A47C975807674B5684596A96814EC8E59AE17A2974";
+                        // var publickKey = "043b59b42bca1306be9d57258ba2ae52c9c3101343e2f76c5e9fcd806d1878ca3790dbb25cf2e829cd88412c5a421344135d9eb70962bf295de7890511a42f8a0a1e839677418a3bd412bd9d743256662d3c500f37cad6f6641beb6dad1e98126c62e14238b101d1909a8cdfb477";
                         var now = DateTime.Now;
                         var timeper = ((new DateTime(now.Year, now.Month, now.Day, now.Hour, 0, 0, 0, 0).ToUniversalTime().Ticks - 621355968000000000) / 10000).ToString();
                         // var d = SM2.SM2Console(publickKey, timeper);
-                        var d = "041426667e5889222f78936af96eb77bc01e9dbbbf12f785d6012433931b8eb0eff5dd88db3c04322b0f02048ae80ca226addbfe3bf543bd503313846b1473a6e6306d522896b7671c0e45be378df6c9d3147a38ff567d29140b2604d5ce741ea356d3c73475bf75a9f73dd2759d";
 
                         var url = "http://ph01.gd.xianyuyigongti.com:9002/chis/logon/myApps";
                         httpClient.DefaultRequestHeaders.Clear();
@@ -329,11 +328,9 @@ namespace RongChengApp.Services
                         httpClient.DefaultRequestHeaders.Add("encoding", "utf-8");
                         httpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36");
                         httpClient.DefaultRequestHeaders.Add("X-Requested-With", "XMLHttpRequest");
-
                         var urlParam = $"?urt=47416&uid=605100&pwd=Admin123!&captcha={result.repData.captchaVerification}&checkCaptcha=check&deep=3&d={d}";
                         url = url + urlParam;
                         // var urlEncode = System.Web.HttpUtility.UrlEncode(url);
-
                         var dtoObj = new MyRolesInputDto
                         {
                             captcha = result.repData.captchaVerification,
@@ -343,52 +340,24 @@ namespace RongChengApp.Services
                             uid = "605100"
                         };
                         Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(dtoObj));
-
-
                         var loginRtn = await httpClient.PostAsJsonAsync("http://ph01.gd.xianyuyigongti.com:9002/chis/logon/myRoles", dtoObj
                        );
                         var loginText = await loginRtn.Content.ReadAsStringAsync();
                         var setCookie = String.Join(" ", loginRtn.Headers.GetValues("Set-Cookie"));
                         Cookie = setCookie.Split(";").FirstOrDefault() + ";";
-
-
-                        Console.WriteLine(Cookie);
+                        // Console.WriteLine(Cookie);
                         foreach (var item in loginRtn.Content.Headers)
                         {
                             Console.WriteLine(item.Key + ":" + item.Value);
 
                         }
-
-
-                        Console.WriteLine(loginText);
-
+                        // Console.WriteLine(loginText);
                         var myAppsRtn = await httpClient.PostAsJsonAsync(url, new { httpMethod = "POST", url = "logon/myApp" + urlParam });
                         var myAppsData = await myAppsRtn.Content.ReadAsStringAsync();
-                        Console.WriteLine(myAppsData);
-
-
+                        // Console.WriteLine(myAppsData);
                     }
-
-
-
                 }
-
-
-                // var result = await rtn.Content.ReadFromJsonAsync<CheckCapchaResult>();
-
-                // Console.WriteLine(result);
-
-
-
-
             }
-
-
-            // new CapchaMockData
-            // {
-            //     pointJson = Encoding.
-            // }
-
         }
 
 
@@ -404,7 +373,6 @@ namespace RongChengApp.Services
             byte[] keyArray = output;// md5.ComputeHash(output);
 
             byte[] toEncryptArray = Encoding.UTF8.GetBytes(content);
-
             RijndaelManaged des = new RijndaelManaged();
             des.Key = keyArray;
             des.Mode = CipherMode.ECB;

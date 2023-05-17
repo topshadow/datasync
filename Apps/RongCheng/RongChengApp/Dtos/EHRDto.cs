@@ -3,7 +3,15 @@ namespace RongChengApp.Dtos
 {
     public class EHRHealthRecordQueryByTimespanInput
     {
+        /// <summary>
+        /// 开始时间
+        /// </summary>
+        /// <value></value>
         public string start { get; set; }
+        /// <summary>
+        /// 结束时间
+        /// </summary>
+        /// <value></value>
         public string end { get; set; }
         /// <summary>
         /// 默认1
@@ -177,7 +185,9 @@ namespace RongChengApp.Dtos
     }
 
 
-
+    /// <summary>
+    /// 查询个人基础信息
+    /// </summary>
     public class LoadBasicPersonalInformationResult
     {
         public string? GAO { get; set; }
@@ -306,6 +316,7 @@ namespace RongChengApp.Dtos
         /// </summary>
         /// <value></value>
         public string? cjqk_qtcj1 { get; set; }
+        public string? qt_zn1 { get; set; }
         /// <summary>
         /// 家族历史  母亲, 可以逗号拼接 如 key: "0804,0805" text: "冠心病,慢性阻塞性肺疾病"
         /// key: "0801" text: "无残疾"
@@ -328,6 +339,11 @@ namespace RongChengApp.Dtos
         /// </summary>
         /// <value></value>
         public string? qt_mq1 { get; set; }
+        /// <summary>
+        /// 家族历史 父亲 其他
+        /// </summary>
+        /// <value></value>
+        public string? qt_fq1 { get; set; }
 
         /// <summary>
         ///  { text: "无兄弟姐妹疾病史", key: "0901"}
@@ -347,6 +363,19 @@ namespace RongChengApp.Dtos
         /// </summary>
         /// <value></value>
         public KeyText? diseasetextCheckXDJM { get; set; }
+        /// <summary>
+        /// 职业病 文本描述
+        /// </summary>
+        /// <value></value>
+        public string? diseasetext_zyb { get; set; }
+        /// <summary>
+        /// 职业病日期
+        /// </summary>
+        /// <value></value>
+        public string? confirmdate_zyb { get; set; }
+        public string? confirmdate_yzjsza { get; set; }
+        public string? QTRQDESC { get; set; }
+        public string? confirmdate_jhb { get; set; }
         /// <summary>
         ///  { text: "子女无遗传病历史", key: "1001"}
         /// key: "1002",text: "高血压"
@@ -523,6 +552,11 @@ namespace RongChengApp.Dtos
         /// <value></value>
         public string? confirmdate_qt { get; set; }
         /// <summary>
+        /// 其他疾病描述
+        /// </summary>
+        /// <value></value>
+        public string? diseasetext_qt { get; set; }
+        /// <summary>
         /// 
         /// 单选家族史 父亲
         ///  key: "0702"text: "高血压"
@@ -573,6 +607,11 @@ namespace RongChengApp.Dtos
         /// </summary>
         /// <value></value>
         public string? diseasetext_sx0 { get; set; }
+        /// <summary>
+        /// 第二次输血原因
+        /// </summary>
+        /// <value></value>
+        public string? diseasetext_sx1 { get; set; }
         /// <summary>
         /// 既往史 外伤 可逗号连接 key: "0602,0602" text: "有外伤史,有外伤史"
         /// { key: "0601", text: "无外伤史",}
@@ -679,7 +718,7 @@ namespace RongChengApp.Dtos
         /// 年龄
         /// </summary>
         /// <value></value>
-        public int peryage { get; set; }
+        public int? peryage { get; set; }
         /// <summary>
         /// 优先使用mobileNumber
         /// </summary>
@@ -692,10 +731,11 @@ namespace RongChengApp.Dtos
         ///  { text: "东南村", key: "445202006213"}
         /// </summary>
         /// <value></value>
-        public KeyText regionCode { get; set; }
+        public KeyText? regionCode { get; set; }
         public string? regionCode_text { get; set; }
         /// <summary>
         ///  { text: "户籍", key: "1"}
+        /// {text:"非户籍",key:"2"}
         /// </summary>
         /// <value></value>
         public KeyText? registeredPermanent { get; set; }
@@ -806,6 +846,11 @@ namespace RongChengApp.Dtos
         /// <value></value>
         public string? startdate_sx0 { get; set; }
         /// <summary>
+        /// 输血1
+        /// </summary>
+        /// <value></value>
+        public string? startdate_sx1 { get; set; }
+        /// <summary>
         /// 输血1 开始日期 
         /// </summary>
         /// <value></value>
@@ -844,6 +889,60 @@ namespace RongChengApp.Dtos
         public int code { get; set; }
         public string selectMhcDoctorId { get; set; }
         public LoadBasicPersonalInformationResult body { get; set; }
+
+    }
+    /// <summary>
+    /// 批量更新患者信息
+    /// </summary>
+    public class BatSaveBasicPersonalInfomationInput
+    {
+        public List<SaveBasicPersonalInformationInputBody> items { get; set; } = new List<SaveBasicPersonalInformationInputBody>();
+    }
+
+    public class SearchEhrByIdCardInput
+    {
+        public string serviceId { get; set; } = "chis.listSqlQuery";
+        public string method { get; set; } = "execute";
+        public string schema { get; set; } = "chis.application.hr.schemas.EHR_HealthRecordAndMPIList";
+        public object cnd { get; set; } = new object[] { "and",
+        new object[] { "and",  new  object[]{"like", new  []{"$", "b.idCard"},new []{"s", "421182199311130057%"}} } };
+        public int pageSize { get; set; } = 50;
+        public int pageNo { get; set; } = 1;
+        public string serviceAction { get; set; } = String.Empty;
+
+        public void setIdCard(string idCard)
+        {
+            cnd = new object[] { "and",
+        new object[] { "and",  new  object[]{"like", new  []{"$", "b.idCard"},new []{"s", idCard+"%"}} } };
+        }
+
+    }
+    public class SearchEhrByIdCardResult
+    {
+
+        public string? msg { get; set; } = "Success";
+        public int? code { get; set; } = 200;
+        public int? pageNo { get; set; } = 1;
+        public int? pageSize { get; set; } = 50;
+        public int? totalCount { get; set; } = 1;
+        public List<SearchEhrByIdCardResultItem>? body { get; set; } = new List<SearchEhrByIdCardResultItem>();
+    }
+
+    public class SearchEhrByIdCardResultItem
+    {
+        public string? manaUnitId_text { get; set; }
+        public string? fatherName { get; set; }
+        public string? homePlace { get; set; }
+        public string? idCard { get; set; }
+        public string? mobileNumber { get; set; }
+        public string? isHypertension_text { get; set; }
+        public string? manaDoctorId_text { get; set; }
+        public string? inputUser_text { get; set; }
+        public string? empiId { get; set; }
+        public string? recordSource_text { get; set; }
+        public string? signFlag_text { get; set; }
+        public string? phrId { get; set; }
+
 
     }
 }

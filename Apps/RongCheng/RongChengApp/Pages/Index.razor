@@ -5,45 +5,52 @@
 @page "/"
 @using HSSB;
 
+@inject IJSRuntime jsRuntime
 @inject AutoLoginService AutoLoginService
 
 <PageTitle>Index</PageTitle>
 
 <br/>
-<label>base64</label>
+@* <label>base64</label>
 <label for="">用户名:</label> <input @bind-value="username" />
-<label>密码</label> <input @bind-value="password" />
-<button @onclick="loadImage">解析图片</button>
+<label>密码</label> <input @bind-value="password" /> *@
+
+<button @onclick="loadImage">登陆</button>
+<button @onclick="random">刷新随机token,便于登陆</button>
+<MDivider>
+
+</MDivider>
+
+<MDivider></MDivider>
+@AutoLoginService.d
+<MDivider></MDivider>
 @if(!String.IsNullOrEmpty(AutoLoginService.Cookie)){
-@AutoLoginService.Cookie
+@("cookie:") @AutoLoginService.Cookie
 
 }
-
-
-
 @* <button @onclick="async()=>await autoLogin()">自动登录</button> *@
-@if(AutoLoginService.result!=null){
-<table>
+@if(AutoLoginService.dateTimeSigns!=null){
+<MSimpleTable Height="400">
     <thead>
-        <th>id</th>
-        <th>name</th>
-        <th>password</th>
-        <th>状态</th>
-        <th>cookie</th>
-        
-
+        <tr>
+            <th class="text-left" style="width:200px;display: inline-block;">
+                日期
+            </th>
+            <th class="text-left">
+                签名
+            </th>
+        </tr>
     </thead>
-    <tbody>       @foreach(var item in AutoLoginService.result.data.data){
-            <td>@item.id</td>
-            <td>@item.note1</td>
-            <td>@item.note2</td>
-            <td>@item.status</td>
-            <td>@item.cookie</td>
-            
+    <tbody>
+        @foreach (var item in AutoLoginService.dateTimeSigns)
+        {
+            <tr @key="item.time">
+                <td>@item.time</td>
+                <td>@(item.random)</td>
+            </tr>
         }
-        <tr></tr>
     </tbody>
-</table>
+</MSimpleTable>
 }
 
 
@@ -71,6 +78,26 @@
 await AutoLoginService.AutoLoginByServer();
 
  
+        }
+        public async Task  random(){
+           var now= DateTime.Now;
+
+
+         var time= new DateTime(now.Year,now.Month,now.Day,now.Hour,0,0,0);
+         var max=7*24;
+         var result= new List<DateTimeSign>();
+         for(var i=0;i<max;i++){
+           var currentTime= time.AddHours(i);
+
+            var ppp="04C7E34D7FB4EECE60C29ED53867F98AA072C0B562787BCA312919EB3E12753BAC462AC485866DC7264CCF03A47C975807674B5684596A96814EC8E59AE17A2974";
+         var random= await  jsRuntime.InvokeAsync<string>($"aaaEnc"  ,currentTime,ppp);
+            result.Add(new DateTimeSign{time=currentTime,random=random});
+            
+         }
+         AutoLoginService.dateTimeSigns=result;
+
+
+
         }
 
 

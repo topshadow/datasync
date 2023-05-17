@@ -1,0 +1,198 @@
+[
+    {
+        "key": "1",
+        "leaf": false,
+        "properties": {
+            "parent": ""
+        },
+        "text": "高血压",
+        "children": [
+            {
+                "key": "10",
+                "text": "其他",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            },
+            {
+                "key": "11",
+                "text": "钙拮抗剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            },
+            {
+                "key": "12",
+                "text": "ACEI",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            },
+            {
+                "key": "13",
+                "text": "ARB",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            },
+            {
+                "key": "14",
+                "text": "利尿剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            },
+            {
+                "key": "15",
+                "text": "β阻滞剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            },
+            {
+                "key": "16",
+                "text": "复方制剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            },
+            {
+                "key": "17",
+                "text": "中枢交感抑制剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            },
+            {
+                "key": "18",
+                "text": "α阻滞剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            },
+            {
+                "key": "19",
+                "text": "α+β阻滞剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "1"
+                }
+            }
+        ],
+        "sliceType": 3
+    },
+    {
+        "total": 8,
+        "parentKey": "2",
+        "parentItem": {
+            "text": "糖尿病",
+            "leaf": false,
+            "key": "2",
+            "properties": {
+                "parent": ""
+            }
+        },
+        "start": 0,
+        "limit": 0,
+        "children": [
+            {
+                "key": "21",
+                "text": "磺脲类",
+                "leaf": true,
+                "properties": {
+                    "parent": "2"
+                }
+            },
+            {
+                "key": "22",
+                "text": "双胍类",
+                "leaf": true,
+                "properties": {
+                    "parent": "2"
+                }
+            },
+            {
+                "key": "23",
+                "text": "α–葡萄糖苷酶抑制剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "2"
+                }
+            },
+            {
+                "key": "24",
+                "text": "胰岛素增敏剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "2"
+                }
+            },
+            {
+                "key": "25",
+                "text": "非磺酰脲类促胰岛素分泌剂",
+                "leaf": true,
+                "properties": {
+                    "parent": "2"
+                }
+            },
+            {
+                "key": "26",
+                "text": "胰岛素类",
+                "leaf": true,
+                "properties": {
+                    "parent": "2"
+                }
+            },
+            {
+                "key": "27",
+                "text": "中药",
+                "leaf": true,
+                "properties": {
+                    "parent": "2"
+                }
+            },
+            {
+                "key": "28",
+                "text": "其他",
+                "leaf": true,
+                "properties": {
+                    "parent": "2"
+                }
+            }
+        ],
+        "sliceType": 3
+    },
+    {
+        "key": "31",
+        "text": "结核病",
+        "leaf": true,
+        "properties": {
+            "parent": ""
+        }
+    },
+    {
+        "key": "41",
+        "text": "精神障碍",
+        "leaf": true,
+        "properties": {
+            "parent": ""
+        }
+    },
+    {
+        "key": "51",
+        "text": "其他",
+        "leaf": true,
+        "properties": {
+            "parent": ""
+        }
+    }
+]

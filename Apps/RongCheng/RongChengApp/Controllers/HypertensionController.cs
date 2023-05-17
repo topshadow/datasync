@@ -14,10 +14,12 @@ namespace RongChengApp.Controllers
     {
         public readonly HttpClient httpClient;
         private readonly AutoLoginService autoLoginService;
-        public HypertensController(HttpClient _httpClient, AutoLoginService _autoLoginService)
+        private readonly UtilService utilService;
+        public HypertensController(HttpClient _httpClient, AutoLoginService _autoLoginService, UtilService _utilService)
         {
             httpClient = _httpClient;
             autoLoginService = _autoLoginService;
+            utilService = _utilService;
         }
 
 
@@ -127,12 +129,10 @@ namespace RongChengApp.Controllers
 
             var queryIdCard = new QueryHypertension
             {
-
                 cnd = new List<object>{
         "and",
         new List<object> {"eq", new List<object>{"$","a.status"}, new List<object> {"s","0"}} as object,
        new List<object>{"like", new List<object>{"$","b.idCard"},new List<object>{"s",$"%{body.idcard}%" }}
-
                 }
             };
             var empiId = String.Empty;
@@ -265,6 +265,34 @@ namespace RongChengApp.Controllers
 
 
             return new AutoAddVisitRecordResult { ok = true, message = "同步成功" };
+        }
+        /// <summary>
+        /// 获取高血压档案
+        ///  </summary>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public async Task<InitializeRecordResult> initializeRecord([FromBody] InitializeRecordInput input)
+        {
+            var httpClient = utilService.createDefaultRequestHeaderHttpClient();
+            var rtn = await httpClient.PostAsJsonAsync("http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest", input);
+            Console.WriteLine(await rtn.Content.ReadAsStringAsync());
+            return await rtn.Content.ReadFromJsonAsync<InitializeRecordResult>();
+
+
+        }
+        /// <summary>
+        /// 同步高血压档案
+        ///  </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public async Task<object> saveHypertensionRecord([FromBody] SaveHypertensionRecordInput input)
+        {
+            var httpClient = utilService.createDefaultRequestHeaderHttpClient();
+            var rtn = await httpClient.PostAsJsonAsync("http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest", input);
+            return await rtn.Content.ReadAsStringAsync();
+
+
         }
     }
 

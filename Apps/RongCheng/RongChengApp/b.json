@@ -1,0 +1,149 @@
+{
+    "selectMhcDoctorId": "",
+    "code": 200,
+    "body": {
+        "homePlace": "hujizz",
+        "deadFlag": {
+            "text": "否",
+            "key": "n"
+        },
+        "idCard": "421182199311130057",
+        "mobileNumber": "13419597065",
+        "sourceuser_text": "魏晓东",
+        "diseasetextRedioCJ": "1199",
+        "confirmdate_jhb": "2023-05-01",
+        "empiId": "875f62096e46447780fb11473f9b912f",
+        "peryage": 29,
+        "maritalStatusCode": {
+            "text": "离婚",
+            "key": "40"
+        },
+        "a_qt1": "过敏",
+        "shhjCheckYS": {
+            "text": "自来水",
+            "key": "1"
+        },
+        "diseasetext_zyb": "aa",
+        "diseasetext_check_ss": "0302,0302",
+        "perage": 353,
+        "startdate_sx1": "2023-05-18",
+        "startdate_sx0": "2023-05-24",
+        "diseasetextCheckMQ": {
+            "text": "恶性肿瘤,脑卒中,严重精神障碍,结核病,肝炎,先天畸形,其他",
+            "key": "0806,0807,0808,0809,0810,0811,0899"
+        },
+        "confirmdate_zyb": "2023-02-01",
+        "middleId": "44520200621301542",
+        "diseasetext_qt": "其他疾病描述",
+        "diseasetextRedioYCBS": {
+            "text": "有遗传病史",
+            "key": "0502"
+        },
+        "bloodTypeCode": {
+            "text": "A型",
+            "key": "1"
+        },
+        "createUnit": {
+            "text": "榕城区榕东社区卫生服务中心",
+            "key": "445202605"
+        },
+        "lastModifyUnit": "445202605",
+        "status": "0",
+        "diseasetextRedioZN": "1002",
+        "diseasetext_check_sx": "0402,0402",
+        "rhBloodCode": {
+            "text": "不详",
+            "key": "3"
+        },
+        "signFlag": {
+            "text": "否",
+            "key": "n"
+        },
+        "confirmdate_nzz": "2023-11-01",
+        "diseasetext_ws1": "外伤1",
+        "diseasetext_check_jb": {
+            "text": "高血压,糖尿病,冠心病,慢性阻塞性肺疾病,恶性肿瘤,脑卒中,结核病,肝脏疾病,职业病,其他法定传染病,其他,严重精神障碍",
+            "key": "0202,0203,0204,0205,0206,0207,0209,0210,0212,0298,0299,0208"
+        },
+        "confirmdate_tnb": "2023-03-01",
+        "diseasetext_ws0": "外伤2",
+        "educationCode": {
+            "text": "不详",
+            "key": "91"
+        },
+        "diseasetext_ss1": "第一手术",
+        "diseasetext_ss0": "第二手术",
+        "cjqk_qtcj1": "2222",
+        "confirmdate_qtfdcrb": "2024-01-01",
+        "diseasetextRedioMQ": "0899",
+        "insuranceCode": {
+            "text": "城镇职工基本医疗保险,城镇居民基本医疗保险,新型农村合作医疗,贫困救助,商业医疗保险,全公费,全自费,其他",
+            "key": "01,02,03,04,05,06,07,99"
+        },
+        "regionCode": {
+            "text": "东南村",
+            "key": "445202006213"
+        },
+        "qt_xdjm1": "xdjmqt",
+        "diseasetext_check_bl": {
+            "text": "化学品,毒物,射线",
+            "key": "1202,1203,1204"
+        },
+        "workPlace": "工作单位",
+        "nationCode": {
+            "text": "汉族",
+            "key": "01"
+        },
+        "createDate": "2023-05-05 00:00:00",
+        "address": "incomeSource",
+        "personGroup": {
+            "text": "2型糖尿病患者,其他,",
+            "key": "06,99,09,"
+        },
+        "diseasetext_redio_fq": "0702",
+        "regionCode_text": "东南村",
+        "diseasetextRedioXDJM": "0999",
+        "phrId": "44520200621302093",
+        "diseasetextCheckCJ": {
+            "text": "听力残疾 ,精神残疾,其他残疾",
+            "key": "1103,1107,1199"
+        },
+        "lastModifyUser": "605100",
+        "diseasetextYCBS": "aaa",
+        "shhjCheckCS": {
+            "text": "卫生厕所",
+            "key": "1"
+        },
+        "lastModifyTime": "2023-05-12 17:08:32",
+        "createUser": {
+            "text": "魏晓东",
+            "key": "605100"
+        },
+        "contactPhone": "13419597066",
+        "confirmdate_exzl": "2023-05-01",
+        "diseasetext_ws": {
+            "text": "有外伤史",
+            "key": "0602"
+        },
+        "shhjCheckRLLX": {
+            "text": "液化气",
+            "key": "1"
+        },
+        "QTRQDESC": "人群分类其他",
+        "masterFlag": {
+            "text": "否",
+            "key": "n"
+        },
+        "diseasetext_exzl": "sad",
+        "insuranceType": "报销",
+        "diseasetext_radio_bl": "12",
+        "nationalityCode": "CN",
+        "qt_mq1": "111",
+        "workCode": {
+            "text":"国家机关、党群组织、企业、事业单位 
+负责人","key":"0"},"contact":"节","manaUnitId":{"text":"榕城区榕东社区卫生服务中心","key":"445202605"},"diseasetext_sx1":"输血原因1","diseasetext_sx0":"输血原因2","diseasetext_check_ws":"0602,
+            0602","diseasetext_radio_jb":{"text":"","key":"02"},"sourceuser":"605100","confirmdate_mxzsxfjb":"2023-01-01","diseasetextCheckXDJM":{"text":"高血压,其他","key":"0902,
+            0999"},"diseasetext_qtfdcrb":"其他法定传染病","confirmdate_gzjb":"2023-12-01","startdate_ss0":"2023-05-30","diseasetextCheckZN":{"text":"高血压","key":"1002"},"startdate_ss1":"2023-05-09","startdate_ws0":"2023-05-16","diseasetext_check_gm":{"text":"其他,青霉素,磺胺,链霉素","key":"0109,
+            0102,
+            0103,
+            0104"},"startdate_ws1":"2023-05-25","birthday":"1993-11-13","isFillShhj":{"text":"是","key":"y"},"confirmdate_gxy":"2023-03-01","diseasetext_check_fq":{"text":"高血压","key":"0702"},"confirmdate_gxb":"2023-02-01","registeredPermanent":{"text":"户籍","key":"1"},"cardType":"99","shhjCheckCFPFSS":{"text":"无","key":"1"},"personName":"杨杰","sexCode":{"text":"男性","key":"1"},"manaDoctorId":{"text":"魏晓东","key":"605100"},"diseasetext_radio_gm":"01","diseasetext_sx":{"text":"有输血史","key":"0402"},"diseasetext_ss":{"text":"有手术史","key":"0302"},"confirmdate_zxjsjb":"2023-06-01","shhjCheckQCL":{"text":"无","key":"1"}}}

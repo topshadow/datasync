@@ -5,8 +5,9 @@ namespace RongChengApp.Services
     /// </summary>
     public class UtilService
     {
+        public readonly string remoteServerUrl = "http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest";
         private readonly IHttpClientFactory httpClientFactory;
-        private readonly AutoLoginService autoLoginService;
+        public readonly AutoLoginService autoLoginService;
         public UtilService(IHttpClientFactory _httpClientFactory, AutoLoginService _autoLoginService)
         {
             httpClientFactory = _httpClientFactory;
