@@ -21,8 +21,21 @@ public class PubService
 
         var httpClient = utilService.createDefaultRequestHeaderHttpClient();
         var rtn = await httpClient.PostAsJsonAsync(utilService.remoteServerUrl, input);
+        Console.WriteLine(await rtn.Content.ReadAsStringAsync());
         return await rtn.Content.ReadFromJsonAsync<PUBDiabetesRecordServiceResult>();
 
+    }
+
+    /// <summary>
+    /// 保存患者糖尿病档案
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    public async Task<PUBSaveDiabetesRecordResult> saveDiabetesRecord(PUBSaveDiabetesRecordInput input)
+    {
+        var httpClient = utilService.createDefaultRequestHeaderHttpClient();
+        var rtn = await httpClient.PostAsJsonAsync(utilService.remoteServerUrl, input);
+        return await rtn.Content.ReadFromJsonAsync<PUBSaveDiabetesRecordResult>();
     }
 
 }

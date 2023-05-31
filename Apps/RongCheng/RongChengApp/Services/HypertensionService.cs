@@ -13,7 +13,7 @@ public class HypertensionService
     }
 
     /// <summary>
-    /// 糖尿病档案详情
+    /// 高血压档案详情
     /// </summary>
     public async Task<InitializeRecordResult> recordDetail(InitializeRecordInput input)
     {
@@ -21,6 +21,20 @@ public class HypertensionService
         var rtn = await httpClient.PostAsJsonAsync("http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest", input);
         Console.WriteLine(await rtn.Content.ReadAsStringAsync());
         return await rtn.Content.ReadFromJsonAsync<InitializeRecordResult>();
+
+    }
+
+    /// <summary>
+    /// 同步高血压档案
+    ///  </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    public async Task<object> saveHypertensionRecord(SaveHypertensionRecordInput input)
+    {
+        var httpClient = utilService.createDefaultRequestHeaderHttpClient();
+        var rtn = await httpClient.PostAsJsonAsync("http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest", input);
+        return await rtn.Content.ReadAsStringAsync();
+
 
     }
 }

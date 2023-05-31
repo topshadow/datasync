@@ -13,10 +13,14 @@ using RongChengApp.Services.Filters;
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
-builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+builder.Host.ConfigureContainer<ContainerBuilder>(b =>
 {
-    builder.RegisterAssemblyTypes(Assembly.GetAssembly(typeof(ConfigService)))
-    .Where(t => t.Name.EndsWith("Service")).SingleInstance();
+    b.RegisterAssemblyTypes(Assembly.GetAssembly(typeof(ConfigService)))
+    .Where(t => t.Name.EndsWith("Service"))
+    .Where(t=>t.Name!=nameof(AccountService))
+    .SingleInstance();
+    b.RegisterType<AccountService>().InstancePerLifetimeScope();
+    
 
 });
 // var ip = IPAddress.Parse("127.0.0.1");
@@ -26,6 +30,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 
 
 builder.Services.AddHttpClient();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers(options =>
 {
@@ -34,7 +39,7 @@ builder.Services.AddControllers(options =>
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<ConfigService>();
-builder.Services.AddSingleton<AutoLoginService>();
+//builder.Services.AddSingleton<AutoLoginService>();
 builder.Services.AddCors(opt => opt.AddPolicy("all", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<UtilService>();
@@ -92,8 +97,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.MapControllers();
 app.MapBlazorHub();
+app.MapControllers();
+
 // app.MapControllers();
 
 app.MapFallbackToPage("/_Host");

@@ -14,7 +14,8 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="BouncyCastle" Version="1.8.9" />
+    <PackageReference Include="BlazorSortableJs" Version="2.0.0-Preview2" />
+    <PackageReference Include="DynamicExpresso.Core" Version="2.16.0" />
     <PackageReference Include="KYSharp.SM.Core" Version="1.0.1" />
     <PackageReference Include="Mapster" Version="7.4.0-pre06" />
     <PackageReference Include="Masa.Blazor" Version="1.0.0-rc.1" />
@@ -22,9 +23,6 @@
     <PackageReference Include="PuppeteerSharp" Version="9.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.0-preview.2.23128.3" />
-  </ItemGroup>
-
-  <ItemGroup>
   </ItemGroup>
 
 </Project>

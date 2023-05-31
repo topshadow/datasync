@@ -10,7 +10,7 @@ namespace RongChengApp.Dtos
     /// <typeparam name="T"></typeparam>
     public class BaseOutput<T>
     {
-        public List<T> body { get; set; }
+        public List<T> body { get; set; }=new List<T>();
 
         /// <summary>
         /// 状态码
@@ -119,7 +119,7 @@ namespace RongChengApp.Dtos
         /// 患者生日 格式为1956-09-26
         /// </summary>
         /// <value></value>
-        public DateTime? birthday { get; set; }
+        public string? birthday { get; set; }
 
         /// <summary>
         /// 检查类型，例如 2023年未检
@@ -352,8 +352,8 @@ namespace RongChengApp.Dtos
     }
     public class InitializeRecordInputBody
     {
-        public string phrId { get; set; } = "44520200620207607";
-        public string empiId { get; set; } = "ece7af90a1cb46d68aa7f64fcf119703";
+        public string? phrId { get; set; }
+        public string? empiId { get; set; }
 
     }
 
@@ -375,9 +375,14 @@ namespace RongChengApp.Dtos
     }
     public class InitializeRecordResultBodyRecordData
     {
-        public object MDC_HypertensionMedicine_actions { get; set; } = new { create = true, update = false };
-        [JsonPropertyName("chis.application.hy.schemas.MDC_HypertensionRecord_data")]
-        public object MDC_HypertensionRecord_data { get; set; } = new { riskiness = new { text = "", key = "0" } };
+        /// <summary>
+        /// 血压正常原因 ,例如 服药后
+        /// </summary>
+        /// <value></value>
+        public string? afterMedicine { get; set; }
+        // public object MDC_HypertensionMedicine_actions { get; set; } = new { create = true, update = false };
+        // [JsonPropertyName("chis.application.hy.schemas.MDC_HypertensionRecord_data")]
+        // public object MDC_HypertensionRecord_data { get; set; } = new { riskiness = new { text = "", key = "0" } };
         /// <summary>
         /// 经常就诊地点
         /// {"text":"本院", "key":"1" },
@@ -560,50 +565,50 @@ namespace RongChengApp.Dtos
     }
     public class SaveHypertensionRecordInputBody
     {
-        public string? phrId { get; set; } = "44520200620207607";
-        public string? empiId { get; set; } = "ece7af90a1cb46d68aa7f64fcf119703";
-        public string? manaDoctorId { get; set; } = "605100";
-        public string? manaUnitId { get; set; } = "445202605";
-        public string? recordSource { get; set; } = "5";
-        public string? confirmDate { get; set; } = "2023-04-01";
-        public string? deaseAge { get; set; } = "1月";
-        public string? confirmText { get; set; } = "test确诊单位";
-        public string clinicAddress { get; set; } = "4";
-        public string viability { get; set; } = "2";
-        public string height { get; set; } = "170.00";
-        public string? weight { get; set; } = "70.00";
-        public string bmi { get; set; } = "24.22";
-        public int? constriction { get; set; } = 110;
-        public int? diastolic { get; set; } = 90;
-        public string riskiness { get; set; } = "0";
-        public string targetHurt { get; set; } = "0";
-        public string complication { get; set; } = "0";
-        public string afterMedicine { get; set; } = "";
-        public string hypertensionGroup { get; set; } = "";
-        public string riskLevel { get; set; } = "";
-        public string createUnit { get; set; } = "445202605";
-        public string createUser { get; set; } = "605100";
-        public string createDate { get; set; } = "2023-04-24";
-        public string inputUnit { get; set; } = "445202605";
-        public string inputUser { get; set; } = "605100";
-        public string inputDate { get; set; } = "2023-04-24 15:16:31";
-        public string jzsfq { get; set; } = "";
-        public string qtjzsfq { get; set; } = "";
-        public string jzsmq { get; set; } = "";
-        public string qtjzsmq { get; set; } = "";
-        public string jzsxdjm { get; set; } = "";
-        public string qtjzsxdjm { get; set; } = "";
-        public string jzszn { get; set; } = "";
-        public string qtjzszn { get; set; } = "";
-        public string? endCheck { get; set; } = "1";
-        public string? visitEffect { get; set; } = "1";
-        public string? visitDate { get; set; } = "2023-05-12";
+        public string? phrId { get; set; }
+        public string? empiId { get; set; }
+        public string? manaDoctorId { get; set; }
+        public string? manaUnitId { get; set; }
+        public string? recordSource { get; set; }
+        public string? confirmDate { get; set; }
+        public string? deaseAge { get; set; }
+        public string? confirmText { get; set; }
+        public string clinicAddress { get; set; }
+        public string viability { get; set; }
+        public string height { get; set; }
+        public string? weight { get; set; }
+        public string? bmi { get; set; }
+        public int? constriction { get; set; }
+        public int? diastolic { get; set; }
+        public string? riskiness { get; set; }
+        public string? targetHurt { get; set; }
+        public string? complication { get; set; }
+        public string? afterMedicine { get; set; }
+        public string? hypertensionGroup { get; set; }
+        public string? riskLevel { get; set; }
+        public string? createUnit { get; set; }
+        public string? createUser { get; set; }
+        public string? createDate { get; set; }
+        public string? inputUnit { get; set; }
+        public string? inputUser { get; set; }
+        public string? inputDate { get; set; }
+        public string? jzsfq { get; set; }
+        public string? qtjzsfq { get; set; }
+        public string? jzsmq { get; set; }
+        public string? qtjzsmq { get; set; }
+        public string? jzsxdjm { get; set; }
+        public string? qtjzsxdjm { get; set; }
+        public string? jzszn { get; set; }
+        public string? qtjzszn { get; set; }
+        public string? endCheck { get; set; }
+        public string? visitEffect { get; set; }
+        public string? visitDate { get; set; }
         public string? cancellationDate { get; set; }
         public string? cancellationReason { get; set; }
         public string? status { get; set; }
-        public string planTypeCode { get; set; } = "-1";
-        public string lastModifyUser { get; set; }
-        public string? lastModifyDate { get; set; } = "2023-05-12 18:10:51";
+        public string? planTypeCode { get; set; }
+        public string? lastModifyUser { get; set; }
+        public string? lastModifyDate { get; set; }
         /// <summary>
         /// "445202605"}
         /// </summary>

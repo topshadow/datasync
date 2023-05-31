@@ -20,18 +20,29 @@ namespace RongChengApp.Dtos
     }
     public class SaveBasicPersonalInformationInputBody
     {
+        /// <summary>
+        /// 高血压同步信息
+        /// </summary>
+        /// <value></value>
+        public SaveHypertensionRecordInputBody? hypertensionResult { get; set; }
+        /// <summary>
+        /// 糖尿病档案同步信息
+        /// </summary>
+        /// <value></value>
+        public PUBSaveDiabetesRecordInputBody? pubRecordInfo { get; set; }
+
         public string? phrId { get; set; }
 
-        public string? empiId { get; set; } = "b9d8e98c2f334c57b36be9d8c6c12a87";
-        public string? middleId { get; set; } = "44520311521400001";
+        public string? empiId { get; set; }
+        public string? middleId { get; set; }
         public string? cardNo { get; set; }
         public string? personName { get; set; }
         public string? sexCode { get; set; } = "0";
         public DateTime? birthday { get; set; }
         [DefaultValue("421182199311130058")]
         public string? idCard { get; set; }
-        public string? workPlace { get; set; } = "a";
-        public string? mobileNumber { get; set; } = "13419597065";
+        public string? workPlace { get; set; }
+        public string? mobileNumber { get; set; }
         public string? contact { get; set; }
         public string? contactPhone { get; set; }
         public string? registeredPermanent { get; set; }
@@ -166,30 +177,10 @@ namespace RongChengApp.Dtos
     /// </summary>
     public class BatSearchPersonInfoResult
     {
-        public List<SearchPersonAllInfoResult> body { get; set; } = new List<SearchPersonAllInfoResult>();
+
+        public List<LoadBasicPersonalInformationResult> body { get; set; } = new List<LoadBasicPersonalInformationResult>();
     }
 
-    /// <summary>
-    /// 搜索个人所有信息
-    /// </summary>
-    public class SearchPersonAllInfoResult
-    {
-        /// <summary>
-        /// 个人基本信息
-        /// </summary>
-        /// <value></value>
-        public LoadBasicPersonalInformationResult personInfo { get; set; }
-        /// <summary>
-        /// 糖尿病档案信息
-        /// </summary>
-        /// <value></value>
-        public PUBDiabetesRecordServiceResult? pubRecordInfo { get; set; }
-        /// <summary>
-        /// 高血压档案信息
-        /// </summary>
-        /// <value></value>
-        public InitializeRecordResult? hypertensionResult { get; set; }
 
-    }
 
 }

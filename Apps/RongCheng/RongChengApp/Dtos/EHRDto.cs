@@ -190,6 +190,16 @@ namespace RongChengApp.Dtos
     /// </summary>
     public class LoadBasicPersonalInformationResult
     {
+        /// <summary>
+        /// 糖尿病档案信息
+        /// </summary>
+        /// <value></value>
+        public PUBDiabetesRecordServiceResultBody? pubRecordInfo { get; set; }
+        /// <summary>
+        /// 高血压档案信息
+        /// </summary>
+        /// <value></value>
+        public InitializeRecordResultBodyRecordData? hypertensionResult { get; set; }
         public string? GAO { get; set; }
         public string? PID { get; set; }
         public string? PKRK { get; set; }
@@ -741,7 +751,8 @@ namespace RongChengApp.Dtos
         public KeyText? registeredPermanent { get; set; }
         /// <summary>
         /// rh
-        /// { text: "阳性", key: "1"}
+        /// { text: "
+        /// 阳性", key: "1"}
         /// { text: "阴性", key: "2"}
         /// { text: "不详", key: "3"}
         /// </summary>
@@ -922,6 +933,7 @@ namespace RongChengApp.Dtos
 
         public string? msg { get; set; } = "Success";
         public int? code { get; set; } = 200;
+        public bool ok { get; set; } = true;
         public int? pageNo { get; set; } = 1;
         public int? pageSize { get; set; } = 50;
         public int? totalCount { get; set; } = 1;

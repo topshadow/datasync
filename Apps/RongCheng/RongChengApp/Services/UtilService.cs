@@ -8,10 +8,12 @@ namespace RongChengApp.Services
         public readonly string remoteServerUrl = "http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest";
         private readonly IHttpClientFactory httpClientFactory;
         public readonly AutoLoginService autoLoginService;
-        public UtilService(IHttpClientFactory _httpClientFactory, AutoLoginService _autoLoginService)
+        private readonly AccountService accountService;
+        public UtilService(IHttpClientFactory _httpClientFactory, AutoLoginService _autoLoginService, AccountService accountService)
         {
             httpClientFactory = _httpClientFactory;
             autoLoginService = _autoLoginService;
+            this.accountService = accountService;
         }
         /// <summary>
         /// 创建带有默认请求头的httpClient 带有cookie则为请求cookie
@@ -35,7 +37,9 @@ namespace RongChengApp.Services
         }
         public HttpClient createDefaultRequestHeaderHttpClient()
         {
-            return createDefaultRequestHeaderHttpClient(autoLoginService.Cookie);
+            var cookie = accountService.getCookieByAccount();
+
+            return createDefaultRequestHeaderHttpClient(cookie);
 
         }
 

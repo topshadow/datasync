@@ -3,14 +3,13 @@
 @using System.Drawing;
 @using System.Net.Http;
 @page "/"
+@using DynamicExpresso;
 @using HSSB;
 
-@inject IJSRuntime jsRuntime
-@inject AutoLoginService AutoLoginService
 
 <PageTitle>Index</PageTitle>
 
-<br/>
+<br />
 @* <label>base64</label>
 <label for="">用户名:</label> <input @bind-value="username" />
 <label>密码</label> <input @bind-value="password" /> *@
@@ -22,87 +21,101 @@
 </MDivider>
 
 <MDivider></MDivider>
-@AutoLoginService.d
+@autoLoginService.d
 <MDivider></MDivider>
-@if(!String.IsNullOrEmpty(AutoLoginService.Cookie)){
-@("cookie:") @AutoLoginService.Cookie
 
-}
-@* <button @onclick="async()=>await autoLogin()">自动登录</button> *@
-@if(AutoLoginService.dateTimeSigns!=null){
-<MSimpleTable Height="400">
-    <thead>
-        <tr>
-            <th class="text-left" style="width:200px;display: inline-block;">
-                日期
-            </th>
-            <th class="text-left">
-                签名
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in AutoLoginService.dateTimeSigns)
-        {
-            <tr @key="item.time">
-                <td>@item.time</td>
-                <td>@(item.random)</td>
+
+<MTabs @bind-Value="tabIndex">
+    <MTab>random字符串</MTab>
+    <MTab>账号cookie</MTab>
+
+</MTabs>
+<MTabsItems Value="tabIndex">
+    <MTabItem>
+        <MCard Flat>
+            <MCardText>
+                @if (autoLoginService.dateTimeSigns != null)
+                {
+                    <MSimpleTable Height="400">
+                        <thead>
+                            <tr>
+                                <th class="text-left" style="width:200px;display: inline-block;">
+                                    日期
+                                </th>
+                                <th class="text-left">
+                                    签名
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in autoLoginService.dateTimeSigns)
+                            {
+                                <tr @key="item.time">
+                                    <td>@item.time</td>
+                                    <td>@(item.random)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </MSimpleTable>
+                }
+            </MCardText>
+        </MCard>
+    </MTabItem>
+    <MTabItem>
+    <MSimpleTable Height="400">
+        <thead>
+            <tr  >
+                <th>账号</th>
+                <th>密码</th>
             </tr>
-        }
-    </tbody>
-</MSimpleTable>
-}
-
-
-@code{
-    public string username="605100";
-    public string password="123";
-    public string uuid{get;set;}=Guid.NewGuid().ToString();
-    public string base64Str{get;set;}=String.Empty;
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await base.OnAfterRenderAsync(firstRender);
-
-
-
-        }
-
-
-       
-
-       
-
-        public async Task loadImage(){
-    
-
-await AutoLoginService.AutoLoginByServer();
-
- 
-        }
-        public async Task  random(){
-           var now= DateTime.Now;
-
-
-         var time= new DateTime(now.Year,now.Month,now.Day,now.Hour,0,0,0);
-         var max=7*24;
-         var result= new List<DateTimeSign>();
-         for(var i=0;i<max;i++){
-           var currentTime= time.AddHours(i);
-
-            var ppp="04C7E34D7FB4EECE60C29ED53867F98AA072C0B562787BCA312919EB3E12753BAC462AC485866DC7264CCF03A47C975807674B5684596A96814EC8E59AE17A2974";
-         var random= await  jsRuntime.InvokeAsync<string>($"aaaEnc"  ,currentTime,ppp);
-            result.Add(new DateTimeSign{time=currentTime,random=random});
+        </thead>
+        <tbody>
             
-         }
-         AutoLoginService.dateTimeSigns=result;
-
-
-
+        </tbody>
+        @foreach (var account in autoLoginService.accountCookie)
+        {
+                <tr>
+                    <td>@account.Key</td>
+                    <td>@account.Value</td>
+                </tr>
         }
 
+    </MSimpleTable>
+    </MTabItem>
+</MTabsItems>
 
 
- 
+@code {
+    public string username = "605100";
+    public string password = "123";
+    public string uuid { get; set; } = Guid.NewGuid().ToString();
+    public string base64Str { get; set; } = String.Empty;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+
+
+    }
+
+
+
+
+
+
+    public async Task loadImage()
+    {
+
+        var accounts = await accountService.loadAccounts();
+        await autoLoginService.batAutoLogin(accounts);
+
+
+    }
+
+
+
+
+
 
 
 }

@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Swagger;
 using RongChengApp.Dtos;
 using RongChengApp.Services;
+using System.Net.Http;
+
 namespace RongChengApp.Controllers
 {
 
@@ -12,12 +14,10 @@ namespace RongChengApp.Controllers
 
     public class HypertensController
     {
-        public readonly HttpClient httpClient;
         private readonly AutoLoginService autoLoginService;
         private readonly UtilService utilService;
-        public HypertensController(HttpClient _httpClient, AutoLoginService _autoLoginService, UtilService _utilService)
+        public HypertensController(AutoLoginService _autoLoginService, UtilService _utilService)
         {
-            httpClient = _httpClient;
             autoLoginService = _autoLoginService;
             utilService = _utilService;
         }
@@ -32,8 +32,8 @@ namespace RongChengApp.Controllers
         public async Task<BaseOutput<QueryHypertensionResultItem>> listHypertensionRecord([FromBody] QueryHypertension body)
         {
 
-            httpClient.DefaultRequestHeaders.Add("Cookie", autoLoginService.Cookie);
-            httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
+
+            var httpClient = utilService.createDefaultRequestHeaderHttpClient();
 
             var res = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?start={body.pageNo}&limit={body.pageSize}",
 
@@ -57,11 +57,7 @@ namespace RongChengApp.Controllers
         [HttpPost("saveRepairPlan")]
         public async Task<SaveRepairPlanResult> saveRepairPlan([FromBody] SaveRepairPlanInput body)
         {
-
-            httpClient.DefaultRequestHeaders.Clear();
-            httpClient.DefaultRequestHeaders.Add
-              ("Cookie", autoLoginService.Cookie);
-            httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
+            var httpClient = utilService.createDefaultRequestHeaderHttpClient();
 
             var res = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest", body);
             var resText = await res.Content.ReadAsStringAsync();
@@ -79,10 +75,8 @@ namespace RongChengApp.Controllers
         [HttpPost("[action]")]
         public async Task<GetCurYearVisitPlanResult> getCurYearVisitPlan([FromBody] GetCurYearVisitPlanInput body)
         {
-            httpClient.DefaultRequestHeaders.Clear();
-            httpClient.DefaultRequestHeaders.Add
-              ("Cookie", autoLoginService.Cookie);
-            httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
+            var httpClient = utilService.createDefaultRequestHeaderHttpClient();
+
 
             var res = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest", body);
             var resText = await res.Content.ReadAsStringAsync();
@@ -104,10 +98,7 @@ namespace RongChengApp.Controllers
         [HttpPost("[action]")]
         public async Task<GetVisitInfoResult> getVisitInfo([FromBody] GetVisitInfoInput body)
         {
-            httpClient.DefaultRequestHeaders.Clear();
-            httpClient.DefaultRequestHeaders.Add
-              ("Cookie", autoLoginService.Cookie);
-            httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
+            var httpClient = utilService.createDefaultRequestHeaderHttpClient();
             var res = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest", body);
             var resText = await res.Content.ReadAsStringAsync();
             Console.WriteLine(resText);
@@ -124,7 +115,7 @@ namespace RongChengApp.Controllers
         public async Task<AutoAddVisitRecordResult> autoAddVisitRecordInput([FromBody] AutoAddVisitRecordInput body)
         {
 
-
+            var httpClient = utilService.createDefaultRequestHeaderHttpClient();
 
 
             var queryIdCard = new QueryHypertension
@@ -151,11 +142,11 @@ namespace RongChengApp.Controllers
 
                     body = new SaveRepairPlanBodyInput
                     {
-                        beginDate = body.inputDate.AddDays(-5),
+                        beginDate = body.inputDate?.AddDays(-5),
                         dateField = body.inputDate,
                         empiid = empiId,
                         phrld = phrId,
-                        endDate = body.inputDate.AddDays(5)
+                        endDate = body.inputDate?.AddDays(5)
 
                     }
                 };
@@ -167,39 +158,39 @@ namespace RongChengApp.Controllers
 
 
                     var fullYearRes = await this.getCurYearVisitPlan(new GetCurYearVisitPlanInput { empiId = empiId });
-                    var datestr = body.inputDate.ToString("yyyy-MM-dd");
+                    var datestr = body.inputDate?.ToString("yyyy-MM-dd");
                     Console.WriteLine("datestr:" + datestr);
                     var record = fullYearRes.body.Where(record => record.planDate == datestr).FirstOrDefault();
                     if (record != null)
                     {
-                        httpClient.DefaultRequestHeaders.Clear();
-                        httpClient.DefaultRequestHeaders.Add("Cookie", autoLoginService.Cookie);
-                        httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
+
 
                         var saveUpdateInput = new SaveHypertensionVisitInput
                         {
                             op = String.IsNullOrEmpty(record.visitId) ? "create" : "update",
                             body = new SaveHypertensionVisitInputBody
                             {
-
+                                auxiliaryCheck = body.auxiliaryCheck,
+                                riskUpdateReason = body.updateReason,
                                 visitId = record.visitId,
                                 planId = record.planId,
                                 empiId = empiId,
                                 phrId = phrId,
                                 targetWeight = body.targetWeight,
                                 heartRate = body.heartRate,
-                                visitDate = DateTime.Now.ToString("yyyy-MM-dd"),
+                                visitDate = body.inputDate?.ToString("yyyy-MM-dd"),
                                 weight = body.weight,
                                 bmi = body.bmi,
                                 targetBmi = body.targetBmi,
                                 smokeCount = body.smokeCount,
-                                targetSmokeCount = body.targetSmeCount,
+                                targetSmokeCount = body.targetSmokeCount,
                                 drinkCount = body.drinkCount,
                                 targetDrinkCount = body.targetDrinkCount,
                                 trainMinute = body.trainMinute,
                                 trainTimesWeek = body.trainTimesWeek,
                                 targetTrainTimesWeek = body.targetTrainTimesWeek,
                                 targetTrainMinute = body.targetTrainMinute,
+                                otherSigns = body.otherSigns,
 
                                 visitWay = body.visitWay,
                                 cure = body.cure,
@@ -209,28 +200,71 @@ namespace RongChengApp.Controllers
                                 medicineBadEffect = body.medicineBadEffect,
                                 currentSymptoms = body.currentSymptoms,
                                 psychologyChange = body.psychologyChange,
-                                inputDate = body.inputDate,
+                                inputDate = body?.inputDate,
                                 constriction = body.constriction,
                                 diastolic = body.diastolic,
                                 medicineBadEffectText = body.medicineBadEffectText,
                                 medicineNot = body.medicineNot,
                                 medicineOtherNot = body.medicineOtherNot,
                                 visitEvaluate = body.visitEvaluate,
-
-                                nextDate = body.nextDate.ToString("yyyy-MM-dd"),
+                                nextDate = body.nextDate?.ToString("yyyy-MM-dd"),
                                 salt = body.salt,
                                 inputUser = "605100",
                                 targetSalt = body.targetSalt,
                                 // auxiliaryCheck = body.auxiliaryCheck
                             }
                         };
-                        var res = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest", saveUpdateInput);
+                        Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(saveUpdateInput));
+                        var dict = new Dictionary<string, object>();
+                        foreach (var item in typeof(SaveHypertensionVisitInputBody).GetProperties())
+                        {
+                            dict.Add(item.Name, item.GetValue(saveUpdateInput.body));
+                        }
+                        if (body.medicineDetails != null)
+                        {
+                            var medicineIds = new Dictionary<string, string>();
+                            foreach (var item in body.medicineDetails)
+                            {
+                                var index = body.medicineDetails.IndexOf(item);
+                                medicineIds.Add("medicine" + (index+1), item.id);
+                            }
+                            dict.Add("medicineIds", medicineIds);
+                            body.medicineDetails.ForEach((me =>
+                            {
+                                var index = body.medicineDetails.IndexOf(me);
+                                if (index != -1)
+                                {
+                                    // 下标从1开始
+                                    index += 1;
+                                    dict.Add("drugId" + index, me.id);
+                                    dict.Add("medicineType" + index, me.medicineType);
+                                    dict.Add("everyDayTime" + index, me.everyDayTime);
+                                    dict.Add("oneDosage" + index, me.oneDosage);
+                                    dict.Add("medicineUnit" + index, me.medicineUnit);
+                                }
+
+                            }));
+
+                        }
+                        var res = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?d=" + autoLoginService.d, new
+                        {
+                            method = "execute",
+                            op = saveUpdateInput.op,
+                            schema = "chis.application.hy.schemas.MDC_HypertensionVisit",
+                            serviceAction = "saveHypertensionVisit",
+                            serviceId = "chis.hypertensionVisitService",
+                            body=dict
+                        });
                         var dataText = await res.Content.ReadAsStringAsync();
                         Console.WriteLine("datatext:" + dataText);
+                        if (dataText.Contains("500"))
+                        {
+                            return new AutoAddVisitRecordResult { ok = false, message = dataText };
+                        }
                         var data = await res.Content.ReadFromJsonAsync<SaveHypertensionVisitResult>();
                         if (data.code == 200)
                         {
-                            return new AutoAddVisitRecordResult { ok = true, message = "上传成功" };
+                            return new AutoAddVisitRecordResult { ok = true, message = "上传成功", };
                         }
                         else
                         {
@@ -244,21 +278,11 @@ namespace RongChengApp.Controllers
                     {
                         return new AutoAddVisitRecordResult { ok = false, message = "错误,找不到对应的随访记录用以修改" };
                     }
-
-                    // }
-                    // else
-                    // {
-                    //     return new AutoAddVisitRecordResult { ok = true, message = "模板不存在,已经创建完成新的默认模板" };
-                    // }
-
-                    // return new AutoAddVisitRecordResult { ok = true, message = "创建模板成功" };
                 }
                 else
                 {
                     return new AutoAddVisitRecordResult { ok = false, message = "创建模板失败" };
                 }
-
-
                 return new AutoAddVisitRecordResult { ok = true, message = $"找到患者信息empiId:{empiId}  phrId:{phrId}" };
 
             }

@@ -53,6 +53,7 @@ namespace RongChengApp.Dtos
         public string? taskDoctorId_text { get; set; }
         public string? visitDate { get; set; }
         public string? visitId { get; set; }
+        public double? pbs { get; set; }
 
 
     }
@@ -102,6 +103,20 @@ namespace RongChengApp.Dtos
     }
     public class DiabetesVisitServiceResultHtmlBody
     {
+        /// <summary>
+        /// 心理调整
+        ///  { text: "良好", key: "1" }
+        ///   { text: "一般", key: "2" }
+        ///  { text: "差", key: "3" }
+        /// </summary>
+        public KeyText? psychologyChange { get; set; }
+        /// <summary>
+        /// 低血糖反应
+        /// {text: "无", key: "1" }	
+        ///  {text: "偶尔", key: "2" }	
+        ///  {text: "频繁", key: "3" }	
+        /// </summary>
+        public KeyText? glycopenia { get; set; }
 
         public KeyText? visitDoctor { get; set; }
         /// <summary>
@@ -142,12 +157,12 @@ namespace RongChengApp.Dtos
         /// 体重
         /// </summary>
         /// <value></value>
-        public double? weight { get; set; }
+        public string? weight { get; set; }
         /// <summary>
         /// 目标体重
         /// </summary>
         /// <value></value>
-        public double? targetWeight { get; set; }
+        public string? targetWeight { get; set; }
         public int? targetSmokeCount { get; set; } = 11;
         /// <summary>
         /// "2023-05-10 15:19:49",
@@ -181,7 +196,7 @@ namespace RongChengApp.Dtos
         /// </summary>
         /// <value></value>
         public KeyText? lastModifyUnit { get; set; }
-        public object medicines { get; set; }
+        public object? medicines { get; set; }
         /// <summary>
         /// { "text":"中危","key":"2"},
         /// </summary>
@@ -214,9 +229,20 @@ namespace RongChengApp.Dtos
         /// { "text":"规律","key":"1"}
         /// </summary>
         /// <value></value>
-        public KeyText medicine { get; set; }
+        public KeyText? medicine { get; set; }
         /// <summary>
+        /// 足背动脉搏动
         /// { "text":"触及正常","key":"1"}
+        /// {"text": "双侧减弱","key": "2"}
+        /// {"text": "左侧减弱","key": "3"}
+        /// {"text": "右侧减弱","key": "4"}
+        /// {"text": "双侧消失","key": "5"}
+        /// {"text": "左侧消失","key": "6"}
+        /// {"text": "右侧消失","key": "7"}
+        /// 
+        /// 
+        /// 
+        /// 
         /// </summary>
         /// <value></value>
         public KeyText? pulsation { get; set; }
@@ -227,7 +253,7 @@ namespace RongChengApp.Dtos
         public string? phrId { get; set; }
         public int? food { get; set; }
         public KeyText? lastModifyUser { get; set; }
-        public int? targetFood { get; set; } = 11;
+        public int? targetFood { get; set; } 
         public string? checkId { get; set; } = "0000000000142024";
         /// <summary>
         /// 糖化血红蛋白(%):
@@ -235,22 +261,36 @@ namespace RongChengApp.Dtos
         /// <value></value>
         public double? hbA1c { get; set; } = 11.0;
         public double? bmi { get; set; } = 34.26;
+        /// <summary>
+        /// 遵医嘱
+        ///  {"text": "良好","key": "1"}
+        ///  {"text": "一般","key": "2"}
+        /// {"text": "差","key": "3"}
+        /// </summary>
+        public KeyText? obeyDoctor { get; set; }
 
     }
 
     public class SaveDiabetesVisitInput
     {
-        public string serviceId { get; set; } = "chis.hypertensionVisitService";
-        public string schema { get; set; } = "chis.application.hy.schemas.MDC_HypertensionVisit";
-
+        public string serviceId { get; set; } = "chis.diabetesVisitService";
+        public string schema { get; set; } = "chis.application.dbs.schemas.MDC_DiabetesVisit_html";
+        [JsonPropertyName("method")]
         public string method { get; set; } = "execute";
         public string op { get; set; } = "update";
-        public string serviceAction { get; set; } = "saveHypertensionVisit";
+        public string serviceAction { get; set; } = "saveDiabetesVisit";
         public SaveDiabetesVisitInputBody? body { get; set; }
 
     }
     public class SaveDiabetesVisitInputBody
     {
+        /// <summary>
+        /// 更新原因
+        /// </summary>
+        public string? updateReason { get; set; }
+        public int? food { get; set; }
+        public int? targetFood { get; set; }
+        public double? hbA1c { get; set; }
         public string? visitId { get; set; } = "0000000000261684";
         public string? phrId { get; set; } = "44520200620207607";
         public string? personName { get; set; } = "";
@@ -260,15 +300,15 @@ namespace RongChengApp.Dtos
         public string? phoneNumber { get; set; } = "";
         public string? regionCode { get; set; } = "";
         public string? empiId { get; set; } = "ece7af90a1cb46d68aa7f64fcf119703";
-        public string? visitDate { get; set; } = "2023-04-26";
+        public string? visitDate { get; set; } 
         /// <summary>
         /// 随访方式
         /// 1门诊 2家庭3点后
         /// </summary>
         /// <value></value>
         public string? visitWay { get; set; }
-        public string visitEffect { get; set; } = "1";
-        public string noVisitReason { get; set; } = "";
+        public string? visitEffect { get; set; } = "1";
+        public string? noVisitReason { get; set; } = "";
         public string? noVisitReasonOtherNot { get; set; }
         /// <summary>
         /// 症状
@@ -280,73 +320,96 @@ namespace RongChengApp.Dtos
         /// 5. 心悸胸闷
         /// </summary>
         /// <returns></returns>
-        public string? currentSymptoms { get; set; } = "1,2,3,4";
-        public string otherSymptoms { get; set; } = "";
-        public string constriction { get; set; } = "130";
-        public string diastolic { get; set; } = "84";
-        public string weight { get; set; } = "63";
-        public string targetWeight { get; set; } = "62";
-        public string bmi { get; set; } = "21.23";
-        public string targetBmi { get; set; } = "20.96";
-        public string heartRate { get; set; } = "77";
+        //public string? currentSymptoms { get; set; } = "1,2,3,4";
+        public string? otherSymptoms { get; set; } = "";
+        /// <summary>
+        /// 症状
+        /// </summary>
+        public string? symptoms { get; set; } = "";
+        public string? constriction { get; set; }
+        public string? diastolic { get; set; }
+        public string? weight { get; set; }
+        public string? targetWeight { get; set; }
+        public string? bmi { get; set; }
+        public string? targetBmi { get; set; }
+        public string? heartRate { get; set; }
         public string? targetHeartRate { get; set; }
-        public string otherSigns { get; set; } = String.Empty;
-        public string smokeCount { get; set; } = "10";
-        public string targetSmokeCount { get; set; } = "1";
-        public string drinkCount { get; set; } = "1";
-        public string drinkTypeCode { get; set; } = "";
-        public string targetDrinkCount { get; set; } = "";
-        public string trainTimesWeek { get; set; } = "1";
-        public string targetTrainTimesWeek { get; set; } = "1";
-        public string trainMinute { get; set; } = "20";
-        public string targetTrainMinute { get; set; } = "30";
-        public string loseWeight { get; set; } = "2";
-        public string salt { get; set; } = "1";
-        public string targetSalt { get; set; } = "1";
-        public string cure { get; set; } = "1";
-        public string noCureReason { get; set; } = "";
-        public string medicine { get; set; } = "1";
-        public string medicineNot { get; set; } = "";
+        public string? otherSigns { get; set; } = String.Empty;
+        public string? smokeCount { get; set; }
+        public string? targetSmokeCount { get; set; }
+        public string? drinkCount { get; set; }
+        //public string drinkTypeCode { get; set; } = "";
+        public string? targetDrinkCount { get; set; }
+        public string? trainTimesWeek { get; set; }
+        public string? targetTrainTimesWeek { get; set; }
+        public string? trainMinute { get; set; }
+        public string? targetTrainMinute { get; set; }
+        public string? loseWeight { get; set; } = "2";
+        public string? salt { get; set; } = "1";
+        public string? targetSalt { get; set; } = "1";
+        public string? cure { get; set; } = "1";
+        public string? noCureReason { get; set; } = "";
+        public string? medicine { get; set; } = "1";
+        public string? medicineNot { get; set; } = "";
         public string? medicineOtherNot { get; set; }
         public string? medicineBadEffect { get; set; }
         public string? medicineBadEffectText { get; set; }
         public string? auxiliaryCheck { get; set; }
-        public string psychologyChange { get; set; } = "1";
-        public string obeyDoctor { get; set; } = "1";
-        public string riskiness { get; set; } = "";
-        public string targetHurt { get; set; } = "";
-        public string complication { get; set; } = "";
-        public string complicationIncrease { get; set; } = "";
-        public string? riskLevel { get; set; }
-        public string? riskUpdateReason { get; set; }
-        public string visitEvaluate { get; set; } = "1";
-        public string healthProposal { get; set; } = String.Empty;
-        public string drugNames1 { get; set; } = "";
-        public string medicineType1 { get; set; } = String.Empty;
-        public string everyDayTime1 { get; set; } = String.Empty;
-        public string? oneDosage1 { get; set; }
-        public string medicineUnit1 { get; set; } = "";
-        public string drugNames2 { get; set; } = "";
-        public string medicineType2 { get; set; } = "";
-        public string everyDayTime2 { get; set; } = "";
-        public string oneDosage2 { get; set; } = "";
-        public string medicineUnit2 { get; set; } = "";
-        public string drugNames3 { get; set; } = String.Empty;
-        public string medicineType3 { get; set; } = String.Empty;
-        public string everyDayTime3 { get; set; } = String.Empty;
-        public string oneDosage3 { get; set; } = String.Empty;
-        public string? medicineUnit3 { get; set; } = String.Empty;
-        public string drugNames4 { get; set; } = String.Empty;
-        public string medicineType4 { get; set; } = "";
-        public string everyDayTime4 { get; set; } = String.Empty;
-        public string oneDosage4 { get; set; } = String.Empty;
-        public string medicineUnit4 { get; set; } = String.Empty;
-        public string drugNames5 { get; set; } = String.Empty;
-        public string medicineType5 { get; set; } = String.Empty;
-        public string everyDayTime5 { get; set; } = String.Empty;
-        public string? oneDosage5 { get; set; }
-        public string? medicineUnit5 { get; set; }
-        public string? agencyAndDept { get; set; } = String.Empty;
+        public string? psychologyChange { get; set; } = "1";
+        public string? obeyDoctor { get; set; } = "1";
+        public string? riskiness { get; set; } = "";
+        //public string complication { get; set; } = "";
+
+        //public string complicationIncrease { get; set; } = "";
+        //public string? riskLevel { get; set; }
+        //public string? riskUpdateReason { get; set; }
+        //public string visitEvaluate { get; set; } = "1";
+        //public string healthProposal { get; set; } = String.Empty;
+        //public string drugNames1 { get; set; } = "";
+        //public string medicineType1 { get; set; } = String.Empty;
+        //public string everyDayTime1 { get; set; } = String.Empty;
+        //public string? oneDosage1 { get; set; }
+        //public string medicineUnit1 { get; set; } = "";
+        //public string drugNames2 { get; set; } = "";
+        //public string medicineType2 { get; set; } = "";
+        //public string everyDayTime2 { get; set; } = "";
+        //public string oneDosage2 { get; set; } = "";
+        //public string medicineUnit2 { get; set; } = "";
+        //public string drugNames3 { get; set; } = String.Empty;
+        //public string medicineType3 { get; set; } = String.Empty;
+        //public string everyDayTime3 { get; set; } = String.Empty;
+        //public string oneDosage3 { get; set; } = String.Empty;
+        //public string? medicineUnit3 { get; set; } = String.Empty;
+        //public string drugNames4 { get; set; } = String.Empty;
+        //public string medicineType4 { get; set; } = "";
+        //public string everyDayTime4 { get; set; } = String.Empty;
+        //public string oneDosage4 { get; set; } = String.Empty;
+        //public string medicineUnit4 { get; set; } = String.Empty;
+        //public string drugNames5 { get; set; } = String.Empty;
+        //public string medicineType5 { get; set; } = String.Empty;
+        //public string everyDayTime5 { get; set; } = String.Empty;
+        //public string? oneDosage5 { get; set; }
+        //public string? medicineUnit5 { get; set; }
+        //public string? agencyAndDept { get; set; } = String.Empty;
+       
+        /// <summary>
+        /// 胰岛素种类
+        /// </summary>
+        public string ydstype1 { get; set; }
+
+        public string ydstype2 { get; set; }
+        public string ydstype3 { get; set; }
+        /// <summary>
+        /// 胰岛素数量
+        /// </summary>
+        
+        public string ydsfre1 { get; set; }
+        public string ydsfre2 { get; set; }
+        public string ydsfre3 { get; set; }
+
+        /// <summary>
+        /// 转诊原因
+        /// </summary>
         public string? referralReason { get; set; }
         /// <summary>
         /// "2023-07-28",
@@ -357,76 +420,89 @@ namespace RongChengApp.Dtos
         /// 单元测试
         /// </summary>
         /// <value></value>
-        public string visitDoctor { get; set; } = "605100";
-        public string visitUnit { get; set; } = "445202605";
-        public string treatEffect { get; set; } = "1";
-        public string cardiovascularEvent { get; set; } = "1";
-        public string waistLine { get; set; } = "";
-        public string hypertensionGroup { get; set; } = "";
-        public string incorrectMedicine { get; set; } = "";
-        public string noMedicine { get; set; } = "";
-        public string otherReason { get; set; } = "";
-        public string healthRecipe { get; set; } = "";
-        public string nonMedicineWay { get; set; } = "";
-        public string acceptDegree { get; set; } = "1";
-        public string inputUnit { get; set; } = "445202605";
-        public string inputUser { get; set; } = "605100";
+        public string? visitDoctor { get; set; } = "605100";
+        //public string visitUnit { get; set; } = "445202605";
+        //public string treatEffect { get; set; } = "1";
+        //public string cardiovascularEvent { get; set; } = "1";
+        //public string waistLine { get; set; } = "";
+        //public string hypertensionGroup { get; set; } = "";
+        //public string incorrectMedicine { get; set; } = "";
+        //public string noMedicine { get; set; } = "";
+        //public string otherReason { get; set; } = "";
+        //public string healthRecipe { get; set; } = "";
+        //public string nonMedicineWay { get; set; } = "";
+        //public string acceptDegree { get; set; } = "1";
+        //public string inputUnit { get; set; } = "445202605";
+        //public string inputUser { get; set; } = "605100";
         /// <summary>
         /// 建档日期
         /// 例如"2023-04-26 00:00:00",
         /// </summary>
         /// <returns></returns>
-        public string? inputDate { get; set; }
-        public string? manaDoctorId { get; set; }
+        //public string? inputDate { get; set; }
+        //public string? manaDoctorId { get; set; }
         /// <summary>
         /// "n",
         /// </summary>
         /// <returns></returns>
-        public string? lateInput { get; set; }
-        public string lastModifyUser { get; set; } = "605100";
-        /// <summary>
-        /// 445202605
-        /// </summary>
-        /// <returns></returns>
-        public string? lastModifyUnit { get; set; }
+        //public string? lateInput { get; set; }
+        //public string lastModifyUser { get; set; } = "605100";
+        ///// <summary>
+        ///// 445202605
+        ///// </summary>
+        ///// <returns></returns>
+        //public string? lastModifyUnit { get; set; }
         /// <summary>
         /// 2023-04-26 17:15:05
         /// </summary>
         /// <returns></returns>
-        public string? lastModifyDate { get; set; }
+        //public string? lastModifyDate { get; set; }
         /// <summary>
         /// 0正常
         /// </summary>
         /// <returns></returns>
         public string? status { get; set; }
-        public string? regionCode_text { get; set; }
-        public string lastVisitId { get; set; } = "0000000000000000";
-        public int height { get; set; } = 170;
-        public string planDate { get; set; } = "2023-04-24";
-        public string planId { get; set; } = "0000000002495911";
-        public string endDate { get; set; } = "2023-04-29T00:00:00";
+        //public string? regionCode_text { get; set; }
+        //public string lastVisitId { get; set; } = "0000000000000000";
+        public string? height { get; set; }
+        public string? planDate { get; set; } = "2023-04-24";
+        public string? planId { get; set; } = "0000000002495911";
+        public string? endDate { get; set; } = "2023-04-29T00:00:00";
         /// <summary>
         /// "2023-04-19T00:00:00"
         /// </summary>
         /// <value></value>
-        public string? beginDate { get; set; }
-        public string? fixGroupDate { get; set; }
+        //public string? beginDate { get; set; }
+        //public string? fixGroupDate { get; set; }
         public string? sn { get; set; }
+        public string? pbs { get; set; }
         /// <summary>
         /// "【目标量(两)】未填写<br>&nbsp;&nbsp;&nbsp;&nbsp;【用药情况】未填写"
         /// </summary>
         /// <value></value>
         public string? nonStandard { get; set; }
         public string? fbs { get; set; }
-        public int standard { get; set; } = 0;
+        public string? standard { get; set; } = "0";
         public string? completeLevel { get; set; } = "93%";
-        public List<object> medicineList { get; set; } = new List<object> { };
+        //public List<object> medicineList { get; set; } = new List<object> { };
         public bool needAssess { get; set; } = false;
-        public bool controlBad { get; set; } = false;
-        public string hypertensionGroupName { get; set; } = String.Empty;
-        public bool? needInsertPlan { get; set; } = false;
-        public bool needReferral { get; set; } = false;
-        public bool needChangeGroup { get; set; } = false;
+        //public bool controlBad { get; set; } = false;
+        //public string hypertensionGroupName { get; set; } = String.Empty;
+        //public bool? needInsertPlan { get; set; } = false;
+        //public bool needReferral { get; set; } = false;
+        //public bool needChangeGroup { get; set; } = false;
+        /// <summary>
+        /// 糖化血红蛋白测试日期
+        /// </summary>
+        public string? testDate { get; set; }
+        /// <summary>
+        /// 随访分类
+        /// { text: "控制满意", key: "1" }
+        /// { text: "控制不满意", key: "2" }
+        /// { text: "不良反应", key: "3" }
+        /// { text: "并发症", key: "4" }
+        /// </summary>
+        public string? visitType { get; set; }
 
     }
     /// <summary>
@@ -455,6 +531,20 @@ namespace RongChengApp.Dtos
     /// </summary>
     public class PUBDiabetesRecordServiceResultBody
     {
+        /// <summary>
+        /// 血糖 危险因素：01|年龄≥40岁,02|有糖调节受损史,03|超重（BMI≥24kg/m2）或肥胖（BMI≥28kg/m2）和（或）中心型肥胖（男性腰围≥90cm，女性腰围≥85cm）,04|静坐生活方式,05|级亲属中有2型糖尿病史,06|有巨大儿（出生体重≥4kg）生产史或妊娠糖尿病史的妇女,07|高血压（收缩压≥140或收缩压≥90mmHg），或正在接受降压治疗,08|血脂异常{高密度脂蛋白胆固醇（HDL-C）≤0.91mmol/L，甘油三酯≥2.22mmol/L}，或正在接受调脂治疗,09|动脉粥样硬化性心脑血管疾病患者,10|有一过性类固醇糖尿病病史者,11|多囊卵巢综合征（PCOS）患者,12|长期接受抗精神精神病药物和（或）抗抑郁症药物治疗的患者
+        /// </summary>
+        /// <value></value>
+        public KeyText? riskFactors { get; set; }
+        /// <summary>
+        /// 空腹血糖值
+        /// </summary>
+        public double? fbs { get; set; }
+        /// <summary>
+        /// 血糖 糖化血红蛋白(%)
+        /// </summary>
+        /// <value></value>
+        public double? HbA1c { get; set; }
         /// <summary>
         /// 家族史 母亲
         /// 例如  "恶性肿瘤、脑卒中、严重精神障碍、结核病、肝炎、先天畸形、111";
@@ -623,6 +713,11 @@ namespace RongChengApp.Dtos
     }
     public class PUBSaveDiabetesRecordInputBody
     {
+        /// <summary>
+        /// 身份证号
+        /// </summary>
+        public string? idCard { get; set; }
+
         public string? phrId { get; set; } = "44520200621302093";
         public string? signFlag { get; set; } = "n";
         public string? empiId { get; set; } = "875f62096e46447780fb11473f9b912f";
@@ -634,21 +729,21 @@ namespace RongChengApp.Dtos
         public string? years { get; set; } = "2月";
         public string? diagnosisUnit { get; set; } = "aa";
         public string? diagnosisSymptom { get; set; }
-        public string diabetesGroup { get; set; } = "01";
-        public string fbs { get; set; } = "";
-        public string pbs { get; set; } = "11.00";
-        public string unit { get; set; } = "1";
-        public string HbA1c { get; set; } = "";
-        public string height { get; set; } = "180.00";
-        public string? weight { get; set; } = "111.00";
+        public string? diabetesGroup { get; set; }
+        public string? fbs { get; set; }
+        public string? pbs { get; set; }
+        public string? unit { get; set; }
+        public string? HbA1c { get; set; }
+        public string? height { get; set; }
+        public double? weight { get; set; }
         public string? bmi { get; set; } = "34.26";
         public string? createUnit { get; set; } = "445202605";
         public string createUser { get; set; } = "605100";
         public string? createDate { get; set; } = "2023-05-10";
-        public string status { get; set; } = "0";
-        public string endCheck { get; set; } = "1";
-        public string visitEffect { get; set; } = "1";
-        public string visitDate { get; set; } = "2023-05-10";
+        public string? status { get; set; }
+        public string? endCheck { get; set; }
+        public string? visitEffect { get; set; }
+        public string? visitDate { get; set; }
         public string? cancellationDate { get; set; }
         public string? cancellationReason { get; set; }
         public string? jzsfq { get; set; } = "高血压";
@@ -716,4 +811,47 @@ namespace RongChengApp.Dtos
         /// <value></value>
         public KeyText? lastModifyUnit { get; set; }
     }
+
+
+    public class PUBVisitListQuery
+    {
+        public string serviceId { get; set; } = "chis.diabetesVisitService";
+        [JsonPropertyName("method")]
+        public string method { get; set; } = "execute";
+        public string schema { get; set; } = "chis.application.dbs.schemas.MDC_DiabetesVisitPlan";
+        public List<object> cnd { get; set; } = new List<object> {
+            new object[] {"and",
+                new List<object> { "eq", new string[] { "$", "a.businessType" }, new string[] { "s", "2" } },
+             new object[]   {"like", new object[] { "$", "b.idCard" }, new object[]{ "s", "%421182199311130057%" } } } };
+
+        public int pageSize { get; set; } = 50;
+        public int pageNo { get; set; } = 1;
+        public string serviceAction { get; set; } = "listDiabetesVistPlan";
+    }
+
+
+    public class PUBVisitListQueryResult
+    {
+        public int pageSize { get; set; } = 50;
+        public int code { get; set; } = 200;
+        public int totalCount { get; set; } = 2;
+        public List<PUBVisitListQueryResultBodyItem> body { get; set; }
+        public int pageNo { get; set; } = 1;
+    }
+    public class PUBVisitListQueryResultBodyItem
+    {
+        public string visitDoctor { get; set; } = "605100";
+        public string homePlace { get; set; } = "中国天津市市辖区河东区";
+        public int trainTimesWeek { get; set; } = 11;
+        public string endDate { get; set; } = "2023-06-29 00:00:00";
+        public string idCard { get; set; } = "421182199311130057";
+        public string mobileNumber { get; set; } = "13419597065";
+        public string planStatus { get; set; } = "1";
+        public string recordId { get; set; } = "44520200621302093";
+        public string empiId { get; set; } = "875f62096e46447780fb11473f9b912f";
+        public string visitId { get; set; } = "0000000000142024";
+        public string planId { get; set; } = "0000000002522223";
+        public string planDate { get; set; }
+    }
+
 }

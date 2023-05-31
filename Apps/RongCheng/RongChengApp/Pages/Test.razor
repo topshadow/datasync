@@ -1,0 +1,96 @@
+﻿@using BlazorSortableJS
+@using System.Text.Json
+@using DynamicExpresso;
+@page "/test"
+<MContainer Class="grey lighten-5">
+    <SortableWrapper OnDataChanged="@(() => InvokeAsync(StateHasChanged))">
+        <Sortable TItem="Com" Items="toolbars" Class="list-group" Options="_options">
+            <Template Context="item">
+                <div class="list-group-item">@item</div>
+            </Template>
+        </Sortable>
+
+
+        <MCard Tile="true"></MCard>
+
+    </SortableWrapper>
+
+
+</MContainer>
+<div class="row">
+    代码 <input @bind-value="codeStr" />
+    <div class="col-6">
+
+        <h6 class="text-center fw-bold">Sortable</h6>
+
+
+        <SortableWrapper OnDataChanged="@(() => InvokeAsync(StateHasChanged))">
+            <Sortable TItem="Com" Items="items" Class="list-group" Options="_options">
+                <Template Context="item">
+                    <div class="list-group-item">@item</div>
+                </Template>
+            </Sortable>
+        </SortableWrapper>
+    </div>
+    <div class="col-6">
+        <h6 class="text-center fw-bold">Result</h6>
+        <pre class="bg-info">
+            @System.Text.Json.JsonSerializer.Serialize(items, new JsonSerializerOptions
+            {
+                Encoder=System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                WriteIndented = true,
+            });
+        </pre>
+    </div>
+</div>
+<button @onclick="executeCode">运行代码</button>
+
+
+@code {
+    public class Com
+    {
+        public string? name { get; set; }
+
+    }
+    object _options = new
+    {
+        group = new
+        {
+            name = "shared",
+            pull = "clone"
+        },
+        animation = 150,
+        ghostClass = "blue-background-class"
+    };
+    public string codeStr { get; set; } = string.Empty;
+    public async Task executeCode()
+    {
+        var interpreter = new Interpreter()
+        .Reference(typeof(Console))
+        .Reference(typeof(List<>))
+        ;
+
+        interpreter.SetVariable("this", this);
+
+
+        var result = interpreter.Eval(this.codeStr);
+        StateHasChanged();
+        items = items.Select(i => i).ToList();
+        Console.WriteLine(result);
+    }
+    public List<Com> toolbars = new List<Com>
+    {
+
+      new Com{name="输入框" },
+        new Com{name="文本框"},
+        new Com{name="数字框"},
+    };
+    public List<Com> items = new List<Com>
+    {
+
+         new Com{name="输入框" },
+        new Com{name="文本框"},
+        new Com{name="数字框"},
+    };
+}
+

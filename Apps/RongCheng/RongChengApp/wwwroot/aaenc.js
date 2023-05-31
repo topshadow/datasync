@@ -21,3 +21,15 @@ function aaaEnc(e, g) {
     var i = f.Encrypt(a, b);
     return "04" + i
 }
+/**
+es  is Arrary of string
+*/
+
+function aaaEncBat(es,g){
+    let result=[];
+    for(let e of es)      {
+       let item= aaaEnc(e,g)
+        result.push(item);
+    }
+    return result;
+}

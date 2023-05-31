@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.Text.Json.Serialization;
+
 namespace RongChengApp.Dtos
 {
     /// <summary>
@@ -43,12 +45,12 @@ namespace RongChengApp.Dtos
         /// 开始日期
         /// </summary>
         /// <value></value>
-        public DateTime beginDate { get; set; }
+        public DateTime? beginDate { get; set; }
         /// <summary>
         /// 要查询的日期
         /// </summary>
         /// <value></value>
-        public DateTime dateField { get; set; }
+        public DateTime? dateField { get; set; }
 
         /// <summary>
         /// 员工id
@@ -437,6 +439,15 @@ namespace RongChengApp.Dtos
         public KeyText lastModifyUnit { get; set; }
         public KeyText lastModifyUser { get; set; }
         public KeyText lateInput { get; set; }
+        /// <summary>
+        /// 
+        /// {
+        ///	"loseWeight": {
+        ///		"text": "不需要",
+        ///		"key": "2"
+        ///	}
+        ///}
+        /// </summary>
         public KeyText loseWeight { get; set; }
         public object manaDoctorId { get; set; }
         public object manaUnitId { get; set; }
@@ -470,12 +481,12 @@ namespace RongChengApp.Dtos
         /// 
         /// </summary>
         /// <value></value>
-        public KeyText medicineNot { get; set; }
+        public KeyText? medicineNot { get; set; }
         /// <summary>
         /// 服药依从性原因 其他文本描述
         /// </summary>
         /// <value></value>
-        public string medicineOtherNot { get; set; }
+        public string? medicineOtherNot { get; set; }
         /// <summary>
         /// 默认 {"YYQK":""}
         /// </summary>
@@ -707,56 +718,84 @@ namespace RongChengApp.Dtos
         public string? medicineName5 { get; set; }
 
     }
+    /// <summary>
+    /// 用药情况
+    /// </summary>
+    public class MedicineDetail
+    {
+        /// <summary>
+        /// id
+        /// </summary>
+        public string id { get; set; }
+        /// <summary>
+        /// 类型
+        /// </summary>
+        public string medicineType { get; set; }
+        /// <summary>
+        /// 每天多少次
+        /// </summary>
+        public string everyDayTime { get; set; }
+        /// <summary>
+        /// 每次多少量
+        /// </summary>
+        public string oneDosage { get; set; }
+        /// <summary>
+        /// 单位
+        /// </summary>
+        public string medicineUnit { get; set; }
+    }
 
     /// <summary>
     /// 自动同步随访记录
     /// </summary>
     public class AutoAddVisitRecordInput
     {
+        public List<MedicineDetail>? medicineDetails { get; set; }
         /// <summary>
         /// 用户的身份证号
         /// </summary>
         /// <value></value>
         public string idcard { get; set; }
-
-        public string bmi { get; set; } = "90";
-        public string targetBmi { get; set; } = "50";
-        public string constriction { get; set; } = "11";
-        public string cure { get; set; } = "1";
-        public string currentSymptoms { get; set; } = "0";
-        public string diastolic { get; set; } = "50";
-        public string drinkCount { get; set; } = "1";
-        public string targetDrinkCount { get; set; } = "3";
-        public DateTime inputDate { get; set; }
-        public string weight { get; set; } = "60";
-        public string targetWeight { get; set; } = "65";
-        public string heartRate { get; set; } = "70";
-        public string inputUser { get; set; } = "605100";
-        public string smokeCount { get; set; } = "1";
-        public string targetSmokeCount { get; set; } = "1";
-        public string psychologyChange { get; set; }
-        public string obeyDoctor { get; set; } = "1";
-        public string referralReason { get; set; } = String.Empty;
-        public string medicine { get; set; } = String.Empty;
-        public string medicineBadEffect { get; set; } = String.Empty;
-        public string medicineBadEffectText { get; set; } = String.Empty;
-        public string medicineNot { get; set; } = String.Empty;
-        public string medicineOtherNot { get; set; } = String.Empty;
-        public string salt { get; set; } = "1";
-        public string targetSalt { get; set; } = "1";
-        public string targetTrainMinute { get; set; } = "1";
-        public string targetTrainTimesWeek { get; set; } = "1";
-        public string trainMinute { get; set; } = "1";
-        public string trainTimesWeek { get; set; } = "1";
-        public string visitWay { get; set; } = "1";
-        public string auxiliaryCheck { get; set; }
+        public string? updateReason { get; set; }
+        public string? otherSigns { get; set; }
+        public string? bmi { get; set; } = "90";
+        public string? targetBmi { get; set; }
+        public string? constriction { get; set; }
+        public string? cure { get; set; } = "1";
+        public string? currentSymptoms { get; set; } = "0";
+        public string? diastolic { get; set; } = "50";
+        public string? drinkCount { get; set; } = "1";
+        public string? targetDrinkCount { get; set; } = "3";
+        public DateTime? inputDate { get; set; }
+        public string? weight { get; set; } = "60";
+        public string? targetWeight { get; set; } = "65";
+        public string? heartRate { get; set; } = "70";
+        public string? inputUser { get; set; } = "605100";
+        public string? smokeCount { get; set; } = "1";
+        public string? targetSmokeCount { get; set; }
+        public string? psychologyChange { get; set; }
+        public string? obeyDoctor { get; set; } = "1";
+        public string? referralReason { get; set; } = String.Empty;
+        public string? medicine { get; set; } = String.Empty;
+        public string? medicineBadEffect { get; set; } = String.Empty;
+        public string? medicineBadEffectText { get; set; } = String.Empty;
+        public string? medicineNot { get; set; } = String.Empty;
+        public string? medicineOtherNot { get; set; } = String.Empty;
+        public string? salt { get; set; }
+        public string? targetSalt { get; set; }
+        public string? targetTrainMinute { get; set; }
+        public string? targetTrainTimesWeek { get; set; }
+        public string? trainMinute { get; set; }
+        public string? trainTimesWeek { get; set; }
+        public string? visitWay { get; set; }
+        public string? auxiliaryCheck { get; set; }
         /// <summary>
         /// 下次随访日期
         /// </summary>
         /// <value></value>
-        public DateTime nextDate { get; set; }
-        public string visitEvaluate { get; set; } = "1";
-        public string targetSmeCount { get; set; } = "1";
+        public DateTime? nextDate { get; set; }
+        public string? visitEvaluate { get; set; }
+        public string? targetSmeCount { get; set; }
 
     }
     public class AutoAddVisitRecordResult
@@ -769,7 +808,7 @@ namespace RongChengApp.Dtos
     /// </summary>
     public class SaveHypertensionVisitInput
     {
-
+        [JsonPropertyName("method")]
         public string method { get; set; } = "execute";
         public string op { get; set; } = "update";
         public string schema { get; set; } = "chis.application.hy.schemas.MDC_HypertensionVisit";
@@ -780,6 +819,7 @@ namespace RongChengApp.Dtos
     }
     public class SaveHypertensionVisitInputBody
     {
+        public string riskUpdateReason { get; set; }
         public string? acceptDegree { get; set; } = String.Empty;
         public string agencyAndDept { get; set; } = "";
         public string auxiliaryCheck { get; set; } = String.Empty;
@@ -795,17 +835,10 @@ namespace RongChengApp.Dtos
         public string diastolic { get; set; } = String.Empty;
         public string drinkCount { get; set; } = String.Empty;
         public string drinkTypeCode { get; set; } = String.Empty;
-        public string drugNames1 { get; set; } = String.Empty;
-        public string drugNames2 { get; set; } = String.Empty;
-        public string drugNames3 { get; set; } = String.Empty;
-        public string drugNames4 { get; set; } = String.Empty;
-        public string drugNames5 { get; set; } = String.Empty;
+
         public string empiId { get; set; } = String.Empty;
-        public string everyDayTime1 { get; set; } = String.Empty;
-        public string everyDayTime2 { get; set; } = String.Empty;
-        public string everyDayTime3 { get; set; } = String.Empty;
-        public string everyDayTime4 { get; set; } = String.Empty;
-        public string everyDayTime5 { get; set; } = String.Empty;
+        public string updateReason { get; set; }
+
         public string fixGroupDate { get; set; } = "2023-04-22";
         public string healthProposal { get; set; } = String.Empty;
         public string healthRecipe { get; set; } = String.Empty;
@@ -815,7 +848,7 @@ namespace RongChengApp.Dtos
         public string hypertensionGroupName { get; set; } = String.Empty;
         public string idCard { get; set; } = String.Empty;
         public string incorrectMedicine { get; set; } = String.Empty;
-        public DateTime inputDate { get; set; }
+        public DateTime? inputDate { get; set; }
 
         public string inputUnit { get; set; }
         public string inputUser { get; set; } = "605100";
@@ -833,16 +866,7 @@ namespace RongChengApp.Dtos
         public string medicineNot { get; set; } = String.Empty;
 
         public string medicineOtherNot { get; set; } = String.Empty;
-        public string medicineType1 { get; set; } = String.Empty;
-        public string medicineType2 { get; set; } = String.Empty;
-        public string medicineType3 { get; set; } = String.Empty;
-        public string medicineType4 { get; set; } = String.Empty;
-        public string medicineType5 { get; set; } = String.Empty;
-        public string medicineUnit1 { get; set; } = String.Empty;
-        public string medicineUnit2 { get; set; } = String.Empty;
-        public string medicineUnit3 { get; set; } = String.Empty;
-        public string medicineUnit4 { get; set; } = String.Empty;
-        public string medicineUnit5 { get; set; } = String.Empty;
+    
         public string needAssess { get; set; } = String.Empty;
         public bool needChangeGroup { get; set; } = false;
         public bool needInsertPlan { get; set; } = false;
@@ -858,11 +882,7 @@ namespace RongChengApp.Dtos
         public string nonMedicineWay { get; set; } = String.Empty;
         public string obeyDoctor { get; set; } = String.Empty;
         public object? oldGroup { get; set; } = null;
-        public string oneDosage1 { get; set; } = String.Empty;
-        public string oneDosage2 { get; set; } = String.Empty;
-        public string oneDosage3 { get; set; } = String.Empty;
-        public string oneDosage4 { get; set; } = String.Empty;
-        public string oneDosage5 { get; set; } = String.Empty;
+
         public string otherReason { get; set; } = String.Empty;
         public string otherSigns { get; set; } = String.Empty;
         public string otherSymptoms { get; set; } = String.Empty;
