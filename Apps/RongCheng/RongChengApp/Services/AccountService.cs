@@ -51,6 +51,7 @@ namespace RongChengApp.Services
             }
                  );
             var text = await data.Content.ReadAsStringAsync();
+            Console.Write(text);
             var result = await data.Content.ReadFromJsonAsync<LoadAccountResult>();
             return result.data.data.Select(r => new AccountPassword { account = r.note1, password = r.note2 }).ToList();
         }
