@@ -1,11 +1,9 @@
 using RongChengApp.Dtos;
 // using PuppeteerSharp;
-using System.Drawing;
 // using System.Drawing.Imaging;
 using System.Text;
 using System.Security.Cryptography;
 using HSSB;
-using Org.BouncyCastle.Asn1.X500;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using PuppeteerSharp.Input;
@@ -265,46 +263,49 @@ namespace RongChengApp.Services
             List<Point> whitePoints = new List<Point>();
             byte[] bytes = Convert.FromBase64String(base64Str);
             var stream = new MemoryStream(bytes);
-            var bitmap = new Bitmap(stream, true);
-            for (var x = 0; x < bitmap.Width; x++)
+            using (var image = SixLabors.ImageSharp.Image.Load<Rgba32>(stream))
             {
-                for (var y = 0; y < bitmap.Height; y++)
+                for (var x = 0; x < image.Width; x++)
                 {
-                    var color = bitmap.GetPixel(x, y);
-                    // Console.WriteLine($"r:{color.R},g:{color.G},b:{color.B}");
-                    if (color.R == 255 && color.G == 255 && color.B == 255)
+                    for (var y = 0; y < image.Height; y++)
                     {
-                        whitePoints.Add(new Point { X = x, Y = y });
-                    }
-                }
-            }
-            Console.WriteLine(whitePoints.Count);
-            for (var y = 0; y < bitmap.Height; y++)
-            {
-                var yPoints = whitePoints.Where(p => p.Y == y);
-                var start = 0;
-                var startX = 0;
-                foreach (var p in yPoints)
-                {
-                    if (whitePoints.Any(po => po.X == p.X + 1))
-                    {
-                        start++;
-                        if (start > 20)
+                        var color = image[x, y];
+                        // Console.WriteLine($"r:{color.R},g:{color.G},b:{color.B}");
+                        if (color.R == 255 && color.G == 255 && color.B == 255)
                         {
-                            Console.WriteLine($"找到  {p.X},{y}");
-                            targetPoint.X = p.X;
-                            targetPoint.Y = y;
-                            break;
+                            whitePoints.Add(new Point { X = x, Y = y });
                         }
                     }
-                    else
-                    {
-                        startX = 0;
-                    }
                 }
+                Console.WriteLine(whitePoints.Count);
+                for (var y = 0; y < image.Height; y++)
+                {
+                    var yPoints = whitePoints.Where(p => p.Y == y);
+                    var start = 0;
+                    var startX = 0;
+                    foreach (var p in yPoints)
+                    {
+                        if (whitePoints.Any(po => po.X == p.X + 1))
+                        {
+                            start++;
+                            if (start > 20)
+                            {
+                                Console.WriteLine($"找到  {p.X},{y}");
+                                targetPoint.X = p.X;
+                                targetPoint.Y = y;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            startX = 0;
+                        }
+                    }
 
+                }
+                return targetPoint;
             }
-            return targetPoint;
+              
 
 
 
