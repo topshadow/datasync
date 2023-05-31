@@ -1,0 +1,102 @@
+2023-05-17 17:44:35.785 +08:00 [Information] 
+
+  _____        _              _    _____       _     _
+ |  __ \      | |            | |  / ____|     (_)   | |
+ | |  | | ___ | |_ _ __   ___| |_| (___  _ __  _  __| | ___ _ __
+ | |  | |/ _ \| __| '_ \ / _ \ __|\___ \| '_ \| |/ _` |/ _ \ '__|
+ | |__| | (_) | |_| | | |  __/ |_ ____) | |_) | | (_| |  __/ |
+ |_____/ \___/ \__|_| |_|\___|\__|_____/| .__/|_|\__,_|\___|_|     version: 5.1.1.0
+                                        | |
+                                        |_|
+
+2023-05-17 17:44:35.890 +08:00 [Information] RequestedQueueCount: 1000
+2023-05-17 17:44:35.891 +08:00 [Information] Depth: 0
+2023-05-17 17:44:35.891 +08:00 [Information] RetriedTimes: 3
+2023-05-17 17:44:35.891 +08:00 [Information] EmptySleepTime: 60
+2023-05-17 17:44:35.892 +08:00 [Information] Speed: 1
+2023-05-17 17:44:35.892 +08:00 [Information] Batch: 4
+2023-05-17 17:44:35.892 +08:00 [Information] RemoveOutboundLinks: False
+2023-05-17 17:44:35.892 +08:00 [Information] StorageType: DotnetSpider.MySql.MySqlEntityStorage, DotnetSpider.MySql
+2023-05-17 17:44:35.893 +08:00 [Information] RefreshProxy: 30
+2023-05-17 17:44:36.368 +08:00 [Information] Agent started
+2023-05-17 17:44:36.383 +08:00 [Information] Initialize spider 6464a204910d5b8414160f85, Github
+2023-05-17 17:44:36.463 +08:00 [Information] 6464a204910d5b8414160f85 DataFlows: Parser -> ConsoleStorage
+2023-05-17 17:44:36.483 +08:00 [Information] 6464a204910d5b8414160f85 register topic DotnetSpider_6464a204910d5b8414160f85
+2023-05-17 17:44:36.533 +08:00 [Information] Statistics service started
+2023-05-17 17:44:38.529 +08:00 [Information] 6464a204910d5b8414160f85 download https://github.com/zlzforever, ZKxTnw completed
+2023-05-17 17:44:41.568 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.20, success 1, failure 0, left 0
+2023-05-17 17:44:46.555 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.10, success 1, failure 0, left 0
+2023-05-17 17:44:51.559 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.07, success 1, failure 0, left 0
+2023-05-17 17:44:56.580 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.05, success 1, failure 0, left 0
+2023-05-17 17:45:01.594 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.04, success 1, failure 0, left 0
+2023-05-17 17:45:06.609 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.03, success 1, failure 0, left 0
+2023-05-17 17:45:11.612 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.03, success 1, failure 0, left 0
+2023-05-17 17:45:16.627 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.03, success 1, failure 0, left 0
+2023-05-17 17:45:21.630 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:45:26.637 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:45:31.644 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:45:36.645 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:45:41.649 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:45:46.656 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:45:51.669 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:45:56.675 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:46:01.683 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:46:06.703 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:46:11.709 +08:00 [Information] 6464a204910d5b8414160f85 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:46:11.771 +08:00 [Information] Exit: 0 seconds
+2023-05-17 17:46:11.804 +08:00 [Information] Statistics service stopping
+2023-05-17 17:46:11.815 +08:00 [Information] Statistics service stopped
+2023-05-17 17:46:11.843 +08:00 [Information] 6464a204910d5b8414160f85 stopped
+2023-05-17 17:46:11.847 +08:00 [Information] Agent is stopping
+2023-05-17 17:46:11.847 +08:00 [Information] Agent stopped
+2023-05-17 17:50:50.452 +08:00 [Information] 
+
+  _____        _              _    _____       _     _
+ |  __ \      | |            | |  / ____|     (_)   | |
+ | |  | | ___ | |_ _ __   ___| |_| (___  _ __  _  __| | ___ _ __
+ | |  | |/ _ \| __| '_ \ / _ \ __|\___ \| '_ \| |/ _` |/ _ \ '__|
+ | |__| | (_) | |_| | | |  __/ |_ ____) | |_) | | (_| |  __/ |
+ |_____/ \___/ \__|_| |_|\___|\__|_____/| .__/|_|\__,_|\___|_|     version: 5.1.1.0
+                                        | |
+                                        |_|
+
+2023-05-17 17:50:50.541 +08:00 [Information] RequestedQueueCount: 1000
+2023-05-17 17:50:50.541 +08:00 [Information] Depth: 0
+2023-05-17 17:50:50.542 +08:00 [Information] RetriedTimes: 3
+2023-05-17 17:50:50.542 +08:00 [Information] EmptySleepTime: 60
+2023-05-17 17:50:50.542 +08:00 [Information] Speed: 1
+2023-05-17 17:50:50.543 +08:00 [Information] Batch: 4
+2023-05-17 17:50:50.543 +08:00 [Information] RemoveOutboundLinks: False
+2023-05-17 17:50:50.543 +08:00 [Information] StorageType: DotnetSpider.MySql.MySqlEntityStorage, DotnetSpider.MySql
+2023-05-17 17:50:50.543 +08:00 [Information] RefreshProxy: 30
+2023-05-17 17:50:51.021 +08:00 [Information] Agent started
+2023-05-17 17:50:51.033 +08:00 [Information] Initialize spider 6464a37bab20507aa3ed4545, Github
+2023-05-17 17:50:51.106 +08:00 [Information] 6464a37bab20507aa3ed4545 DataFlows: Parser -> ConsoleStorage
+2023-05-17 17:50:51.124 +08:00 [Information] 6464a37bab20507aa3ed4545 register topic DotnetSpider_6464a37bab20507aa3ed4545
+2023-05-17 17:50:51.187 +08:00 [Information] Statistics service started
+2023-05-17 17:50:53.383 +08:00 [Information] 6464a37bab20507aa3ed4545 download https://github.com/zlzforever, teQ64Q completed
+2023-05-17 17:50:56.219 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0, success 0, failure 0, left 1
+2023-05-17 17:51:01.215 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.10, success 1, failure 0, left 0
+2023-05-17 17:51:06.227 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.07, success 1, failure 0, left 0
+2023-05-17 17:51:11.239 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.05, success 1, failure 0, left 0
+2023-05-17 17:51:16.265 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.04, success 1, failure 0, left 0
+2023-05-17 17:51:21.266 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.03, success 1, failure 0, left 0
+2023-05-17 17:51:26.271 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.03, success 1, failure 0, left 0
+2023-05-17 17:51:31.278 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.03, success 1, failure 0, left 0
+2023-05-17 17:51:36.280 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:51:41.292 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:51:46.300 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:51:51.305 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:51:56.310 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.02, success 1, failure 0, left 0
+2023-05-17 17:52:01.318 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:52:06.331 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:52:11.331 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:52:16.339 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:52:21.350 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:52:26.363 +08:00 [Information] 6464a37bab20507aa3ed4545 total 1, speed: 0.01, success 1, failure 0, left 0
+2023-05-17 17:52:28.652 +08:00 [Information] Exit: 0 seconds
+2023-05-17 17:52:28.686 +08:00 [Information] Statistics service stopping
+2023-05-17 17:52:28.694 +08:00 [Information] Statistics service stopped
+2023-05-17 17:52:28.725 +08:00 [Information] 6464a37bab20507aa3ed4545 stopped
+2023-05-17 17:52:28.728 +08:00 [Information] Agent is stopping
+2023-05-17 17:52:28.728 +08:00 [Information] Agent stopped

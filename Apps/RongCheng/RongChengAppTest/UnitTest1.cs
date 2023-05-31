@@ -1,6 +1,5 @@
 using System;
 using RongChengApp.Services;
-using Microsoft.AspNetCore.TestHost;
 using Microsoft.AspNetCore;
 using Xunit.Sdk;
 using Moq;
@@ -10,6 +9,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http.Json;
 using RongChengApp.Dtos;
+using System.CodeDom;
+using System.CodeDom.Compiler;
+
 namespace RongChengAppTest
 {
 
@@ -65,6 +67,19 @@ namespace RongChengAppTest
             Console.WriteLine(a);
         }
 
+
+        [Fact]
+        public void TestCodeDom()
+        {
+            CodeTypeDeclaration dcl = new CodeTypeDeclaration("Dog");
+            dcl.IsStruct = true;
+            dcl.Attributes = MemberAttributes.Public;
+            // 生成C#代码
+            CodeDomProvider provider = CodeDomProvider.CreateProvider("cs");
+            Console.WriteLine("生成 C# 代码：");
+            provider.GenerateCodeFromType(dcl, Console.Out, null);
+
+        }
 
 
         /// <summary>

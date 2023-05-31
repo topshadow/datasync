@@ -1,5 +1,17 @@
 ﻿namespace SpiderTest;
-using don
+using DotnetSpider;
+using DotnetSpider.DataFlow;
+using DotnetSpider.DataFlow.Parser;
+using DotnetSpider.Http;
+using DotnetSpider.Infrastructure;
+using DotnetSpider.Scheduler;
+using DotnetSpider.Scheduler.Component;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Serilog;
+using Serilog.Events;
+
 public class GithubSpider : Spider
 {
     public GithubSpider(IOptions<SpiderOptions> options, DependenceServices services, ILogger<Spider> logger) :
