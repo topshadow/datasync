@@ -39,7 +39,9 @@ namespace RongChengApp.Services
         public async Task<List<AccountPassword>> loadAccounts()
         {
             var httpClient = httpClientFactory.CreateClient();
-            var data = await httpClient.PostAsJsonAsync("http://10.1.7.107:9502/hospital/multiple/public/get_mc_doctor", new
+            var serverUrl = "http://ygt.xenpie.com:9502";
+            //var serverUrl = "http://10.1.7.107:9502";
+            var data = await httpClient.PostAsJsonAsync(serverUrl+ "/hospital/multiple/public/get_mc_doctor", new
             {
                 page = 1,
                 size = 500,
