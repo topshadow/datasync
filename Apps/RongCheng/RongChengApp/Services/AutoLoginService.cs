@@ -356,7 +356,12 @@ namespace RongChengApp.Services
                     url = "logon/myRoles",
                     uid = account.account
                 };
-                var urlParam = $"?urt=47416&uid={dtoObj.uid}&pwd={dtoObj.pwd}&captcha={result.repData.captchaVerification}&checkCaptcha=check&deep=3&d={d}";
+                var urt = "47416";
+                if (account.account == "605999")
+                {
+                    urt = "26900";
+                }
+                var urlParam = $"?urt={urt}&uid={dtoObj.uid}&pwd={dtoObj.pwd}&captcha={result.repData.captchaVerification}&checkCaptcha=check&deep=3&d={d}";
                 url = url + urlParam;
                 // var urlEncode = System.Web.HttpUtility.UrlEncode(url);
 
