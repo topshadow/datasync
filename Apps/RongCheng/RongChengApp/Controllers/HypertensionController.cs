@@ -3,6 +3,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using RongChengApp.Dtos;
 using RongChengApp.Services;
 using System.Net.Http;
+using Util.Reflection.Expressions;
 
 namespace RongChengApp.Controllers
 {
@@ -128,7 +129,11 @@ namespace RongChengApp.Controllers
             };
             var empiId = String.Empty;
             var phrId = String.Empty;
-            var userList = await this.listHypertensionRecord(queryIdCard);
+            var userList = await listHypertensionRecord(queryIdCard);
+            if (userList.code == 403)
+            {
+                return new AutoAddVisitRecordResult { ok = false, message  = userList.msg };
+            }
             if (userList.body.Count <= 0)
             {
                 return new AutoAddVisitRecordResult { ok = false, message = "找不到对应身份证号的患者信息" };
@@ -167,7 +172,7 @@ namespace RongChengApp.Controllers
 
                         var saveUpdateInput = new SaveHypertensionVisitInput
                         {
-                            op = String.IsNullOrEmpty(record.visitId) ? "create" : "update",
+                            op = string.IsNullOrEmpty(record.visitId) ? "create" : "update",
                             body = new SaveHypertensionVisitInputBody
                             {
                                 auxiliaryCheck = body.auxiliaryCheck,
@@ -191,7 +196,6 @@ namespace RongChengApp.Controllers
                                 targetTrainTimesWeek = body.targetTrainTimesWeek,
                                 targetTrainMinute = body.targetTrainMinute,
                                 otherSigns = body.otherSigns,
-
                                 visitWay = body.visitWay,
                                 cure = body.cure,
                                 obeyDoctor = body.obeyDoctor,
@@ -209,7 +213,7 @@ namespace RongChengApp.Controllers
                                 visitEvaluate = body.visitEvaluate,
                                 nextDate = body.nextDate?.ToString("yyyy-MM-dd"),
                                 salt = body.salt,
-                                inputUser = "605100",
+                                inputUser = body.inputUser,
                                 targetSalt = body.targetSalt,
                                 // auxiliaryCheck = body.auxiliaryCheck
                             }
@@ -226,9 +230,18 @@ namespace RongChengApp.Controllers
                             foreach (var item in body.medicineDetails)
                             {
                                 var index = body.medicineDetails.IndexOf(item);
-                                medicineIds.Add("medicine" + (index+1), item.id);
+                                if (!string.IsNullOrEmpty(item.toCode))
+                                {
+                                    medicineIds.Add("medicine" + (index + 1), item.toCode);
+                                }
+
                             }
-                            dict.Add("medicineIds", medicineIds);
+                            if (medicineIds.Count > 0)
+                            {
+                                dict.Add("medicineIds", medicineIds);
+                            }
+
+
                             body.medicineDetails.ForEach((me =>
                             {
                                 var index = body.medicineDetails.IndexOf(me);
@@ -236,6 +249,7 @@ namespace RongChengApp.Controllers
                                 {
                                     // 下标从1开始
                                     index += 1;
+                                    dict.Add("drugNames" + index, me.drugNames);
                                     dict.Add("drugId" + index, me.id);
                                     dict.Add("medicineType" + index, me.medicineType);
                                     dict.Add("everyDayTime" + index, me.everyDayTime);
@@ -246,29 +260,132 @@ namespace RongChengApp.Controllers
                             }));
 
                         }
-                        var res = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?d=" + autoLoginService.d, new
+                        var postData = new
                         {
                             method = "execute",
                             op = saveUpdateInput.op,
                             schema = "chis.application.hy.schemas.MDC_HypertensionVisit",
                             serviceAction = "saveHypertensionVisit",
                             serviceId = "chis.hypertensionVisitService",
-                            body=dict
-                        });
+                            body = dict
+                        };
+                        Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(postData));
+                        var res = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?d=" + autoLoginService.d, postData);
+
                         var dataText = await res.Content.ReadAsStringAsync();
                         Console.WriteLine("datatext:" + dataText);
-                        if (dataText.Contains("500"))
+                        var syncResult = await res.Content.ReadFromJsonAsync<SyncVisitResult>();
+                        var visitInfo = await getVisitInfo(new GetVisitInfoInput { body = new GetVisitInfoInputBody { empiId = empiId, planId = record.planId, pkey = string.IsNullOrEmpty(record.visitId) ? syncResult.body.visitId:record.visitId } });
+                        Console.WriteLine(visitInfo);
+                        var result = new List<MedicineDetail>();
+                        if (visitInfo.body.visitInfo.medicineIds != null)
+                        {
+                            foreach (var item in visitInfo.body.visitInfo.medicineIds)
+                            {
+                                if (item.Key == "medicine1")
+                                {
+
+                                    var index = body.medicineDetails.Select(md => md.drugNames).ToList().IndexOf(visitInfo.body.visitInfo.medicines.drugNames1);
+                                    result.Add(new MedicineDetail
+                                    {
+                                        id = index > -1 ? body.medicineDetails[index].id : String.Empty,
+                                        drugNames = visitInfo.body.visitInfo.medicines.drugNames1 + String.Empty,
+                                        medicineType = visitInfo.body.visitInfo.medicines.medicineType1?.key + String.Empty,
+                                        medicineUnit = visitInfo.body.visitInfo.medicines?.medicineUnit1?.key + String.Empty,
+                                        fuDrugId = index > -1 ? body.medicineDetails[index].fuDrugId : String.Empty,
+                                        toCode = item.Value + String.Empty,
+                                        oneDosage = visitInfo.body.visitInfo.medicines.oneDosage1 + String.Empty,
+                                        everyDayTime = visitInfo.body.visitInfo.medicines.everyDayTime1 + String.Empty
+
+
+                                    }) ;
+                                }
+
+                                if (item.Key == "medicine2")
+                                {
+
+                                    var index = body.medicineDetails.Select(md => md.drugNames).ToList().IndexOf(visitInfo.body.visitInfo.medicines.drugNames2);
+                                    result.Add(new MedicineDetail
+                                    {
+                                        id = index > -1 ? body.medicineDetails[index].id : String.Empty,
+                                        drugNames = visitInfo.body.visitInfo.medicines.drugNames2 + String.Empty,
+                                        medicineType = visitInfo.body.visitInfo.medicines.medicineType2?.key + String.Empty,
+                                        medicineUnit = visitInfo.body.visitInfo.medicines?.medicineUnit2?.key + String.Empty,
+                                        fuDrugId = index > -1 ? body.medicineDetails[index].fuDrugId : String.Empty,
+                                        toCode = item.Value + String.Empty,
+                                        oneDosage = visitInfo.body.visitInfo.medicines.oneDosage2 + String.Empty,
+                                        everyDayTime = visitInfo.body.visitInfo.medicines.everyDayTime2 + String.Empty
+
+                                    });
+                                }
+                                if (item.Key == "medicine3")
+                                {
+
+                                    var index = body.medicineDetails.Select(md => md.drugNames).ToList().IndexOf(visitInfo.body.visitInfo.medicines.drugNames3);
+                                    result.Add(new MedicineDetail
+                                    {
+                                        id = index > -1 ? body.medicineDetails[index].id : String.Empty,
+                                        drugNames = visitInfo.body.visitInfo.medicines.drugNames3 + String.Empty,
+                                        medicineType = visitInfo.body.visitInfo.medicines.medicineType3?.key + String.Empty,
+                                        medicineUnit = visitInfo.body.visitInfo.medicines?.medicineUnit3?.key + String.Empty,
+                                        fuDrugId = index > -1 ? body.medicineDetails[index].fuDrugId : String.Empty,
+                                        toCode = item.Value + String.Empty,
+                                        oneDosage = visitInfo.body.visitInfo.medicines.oneDosage3 + String.Empty,
+                                        everyDayTime = visitInfo.body.visitInfo.medicines.everyDayTime3 + String.Empty
+
+                                    });
+                                }
+                                if (item.Key == "medicine4")
+                                {
+
+                                    var index = body.medicineDetails.Select(md => md.drugNames).ToList().IndexOf(visitInfo.body.visitInfo.medicines.drugNames4);
+                                    result.Add(new MedicineDetail
+                                    {
+                                        id = index > -1 ? body.medicineDetails[index].id : String.Empty,
+                                        drugNames = visitInfo.body.visitInfo.medicines.drugNames4 + String.Empty,
+                                        medicineType = visitInfo.body.visitInfo.medicines.medicineType4?.key + String.Empty,
+                                        medicineUnit = visitInfo.body.visitInfo.medicines?.medicineUnit4?.key + String.Empty,
+                                        fuDrugId = index > -1 ? body.medicineDetails[index].fuDrugId : String.Empty,
+                                        toCode = item.Value + String.Empty,
+                                        oneDosage = visitInfo.body.visitInfo.medicines.oneDosage4 + String.Empty,
+                                        everyDayTime = visitInfo.body.visitInfo.medicines.everyDayTime4 + String.Empty
+
+                                    });
+                                }
+                                if (item.Key == "medicine5")
+                                {
+
+                                    var index = body.medicineDetails.Select(md => md.drugNames).ToList().IndexOf(visitInfo.body.visitInfo.medicines.drugNames5);
+                                    result.Add(new MedicineDetail
+                                    {
+                                        drugNames = visitInfo.body.visitInfo.medicines.drugNames5 + String.Empty,
+                                        medicineType = visitInfo.body.visitInfo.medicines.medicineType5?.key + String.Empty,
+                                        medicineUnit = visitInfo.body.visitInfo.medicines?.medicineUnit5?.key + String.Empty,
+                                        fuDrugId = index > -1 ? body.medicineDetails[index].fuDrugId : String.Empty,
+                                        toCode = item.Value + String.Empty,
+                                        oneDosage = visitInfo.body.visitInfo.medicines.oneDosage5 + String.Empty,
+                                        everyDayTime = visitInfo.body.visitInfo.medicines.everyDayTime5 + String.Empty
+
+                                    });
+                                }
+                            }
+
+
+                        }
+
+
+                        if (syncResult.code==500)
                         {
                             return new AutoAddVisitRecordResult { ok = false, message = dataText };
                         }
-                        var data = await res.Content.ReadFromJsonAsync<SaveHypertensionVisitResult>();
-                        if (data.code == 200)
+                        if (syncResult.code == 200)
                         {
-                            return new AutoAddVisitRecordResult { ok = true, message = "上传成功", };
+
+                            return new AutoAddVisitRecordResult { ok = true, message = "上传成功", medicineDetails = result };
                         }
                         else
                         {
-                            return new AutoAddVisitRecordResult { ok = false, message = data.code + "" + data.msg };
+                            return new AutoAddVisitRecordResult { ok = false, message = syncResult.code + "" + syncResult.msg };
                         }
 
                         return new AutoAddVisitRecordResult { ok = true, message = "模板已存在，准备更新模板" };

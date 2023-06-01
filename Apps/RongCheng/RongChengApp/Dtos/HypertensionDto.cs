@@ -11,7 +11,7 @@ namespace RongChengApp.Dtos
     public class BaseOutput<T>
     {
         public List<T> body { get; set; }=new List<T>();
-
+        public string? msg { get; set; }
         /// <summary>
         /// 状态码
         /// </summary>

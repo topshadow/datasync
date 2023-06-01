@@ -4,6 +4,28 @@ using System.Text.Json.Serialization;
 
 namespace RongChengApp.Dtos
 {
+    public class SyncVisitResult
+    {
+        public int code { get; set; } = 200;
+        public SyncVisitResultBody body { get; set; }
+        public string? msg { get; set; }
+
+    }
+    public class SyncVisitResultBody
+    {
+
+        public KeyText? inputUnit { get; set; }
+        public KeyText? lastModifyUser { get; set; }
+        public string? visitId { get; set; }
+        public int? groupAlarm { get; set; } = -1;
+        public KeyText? inputUser { get; set; }
+        public string? lastModifyDate { get; set; }
+        public string? inputDate { get; set; }
+        public bool needReferral { get; set; } = false;
+        public KeyText? lastModifyUnit { get; set; }
+        public bool needGroup { get; set; } = false;
+
+    }
     /// <summary>
     /// 查询某日期随访记录是否存在
     /// </summary>
@@ -306,6 +328,63 @@ namespace RongChengApp.Dtos
     /// </summary>
     public class GetVisitInfoInput
     {
+        public string? drugId1 { get; set; }
+        public string? drugId2 { get; set; }
+        public string? drugId3 { get; set; }
+        public string? drugId4 { get; set; }
+        public string? drugId5 { get; set; }
+        public string? drugId6 { get; set; }
+        public string? drugId7 { get; set; }
+        public string? drugId8 { get; set; }
+        public string? drugId9 { get; set; }
+        public string? drugId10 { get; set; }
+        public string? drugNames1 { get; set; }
+        public string? drugNames2 { get; set; }
+        public string? drugNames3 { get; set; }
+        public string? drugNames4 { get; set; }
+        public string? drugNames5 { get; set; }
+        public string? drugNames6 { get; set; }
+        public string? drugNames7 { get; set; }
+        public string? drugNames8 { get; set; }
+        public string? drugNames9 { get; set; }
+        public string? drugNames10 { get; set; }
+
+        public string? medicineType1 { get; set; }
+        public string? medicineType2 { get; set; }
+        public string? medicineType3 { get; set; }
+        public string? medicineTyp4 { get; set; }
+        public string? medicineType5 { get; set; }
+        public string? medicineType6 { get; set; }
+        public string? medicineType7 { get; set; }
+        public string? medicineType8 { get; set; }
+        public string? medicineType9 { get; set; }
+        public string? medicineType10 { get; set; }
+
+        public object? oneDosage1 { get; set; }
+        public object? oneDosage2 { get; set; }
+        public object? oneDosage3 { get; set; }
+        public object? oneDosage4 { get; set; }
+        public object? oneDosage5 { get; set; }
+        public object? oneDosage6 { get; set; }
+        public object? oneDosage7 { get; set; }
+        public object? oneDosage8 { get; set; }
+        public object? oneDosage9 { get; set; }
+        public object? oneDosage10 { get; set; }
+        public string? medicineUnit1 { get; set; }
+        public string? medicineUnit2 { get; set; }
+        public string? medicineUnit3 { get; set; }
+        public string? medicineUnit4 { get; set; }
+        public string? medicineUnit5 { get; set; }
+        public string? medicineUnit6 { get; set; }
+        public string? medicineUnit7 { get; set; }
+        public string? medicineUnit8 { get; set; }
+        public string? medicineUnit9 { get; set; }
+        public string? medicineUnit10 { get; set; }
+
+
+
+
+
         /// <summary>
         /// 非必填 默认chis.hypertensionVisitService
         /// </summary>
@@ -351,6 +430,45 @@ namespace RongChengApp.Dtos
         public int code { get; set; }
         public GetVisitInfoResultBody body { get; set; }
     }
+    public class Medicines
+    {
+        public string YYQK { get; set; }
+        public int? days1 { get; set; }
+        public int? days2 { get; set; }
+        public int? days3 { get; set; }
+        public int? days4 { get; set; }
+        public int? days5 { get; set; }
+        public string? drugNames1 { get; set; }
+        public string? drugNames1_YPXH { get; set; }
+        public string? drugNames2 { get; set; }
+        public string? drugNames2_YPXH { get; set; }
+        public string? drugNames3 { get; set; }
+        public string? drugNames3_YPXH { get; set; }
+        public string? drugNames4 { get; set; }
+        public string? drugNames5 { get; set; }
+        public string? drugNames4_YPXH { get; set; }
+        public string? everyDayTime1 { get; set; }
+        public string? everyDayTime2 { get; set; }
+        public string? everyDayTime3 { get; set; }
+        public string? everyDayTime4 { get; set; }
+        public string? everyDayTime5 { get; set; }
+        public KeyText? medicineType1 { get; set; }
+        public KeyText? medicineType2 { get; set; }
+        public KeyText? medicineType3 { get; set; }
+        public KeyText? medicineType4 { get; set; }
+        public KeyText? medicineType5 { get; set; }
+        public KeyText? medicineUnit1 { get; set; }
+        public KeyText? medicineUnit2 { get; set; }
+        public KeyText? medicineUnit3 { get; set; }
+        public KeyText? medicineUnit4 { get; set; }
+        public KeyText? medicineUnit5 { get; set; }
+        public object? oneDosage1 { get; set; }
+        public object? oneDosage2 { get; set; }
+        public object? oneDosage3 { get; set; }
+        public object? oneDosage4 { get; set; }
+        public object? oneDosage5 { get; set; }
+
+    }
     public class GetVisitInfoResultBody
     {
         public decimal height { get; set; }
@@ -368,6 +486,8 @@ namespace RongChengApp.Dtos
         /// </summary>
         /// <value></value>
         public string agencyAndDept { get; set; }
+        public Dictionary<string, object>? medicineIds { get; set; }
+        public Medicines? medicines { get; set; }
         /// <summary>
         /// 辅助检查 
         /// 长度限制50
@@ -487,11 +607,7 @@ namespace RongChengApp.Dtos
         /// </summary>
         /// <value></value>
         public string? medicineOtherNot { get; set; }
-        /// <summary>
-        /// 默认 {"YYQK":""}
-        /// </summary>
-        /// <value></value>
-        public Medicines? medicines { get; set; }
+
         /// <summary>
         /// 下次随访日期
         /// </summary>
@@ -623,6 +739,7 @@ namespace RongChengApp.Dtos
         /// </summary>
         /// <value></value>
         public KeyText visitEffect { get; set; }
+
         /// <summary>
         ///随访分类
         /// 1控制满意
@@ -655,94 +772,49 @@ namespace RongChengApp.Dtos
         public object key { get; set; }
         public string text { get; set; }
     }
-    public class Medicines
-    {
-        /// <summary>
-        /// 合成文字描述
-        /// 例如艾叶 1.0#22#颗/   白术 122.0#11#包/   
-        /// </summary>
-        /// <value></value>
-        public string? YYQK { get; set; }
-        /// <summary>
-        /// 药物id
-        /// </summary>
-        /// <value></value>
-        public string? drugId1 { get; set; }
-        public string? drugId2 { get; set; }
-        public string? drugId3 { get; set; }
-        public string? drugId4 { get; set; }
-        public string? drugId5 { get; set; }
 
-        public string? drugNames1 { get; set; }
-        public string? drugNames2 { get; set; }
-        public string? drugNames3 { get; set; }
-        public string? drugNames4 { get; set; }
-        public string? drugNames5 { get; set; }
-
-        public string? drugNames1_YPXH { get; set; }
-        public string? drugNames2_YPXH { get; set; }
-        public string? drugNames3_YPXH { get; set; }
-        public string? drugNames4_YPXH { get; set; }
-        public string? drugNames5_YPXH { get; set; }
-
-
-        public string? everyDayTime1 { get; set; }
-        public string? everyDayTime2 { get; set; }
-        public string? everyDayTime3 { get; set; }
-        public string? everyDayTime4 { get; set; }
-        public string? everyDayTime5 { get; set; }
-
-        public decimal? medicineDosage1 { get; set; }
-        public decimal? medicineDosage2 { get; set; }
-        public decimal? medicineDosage3 { get; set; }
-        public decimal? medicineDosage4 { get; set; }
-        public decimal? medicineDosage5 { get; set; }
-
-
-        public string? medicineFrequency1 { get; set; }
-        public string? medicineFrequency2 { get; set; }
-        public string? medicineFrequency3 { get; set; }
-        public string? medicineFrequency4 { get; set; }
-        public string? medicineFrequency5 { get; set; }
-
-        public string? medicineId1 { get; set; }
-        public string? medicineId2 { get; set; }
-        public string? medicineId3 { get; set; }
-        public string? medicineId4 { get; set; }
-        public string? medicineId5 { get; set; }
-
-        public string? medicineName1 { get; set; }
-        public string? medicineName2 { get; set; }
-        public string? medicineName3 { get; set; }
-        public string? medicineName4 { get; set; }
-        public string? medicineName5 { get; set; }
-
-    }
     /// <summary>
     /// 用药情况
     /// </summary>
     public class MedicineDetail
     {
+        public string? drugNames { get; set; }
+        public string? fuDrugId { get; set; }
         /// <summary>
         /// id
         /// </summary>
-        public string id { get; set; }
+        public string? id { get; set; }
         /// <summary>
         /// 类型
         /// </summary>
-        public string medicineType { get; set; }
+        public string? medicineType { get; set; }
         /// <summary>
         /// 每天多少次
         /// </summary>
-        public string everyDayTime { get; set; }
+        public string? everyDayTime { get; set; }
         /// <summary>
         /// 每次多少量
         /// </summary>
-        public string oneDosage { get; set; }
+        public string? oneDosage { get; set; }
         /// <summary>
         /// 单位
         /// </summary>
-        public string medicineUnit { get; set; }
+        public string? medicineUnit { get; set; }
+        /// <summary>
+        /// 如果有就修改,如果没有就新增药品
+        /// </summary>
+        public string? toCode { get; set; }
+    }
+    public class MedicineSyncResultItem
+    {
+        /// <summary>
+        /// 药品来源id
+        /// </summary>
+        public string fromCode { get; set; }
+        /// <summary>
+        /// 药品同步后的id
+        /// </summary>
+        public string toCode { get; set; }
     }
 
     /// <summary>
@@ -755,7 +827,7 @@ namespace RongChengApp.Dtos
         /// 用户的身份证号
         /// </summary>
         /// <value></value>
-        public string idcard { get; set; }
+        public string? idcard { get; set; }
         public string? updateReason { get; set; }
         public string? otherSigns { get; set; }
         public string? bmi { get; set; } = "90";
@@ -802,6 +874,8 @@ namespace RongChengApp.Dtos
     {
         public bool ok { get; set; }
         public string message { get; set; }
+
+        public List<MedicineDetail>? medicineDetails { get; set; }
     }
     /// <summary>
     /// 保存随访记录
@@ -819,26 +893,45 @@ namespace RongChengApp.Dtos
     }
     public class SaveHypertensionVisitInputBody
     {
+        public string phoneNumber { get; set; } = String.Empty;
+        public string regionCode { get; set; } = String.Empty;
+        public string? empiId { get; set; }
+        public string? visitDate { get; set; }
+        public string? visitWay { get; set; }
+        public string? visitEffect { get; set; } = "1";
+        public string? noVisitReason { get; set; }
+        public string noVisitReasonOtherNot { get; set; } = String.Empty;
+        public string currentSymptoms { get; set; } = String.Empty;
+        public string? otherSymptoms { get; set; } = String.Empty;
+        public string? constriction { get; set; }
+        public string noCureReason { get; set; } = String.Empty;
+        public string medicine { get; set; } = String.Empty;
+        public string medicineNot { get; set; } = String.Empty;
+        public string medicineOtherNot { get; set; } = String.Empty;
+        public string medicineBadEffect { get; set; } = "n";
+        public string medicineBadEffectText { get; set; } = string.Empty;
+
+        public string nonStandard { get; set; } = "【目前症状,摄盐情况,目标摄盐情况,心理调整,遵医行为】未填写<br>&nbsp;&nbsp;&nbsp;&nbsp;【用药情况】未填写";
+        //public int standard { get; set; } = 0;
+
+        public object medicineList { get; set; } = new List<string>();
+        public bool needAssess { get; set; } = false;
+        public bool controlBad { get; set; } = false;
+
+        public bool needChangeGroup { get; set; } = false;
         public string riskUpdateReason { get; set; }
         public string? acceptDegree { get; set; } = String.Empty;
         public string agencyAndDept { get; set; } = "";
         public string auxiliaryCheck { get; set; } = String.Empty;
-        public string birthday { get; set; } = String.Empty;
         public string? bmi { get; set; } = String.Empty;
         public string? cardiovascularEvent { get; set; } = "1";
         public string complication { get; set; } = "";
         public string complicationIncrease { get; set; } = "";
-        public string constriction { get; set; } = "130";
-        public bool controlBad { get; set; } = true;
         public string cure { get; set; } = String.Empty;
-        public string currentSymptoms { get; set; } = String.Empty;
         public string diastolic { get; set; } = String.Empty;
         public string drinkCount { get; set; } = String.Empty;
         public string drinkTypeCode { get; set; } = String.Empty;
-
-        public string empiId { get; set; } = String.Empty;
         public string updateReason { get; set; }
-
         public string fixGroupDate { get; set; } = "2023-04-22";
         public string healthProposal { get; set; } = String.Empty;
         public string healthRecipe { get; set; } = String.Empty;
@@ -846,10 +939,8 @@ namespace RongChengApp.Dtos
         public string height { get; set; } = "170";
         public object hypertensionGroup { get; set; }
         public string hypertensionGroupName { get; set; } = String.Empty;
-        public string idCard { get; set; } = String.Empty;
         public string incorrectMedicine { get; set; } = String.Empty;
         public DateTime? inputDate { get; set; }
-
         public string inputUnit { get; set; }
         public string inputUser { get; set; } = "605100";
         public DateTime lastModifyDate { get; set; }
@@ -859,16 +950,8 @@ namespace RongChengApp.Dtos
         public string lateInput { get; set; } = "";
         public string loseWeight { get; set; } = "1";
         public string manaDoctorId { get; set; } = String.Empty;
-        public string medicine { get; set; } = String.Empty;
-        public string medicineBadEffect { get; set; } = String.Empty;
-        public string medicineBadEffectText { get; set; } = String.Empty;
-        public List<object> medicineList = new List<object>();
-        public string medicineNot { get; set; } = String.Empty;
 
-        public string medicineOtherNot { get; set; } = String.Empty;
-    
-        public string needAssess { get; set; } = String.Empty;
-        public bool needChangeGroup { get; set; } = false;
+
         public bool needInsertPlan { get; set; } = false;
         public bool needReferral { get; set; } = false;
         /// <summary>
@@ -878,27 +961,21 @@ namespace RongChengApp.Dtos
         public string nextDate { get; set; }
         public string nextPlanId { get; set; } = "0000000002492377";
         public string noMedicine { get; set; } = String.Empty;
-        public string noVisitReason { get; set; } = String.Empty;
         public string nonMedicineWay { get; set; } = String.Empty;
         public string obeyDoctor { get; set; } = String.Empty;
         public object? oldGroup { get; set; } = null;
 
         public string otherReason { get; set; } = String.Empty;
         public string otherSigns { get; set; } = String.Empty;
-        public string otherSymptoms { get; set; } = String.Empty;
-        public string personName { get; set; } = String.Empty;
-        public string phoneNumber { get; set; } = String.Empty;
         public string phrId { get; set; } = "44520200620701581";
         public string planDate { get; set; } = "2023-04-22";
         public string planId { get; set; } = "0000000002482002";
         public string psychologyChange { get; set; } = String.Empty;
         public string referralReason { get; set; } = String.Empty;
-        public string regionCode { get; set; } = String.Empty;
         public string regionCode_text { get; set; } = String.Empty;
         public string riskLevel { get; set; } = String.Empty;
         public string riskiness { get; set; } = String.Empty;
         public string? salt { get; set; } = String.Empty;
-        public string sexCode { get; set; } = String.Empty;
         public string smokeCount { get; set; } = "10";
         public int sn { get; set; } = 1;
         public string status { get; set; } = "0";
@@ -914,13 +991,10 @@ namespace RongChengApp.Dtos
         public string trainMinute { get; set; } = "11";
         public string trainTimesWeek { get; set; } = "11";
         public string treatEffect { get; set; } = String.Empty;
-        public string visitDate { get; set; } = "2023-04-22";
         public string visitDoctor { get; set; } = "605100";
-        public string visitEffect { get; set; } = "1";
         public string visitEvaluate { get; set; } = "2";
-        public string visitId { get; set; } = "0000000000261454";
+        public string? visitId { get; set; }
         public string visitUnit { get; set; } = "445202605";
-        public string visitWay { get; set; } = "1";
         public List<object> vmList { get; set; } = new List<object>();
         public string waistLine { get; set; } = String.Empty;
         public string weight { get; set; } = "62";

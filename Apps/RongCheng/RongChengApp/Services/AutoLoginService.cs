@@ -75,7 +75,7 @@ namespace RongChengApp.Services
         {
             foreach (var account in accounts)
             {
-                await autoLoginByServer(account);
+                 autoLoginByServer(account);
             }
 
         }
@@ -356,7 +356,7 @@ namespace RongChengApp.Services
                     url = "logon/myRoles",
                     uid = account.account
                 };
-                var urlParam = $"?urt=26900&uid={dtoObj.uid}&pwd={dtoObj.pwd}&captcha={result.repData.captchaVerification}&checkCaptcha=check&deep=3&d={d}";
+                var urlParam = $"?urt=47416&uid={dtoObj.uid}&pwd={dtoObj.pwd}&captcha={result.repData.captchaVerification}&checkCaptcha=check&deep=3&d={d}";
                 url = url + urlParam;
                 // var urlEncode = System.Web.HttpUtility.UrlEncode(url);
 
@@ -381,6 +381,10 @@ namespace RongChengApp.Services
                     var myAppsRtn = await httpClient.PostAsJsonAsync(url, new { httpMethod = "POST", url = "logon/myApp" + urlParam });
                     var myAppsData = await myAppsRtn.Content.ReadAsStringAsync();
                     Console.WriteLine(myAppsData);
+                }
+                else
+                {
+                    Console.WriteLine($"账号{account.account}没有登录成功");
                 }
 
             }

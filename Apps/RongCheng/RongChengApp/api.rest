@@ -132,3 +132,128 @@ content-type: application/json;charset=UTF-8
     "nextDate": "2023-07-28T16:00:00.000Z",
     "auxiliaryCheck": ""
 }
+###
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?start=0&limit=50 HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Content-Type: application/json
+Origin: http://ph01.gd.xianyuyigongti.com:9002
+Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+Cookie: JSESSIONID=4572D79B613BE34F2AC8DE689932530A
+
+{"serviceId":"chis.diabetesVisitService",
+"method":"execute","schema":"chis.application.dbs.schemas.MDC_DiabetesVisitPlan","cnd":["and",["eq",["$","a.businessType"],["s","2"]],["like",["$","b.idCard"],["s","%421182199311130057%"]]],"pageSize":50,"pageNo":1,"serviceAction":"listDiabetesVistPlan"}
+
+###
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?d=047a7cd90c80386beb373a382bfa473379668883952c2ec9312092a6369c25f50e5aa1ce2c2f859e244e9c2c3e35388972af2c83465b463b945b95d90bb4e38bb2f77fb91a45aad492072e4ee49c476b8b83a71b98b130e66d6cc154023133a8d8eb3ec66f9be05dc169ead37749
+Accept: */*
+Accept-Encoding: gzip, deflate
+Content-Type: application/json
+Origin: http://ph01.gd.xianyuyigongti.com:9002
+Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+Cookie:JSESSIONID=20DC24D42660303D14E3BA3042F30D81
+
+{"serviceId":"chis.diabetesVisitService",
+"schema":"chis.application.dbs.schemas.MDC_DiabetesVisit_html",
+"method":"execute","op":"update",
+"serviceAction":"saveDiabetesVisit",
+"body":{"hbA1c":"180","visitId":"0000000000142024",
+"phrId":"网络000000000000001",
+"personName":"\u51AF\u8D3E\u660E",
+"sexCode":"1","birthday":"1995-06-09",
+"idCard":"420105199506095219",
+"phoneNumber":"15897456584",
+"empiId":"4ee0acad017142bf90ef60faac897b87",
+"visitDate":"2023-05-25","visitWay":"2","visitEffect":"1","noVisitReason":"",
+"noVisitReasonOtherNot":null,"otherSymptoms":null,"constriction":"110","diastolic":"110","weight":"68.00",
+"targetWeight":"68.00","bmi":"27.24","targetBmi":"27.24","otherSigns":null,"smokeCount":"6",
+"targetSmokeCount":"10","drinkCount":"10","targetDrinkCount":12,"trainTimesWeek":8,"targetTrainTimesWeek":20,"trainMinute":10,
+"targetTrainMinute":30,"loseWeight":"2","salt":"","targetSalt":"","cure":"1","medicineNot":"1",
+"medicineOtherNot":"","medicineBadEffect":"y","medicineBadEffectText":"",
+"auxiliaryCheck":"","psychologyChange":"1","obeyDoctor":"1","riskiness":"1","referralReason":null,
+"nextDate":"2023-05-31T00:00:00","visitDoctor":"605100",
+"height":170,"planDate":"2023-05-25 17:24:35",
+"planId":"0000000002563524","endDate":"2023-04-29","sn":null,
+"pulsation":"7",
+"symptoms":"1",
+"diabetesGroup":"01",
+"diabetesChange":"n",
+"diabetesType":"1",
+"otherSigns":"qt",
+"food":"11",
+"targetFood":"11","fbs":"99.99","pbs":"98.00",
+"dangerLevel":"3","updateReason":"aa",
+"nonStandard":"未填写;用药情况未填写,存在危急情况（空腹血糖≥16.7mmol/L或空腹血糖≤3.9mmol/L或血压≥180/110mmHg）时，【转诊原因】或【转诊科别】未填写;",
+"standard":0,"completeLevel":"93%",
+"vmList":[],"medicineRecordIds":[],
+"testDate":"2023-05-15T00:00:00","noCureReason":"","medicine":"1",
+"targetFood":"11","fbs":"99.99","pbs":"98.00","dangerLevel":"3","updateReason":"aa","psychologyChange":"3","obeyDoctor":"2","hbA1c":"11",
+"needAssess":false,"testDate":"2023-05-23T00:00:00","visitType":"1","needChangeGroup":false}}
+###
+{"serviceId":"chis.diabetesVisitService",
+"op":"update",
+"schema":"chis.application.dbs.schemas.MDC_DiabetesVisit_html",
+"serviceAction":"saveDiabetesVisit",
+"method":"execute",
+"body":{
+    "visitId":"0000000000142024",
+"phrId":"44520200621302093",
+"empiId":"875f62096e46447780fb11473f9b912f",
+"visitDate":"2023-05-10",
+"visitDoctor":"605999","visitWay":"1",
+"nextDate":"2023-05-24T00:00:00",
+"symptoms":"1","otherSymptoms":"","diabetesGroup":"01","visitEffect":"1","noVisitReason":"","noVisitReasonOtherNot":"","diabetesType":"1","diabetesChange":"n","constriction":"11","diastolic":"11","weight":"111","targetWeight":"75","bmi":"34.26","targetBmi":"23.15",
+"pulsation":"7","otherSigns":"qt","smokeCount":"11","targetSmokeCount":"11","drinkCount":"11","targetDrinkCount":"11","trainTimesWeek":"11","targetTrainTimesWeek":"11","trainMinute":"11","targetTrainMinute":"11","food":"11","targetFood":"11","fbs":"99.99","pbs":"98.00","dangerLevel":"3","updateReason":"aa","psychologyChange":"3","obeyDoctor":"2","hbA1c":"11","testDate":"2023-05-15T00:00:00","cure":"1","noCureReason":"","medicine":"1","ydstype":"","ydsfre":"","ydstype2":"","ydsfre2":"","ydstype3":"","ydsfre3":"","medicineNot":"","medicineOtherNot":"","adverseReactions":"2","glycopenia":"2","visitType":"2","referralOffice":"","referralReason":"zzyy",
+"vmList":[],"medicineRecordIds":[],"removeMedicineRecordIds":[],"planId":"0000000002522223","planDate":"2023-05-10",
+"endDate":"2023-06-29",
+"nonStandard":"未填写;用药情况未填写,存在危急情况（空腹血糖≥16.7mmol/L或空腹血糖≤3.9mmol/L或血压≥180/110mmHg）时，【转诊原因】或【转诊科别】未填写;","completeLevel":"96%",
+"diabetesFormType":"paper","needAssess":false,"controlBad":true,"needInsertPlan":false,"diabetesGroupName":"一组",
+"oldGroup":"01","needChangeGroup":false,
+
+}}
+
+
+###
+"nextDate":"2023-05-24T00:00:00",
+"symptoms":"1","otherSymptoms":"","diabetesGroup":"01",
+"visitEffect":"1","noVisitReason":"","noVisitReasonOtherNot":"","diabetesType":"1","diabetesChange":"n","constriction":"11","diastolic":"11",
+"weight":"111","targetWeight":"75","bmi":"34.26","targetBmi":"23.15",
+"pulsation":"7","otherSigns":"qt","smokeCount":"11","targetSmokeCount":"11","drinkCount":"11",
+"targetDrinkCount":"11","trainTimesWeek":"11","targetTrainTimesWeek":"11","trainMinute":"11","targetTrainMinute":"11","food":"11",
+"targetFood":"11","fbs":"99.99","pbs":"98.00","dangerLevel":"3","updateReason":"aa","psychologyChange":"3","obeyDoctor":"2","hbA1c":"11",
+"testDate":"2023-05-15T00:00:00","cure":"1","noCureReason":"","medicine":"1","ydstype":"","ydsfre":"","ydstype2":"","ydsfre2":"","ydstype3":"","ydsfre3":"","medicineNot":"","medicineOtherNot":"","adverseReactions":"2","glycopenia":"2",
+"visitType":"2","referralOffice":"","referralReason":"zzyy","vmList":[],"medicineRecordIds":[],"removeMedicineRecordIds":[],"planId":"0000000002522223","planDate":"2023-05-10",
+"endDate":"2023-06-29","height":158,"standard":0,
+
+
+###
+"weight":"111","targetWeight":"75","bmi":"34.26","targetBmi":"23.15",
+"pulsation":"7","otherSigns":"qt","smokeCount":"11","targetSmokeCount":"11","drinkCount":"11",
+"targetDrinkCount":"11","trainTimesWeek":"11","targetTrainTimesWeek":"11","trainMinute":"11","targetTrainMinute":"11","food":"11",
+"targetFood":"11","fbs":"99.99","pbs":"98.00","dangerLevel":"3","updateReason":"aa","psychologyChange":"3","obeyDoctor":"2","hbA1c":"11",
+"testDate":"2023-05-15T00:00:00","cure":"1","noCureReason":"","medicine":"1","ydstype":"","ydsfre":"","ydstype2":"","ydsfre2":"","ydstype3":"","ydsfre3":"","medicineNot":"","medicineOtherNot":"","adverseReactions":"2","glycopenia":"2",
+"visitType":"2","referralOffice":"","referralReason":"zzyy","vmList":[],"medicineRecordIds":[],"removeMedicineRecordIds":[],"planId":"0000000002522223","planDate":"2023-05-10",
+"endDate":"2023-06-29","height":158,"standard":0,
+
+
+###
+"targetFood":"11","fbs":"99.99","pbs":"98.00","dangerLevel":"3","updateReason":"aa","psychologyChange":"3","obeyDoctor":"2","hbA1c":"11",
+"testDate":"2023-05-15T00:00:00","cure":"1","noCureReason":"","medicine":"1","ydstype":"","ydsfre":"","ydstype2":"","ydsfre2":"","ydstype3":"","ydsfre3":"","medicineNot":"","medicineOtherNot":"","adverseReactions":"2","glycopenia":"2",
+
+
+{"serviceId":"chis.diabetesVisitService","schema":"chis.application.dbs.schemas.MDC_DiabetesVisit_html","method":"execute","op":"update","serviceAction":"saveDiabetesVisit","body":{"hbA1c":180,"visitId":"0000000000142024","phrId":"\u7F51\u7EDC000000000000001","personName":"\u51AF\u8D3E\u660E","sexCode":"1","birthday":"1995-06-09","idCard":"420105199506095219","phoneNumber":"15897456584","regionCode":"\u7F51\u7EDC","empiId":"4ee0acad017142bf90ef60faac897b87","visitDate":"2023-05-25","visitWay":"2","visitEffect":"1","noVisitReason":null,"noVisitReasonOtherNot":null,"otherSymptoms":null,"constriction":110,"diastolic":110,"weight":"68.00","targetWeight":"68.00","bmi":27.24,"targetBmi":27.24,"heartRate":null,"targetHeartRate":null,"otherSigns":null,"smokeCount":6,"targetSmokeCount":10,"drinkCount":10,"targetDrinkCount":12,"trainTimesWeek":8,"targetTrainTimesWeek":20,"trainMinute":10,"targetTrainMinute":30,"loseWeight":"2","salt":"","targetSalt":"","cure":null,"noCureReason":null,"medicine":"1","medicineNot":"1","medicineOtherNot":"","medicineBadEffect":"y","medicineBadEffectText":"","auxiliaryCheck":"","psychologyChange":"1","obeyDoctor":"1","riskiness":"1","referralReason":null,"nextDate":"2023-05-31 00:00:00","visitDoctor":"605100","status":null,"height":170,"planDate":"2023-05-25 17:24:35","planId":"0000000002563524","endDate":"2023-04-29T00:00:00","sn":null,"nonStandard":null,"fbs":"10.00","standard":0,"completeLevel":"93%","needAssess":false,"testDate":"2023-05-23","visitType":"1"}}
+
+
+
+
+###
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?d=041902bf939f9786c8440455d7e0818506141b37ebcd02fed83986654074e03c4a6192bf343fafe0fb25a94b1606792e734a997fd993b0b515c567bc1f8cc4f04f7118b123ed0234079d3c69f445d6bfab3f884c4b99fb5312628ba98d7d78125bbe43e6f7b5e8260f3a7d42c573
+Content-Type: application/json
+cookie:JSESSIONID=E7466A7140A96E8A36486CFEAF6DCC7B; 
+Origin: http://ph01.gd.xianyuyigongti.com:9002
+Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0
+
+{"serviceId":"chis.hypertensionVisitService","schema":"chis.application.hy.schemas.MDC_HypertensionVisit","method":"execute","body":{"visitId":"0000000000266814","phrId":"44520200621302093","personName":"","sexCode":"","birthday":"","idCard":"","phoneNumber":"","regionCode":"","empiId":"875f62096e46447780fb11473f9b912f","visitDate":"2023-05-08","visitWay":"1","visitEffect":"1","noVisitReason":"","noVisitReasonOtherNot":"","currentSymptoms":"","otherSymptoms":"","constriction":"52","diastolic":"51","weight":"111","targetWeight":"11","bmi":"34.26","targetBmi":"3.4","heartRate":"60","targetHeartRate":"","otherSigns":"","smokeCount":"11","targetSmokeCount":"11","drinkCount":"11","drinkTypeCode":"","targetDrinkCount":"11","trainTimesWeek":"11","targetTrainTimesWeek":"11","trainMinute":"11","targetTrainMinute":"11","loseWeight":"2","salt":"","targetSalt":"","cure":"1","noCureReason":"","medicine":"1","medicineNot":"","medicineOtherNot":"","medicineBadEffect":"n","medicineBadEffectText":"","auxiliaryCheck":"","psychologyChange":"","obeyDoctor":"","riskiness":"","targetHurt":"","complication":"","complicationIncrease":"","riskLevel":"1","riskUpdateReason":"","visitEvaluate":"1","healthProposal":"","drugNames1":"艾叶","medicineType1":"","everyDayTime1":"",
+"oneDosage1":"","medicineUnit1":"","drugNames2":"","medicineType2":"",
+"everyDayTime2":"","oneDosage2":"","medicineUnit2":"","drugNames3":"","medicineType3":"","everyDayTime3":"","oneDosage3":"","medicineUnit3":"","drugNames4":"","medicineType4":"","everyDayTime4":"","oneDosage4":"","medicineUnit4":"","drugNames5":"","medicineType5":"","everyDayTime5":"","oneDosage5":"","medicineUnit5":"","agencyAndDept":"","referralReason":"","nextDate":"2023-08-08","visitDoctor":"605999","visitUnit":"445202605","treatEffect":"","cardiovascularEvent":"1","waistLine":"","hypertensionGroup":"","incorrectMedicine":"","noMedicine":"","otherReason":"","healthRecipe":"","nonMedicineWay":"","acceptDegree":"","inputUnit":"445202605","inputUser":"605999","inputDate":"2023-05-26 17:13:58","manaDoctorId":"","lateInput":"n","lastModifyUser":"605999","lastModifyUnit":"445202605","lastModifyDate":"2023-05-26 17:23:07","status":"0","regionCode_text":"","lastVisitId":"0000000000000000","nextPlanId":"0000000002565866","height":180,"planDate":"2023-05-08","planId":"0000000002565618","endDate":"2023-05-13T00:00:00","beginDate":"2023-05-03T00:00:00","fixGroupDate":"","sn":null,"nonStandard":"【目前症状,摄盐情况,目标摄盐情况,心理调整,遵医行为】未填写<br>&nbsp;&nbsp;&nbsp;&nbsp;【用药情况】未填写","standard":0,"completeLevel":"80%","medicineList":[],"needAssess":false,"controlBad":false,"hypertensionGroupName":"","needInsertPlan":false,"needReferral":false,"needChangeGroup":false},"op":"update","serviceAction":"saveHypertensionVisit"}

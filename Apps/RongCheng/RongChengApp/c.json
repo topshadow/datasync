@@ -1,0 +1,254 @@
+{
+    "code": 200,
+    "body": {
+        "visitInfo": {
+            "standard": {
+                "text": "已规范",
+                "key": "1"
+            },
+            "visitDoctor": {
+                "text": "魏晓东",
+                "key": "605100"
+            },
+            "trainTimesWeek": 8,
+            "targetTrainTimesWeek": 12,
+            "targetSalt": {
+                "text": "轻",
+                "key": 1
+            },
+            "cure": {
+                "text": "服药",
+                "key": "1"
+            },
+            "inputUser": {
+                "text": "榕东社管理员",
+                "key": "605999"
+            },
+            "empiId": "4ee0acad017142bf90ef60faac897b87",
+            "visitId": "0000000000266821",
+            "medicineBadEffect": {
+                "text": "有",
+                "key": "y"
+            },
+            "visitDate": "2023-05-16",
+            "visitEvaluate": {
+                "text": "控制满意",
+                "key": "1"
+            },
+            "lastModifyDate": "2023-05-31 14:16:09",
+            "nextDate": "2023-05-26",
+            "currentSymptoms": {
+                "text": "恶心呕吐,头痛头晕,呼吸困难",
+                "key": "2,1,4"
+            },
+            "weight": 56.0,
+            "targetWeight": 54.0,
+            "targetSmokeCount": 6,
+            "inputDate": "2023-05-26 17:45:53",
+            "diastolic": 80,
+            "heartRate": 20,
+            "loseWeight": {
+                "text": "不需要",
+                "key": "1"
+            },
+            "drinkCount": 20.0,
+            "visitEffect": {
+                "text": "继续随访",
+                "key": "1"
+            },
+            "completeLevel": "100%",
+            "lastModifyUnit": {
+                "text": "榕城区榕东社区卫生服务中心",
+                "key": "445202605"
+            },
+            "obeyDoctor": {
+                "text": "良好",
+                "key": "1"
+            },
+            "riskLevel": {
+                "text": "低危",
+                "key": "1"
+            },
+            "medicines": {
+                "drugNames5_YPXH": "天冬",
+                "days6": 1,
+                "days5": 1,
+                "days4": 1,
+                "YYQK": "天冬 每日11次，每次1.0毫克(mg)/天冬 每日11次，每次22.0包/天冬 每日333次，每次444.0克(g)/天冬 每日11次，每次1.0毫克(mg)/天冬 每日11次，每次22.0包/天冬 每日333次，每次444.0克(g)/天冬 每日11次，每次1.0毫克(mg)/天冬 每日11次，每次22.0包/天冬 每日333次，每次444.0克(g)",
+                "days3": 1,
+                "days2": 1,
+                "days1": 1,
+                "drugNames1_YPXH": "天冬",
+                "drugNames4_YPXH": "天冬",
+                "drugNames7_YPXH": "天冬",
+                "everyDayTime1": "11",
+                "oneDosage7": 1.0,
+                "oneDosage8": 22.0,
+                "oneDosage5": 22.0,
+                "oneDosage6": 444.0,
+                "everyDayTime5": "11",
+                "everyDayTime4": "11",
+                "everyDayTime3": "333",
+                "oneDosage9": 444.0,
+                "everyDayTime2": "11",
+                "everyDayTime9": "333",
+                "everyDayTime8": "11",
+                "everyDayTime7": "11",
+                "everyDayTime6": "333",
+                "oneDosage3": 444.0,
+                "oneDosage4": 1.0,
+                "oneDosage1": 1.0,
+                "oneDosage2": 22.0,
+                "drugNames8_YPXH": "天冬",
+                "drugNames2_YPXH": "天冬",
+                "medicineUnit9": {
+                    "text": "克(g)",
+                    "key": "4"
+                },
+                "medicineUnit8": {
+                    "text": "包",
+                    "key": "5"
+                },
+                "medicineUnit7": {
+                    "text": "毫克(mg)",
+                    "key": "7"
+                },
+                "medicineUnit6": {
+                    "text": "克(g)",
+                    "key": "4"
+                },
+                "medicineType2": {
+                    "text": "钙拮抗剂",
+                    "key": "11"
+                },
+                "medicineUnit5": {
+                    "text": "包",
+                    "key": "5"
+                },
+                "medicineType3": {
+                    "text": "ACEI",
+                    "key": "12"
+                },
+                "medicineUnit4": {
+                    "text": "毫克(mg)",
+                    "key": "7"
+                },
+                "medicineUnit3": {
+                    "text": "克(g)",
+                    "key": "4"
+                },
+                "medicineType1": {
+                    "text": "ACEI",
+                    "key": "12"
+                },
+                "medicineUnit2": {
+                    "text": "包",
+                    "key": "5"
+                },
+                "medicineUnit1": {
+                    "text": "毫克(mg)",
+                    "key": "7"
+                },
+                "medicineType8": {
+                    "text": "钙拮抗剂",
+                    "key": "11"
+                },
+                "medicineType9": {
+                    "text": "ACEI",
+                    "key": "12"
+                },
+                "medicineType6": {
+                    "text": "ACEI",
+                    "key": "12"
+                },
+                "medicineType7": {
+                    "text": "ACEI",
+                    "key": "12"
+                },
+                "medicineType4": {
+                    "text": "ACEI",
+                    "key": "12"
+                },
+                "medicineType5": {
+                    "text": "钙拮抗剂",
+                    "key": "11"
+                },
+                "drugNames8": "天冬",
+                "drugNames9": "天冬",
+                "days9": 1,
+                "days8": 1,
+                "days7": 1,
+                "drugNames1": "天冬",
+                "drugNames2": "天冬",
+                "drugNames3_YPXH": "天冬",
+                "drugNames3": "天冬",
+                "drugNames9_YPXH": "天冬",
+                "drugNames4": "天冬",
+                "drugNames5": "天冬",
+                "drugNames6": "天冬",
+                "drugNames7": "天冬",
+                "drugNames6_YPXH": "天冬"
+            },
+            "targetBmi": 21.63,
+            "constriction": 110,
+            "trainMinute": 30,
+            "inputUnit": {
+                "text": "榕城区榕东社区卫生服务中心",
+                "key": "445202605"
+            },
+            "otherSigns": "其他",
+            "riskUpdateReason": "修改原因",
+            "visitWay": {
+                "text": "家庭随访",
+                "key": "2"
+            },
+            "medicineNot": {
+                "text": "经 济原因",
+                "key": "1"
+            },
+            "smokeCount": 10,
+            "psychologyChange": {
+                "text": "良好",
+                "key": "1"
+            },
+            "targetTrainMinute": 60,
+            "auxiliaryCheck": "辅助检查",
+            "salt": {
+                "text": "轻",
+                "key": 1
+            },
+            "targetDrinkCount": 8.0,
+            "visitUnit": {
+                "text": "榕城区榕东社区卫生服务中心",
+                "key": "445202605"
+            },
+            "medicine": {
+                "text": "规律",
+                "key": "1"
+            },
+            "phrId": "网络000000000000001",
+            "lastModifyUser": {
+                "text": "榕东社管理员",
+                "key": "605999"
+            },
+            "cardiovascularEvent": {
+                "text": "",
+                "key": "1"
+            },
+            "checkId": "0000000000266821",
+            "medicineIds": {
+                "medicine4": "0000000000467467",
+                "medicine5": "0000000000467468",
+                "medicine2": "0000000000467465",
+                "medicine3": "0000000000467466",
+                "medicine8": "0000000000467471",
+                "medicine9": "0000000000467472",
+                "medicine6": "0000000000467469",
+                "medicine7": "0000000000467470",
+                "medicine1": "0000000000467464"
+            },
+            "bmi": 22.43
+        },
+        "height": 100.0
+    }
+}
