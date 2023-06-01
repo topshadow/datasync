@@ -334,6 +334,7 @@ namespace RongChengApp.Services
 
         public async Task mockLogin(GetCapchaResult result, AccountPassword account)
         {
+            //accountCookie.Clear();
             var httpClient = httpClientFactory.CreateClient();
             if (result.repData != null)
             {
@@ -386,6 +387,7 @@ namespace RongChengApp.Services
                     var myAppsRtn = await httpClient.PostAsJsonAsync(url, new { httpMethod = "POST", url = "logon/myApp" + urlParam });
                     var myAppsData = await myAppsRtn.Content.ReadAsStringAsync();
                     Console.WriteLine(myAppsData);
+                    Console.WriteLine(account.account + "登录成功");
                 }
                 else
                 {

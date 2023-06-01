@@ -654,7 +654,7 @@ namespace RongChengApp.Dtos
         /// </summary>
         /// <value></value>
         public string? idCard { get; set; }
-        public KeyText? incomeSource { get; set; }
+        
         /// <summary>
         /// 医疗费用支付方式
         /// key: "01" text: 城镇职工基本医疗保险 
