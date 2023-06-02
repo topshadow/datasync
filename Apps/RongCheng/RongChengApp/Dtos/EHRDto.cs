@@ -595,7 +595,7 @@ namespace RongChengApp.Dtos
         /// 既往史 手术
         /// { text: "无手术史", key: "0301"}
         /// key: "0302"  有手术史1
-        //  key 0303  text: "有手术史2"
+        ///  key 0303  text: "有手术史2"
         ///</summary>
         /// <value></value>
         public KeyText? diseasetext_ss { get; set; }

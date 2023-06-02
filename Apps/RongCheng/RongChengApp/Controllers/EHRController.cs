@@ -21,7 +21,7 @@ namespace RongChengApp.Controllers
          UtilService _utilService,
         PubService _pubService,
         HypertensionService _hypertensionService
-        
+
         )
         {
             httpClientFactory = _httpClientFactory;
@@ -40,7 +40,7 @@ namespace RongChengApp.Controllers
         public async Task<EHRHealthRecordResult> eHR_HealthRecord([FromBody] EHRHealthRecordInput body)
         {
             var httpClient = utilService.createDefaultRequestHeaderHttpClient();
-            
+
             var rtn = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?start={(body.pageNo - 1) * body.pageSize}&limit={body.pageSize}", body);
 
             var data = await rtn.Content.ReadFromJsonAsync<EHRHealthRecordResult>();
@@ -65,13 +65,24 @@ namespace RongChengApp.Controllers
                 pageSize = input.pageSize,
                 cnd = new List<object>{
                 "or",
-             new object[]{"and",new object[]{"gt",new []{"$","to_char(b.createTime,'yyyy-MM-dd')"},new []{"s",input.start} },new object[]{"lt",new []{"$","to_char(b.createTime,'yyyy-MM-dd')"},new []{"s",input.end } }},
-             new object[]{"and",new object[]{"gt",new []{"$","to_char(b.lastModifyTime,'yyyy-MM-dd')"},new []{"s",input.start} },new object[]{"lt",new []{"$","to_char(b.lastModifyTime,'yyyy-MM-dd')"},new []{"s",input.end}}
+             new object[]{"and",
+                 new object[]{"gt",new []{"$","to_char(b.createTime,'yyyy-MM-dd')"},new []{"s",input.start} },
+                 new object[]{"lt",new []{"$","to_char(b.createTime,'yyyy-MM-dd')"},new []{"s",input.end } }},
+             new object[]{"and",
+                 new object[] { "eq", new string[] { "$", "a.status" } , new string[] { "s", "0" } } ,
+
+
+                 new object[]{"gt",new []{"$","to_char(b.lastModifyTime,'yyyy-MM-dd')"},new []{"s",input.start} },new object[]{"lt",new []{"$","to_char(b.lastModifyTime,'yyyy-MM-dd')"},new []{"s",input.end}}
               }
             }
             };
+            var url = $"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?start{(input.pageNo - 1) * input.pageSize}&limit={input.pageSize}";
+            Console.WriteLine(url);
+
+            Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(body));
+
             var httpClient = utilService.createDefaultRequestHeaderHttpClient();
-            var rtn = await httpClient.PostAsJsonAsync($"http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?start{(input.pageNo - 1) * input.pageSize}&limit={input.pageSize}", body);
+            var rtn = await httpClient.PostAsJsonAsync(url, body);
             var text = await rtn.Content.ReadAsStringAsync();
             Console.WriteLine(text); ;
             var data = await rtn.Content.ReadFromJsonAsync<EHRHealthRecordResult>();
@@ -203,24 +214,24 @@ namespace RongChengApp.Controllers
         /// <param name="idCard"></param>
         /// <returns></returns>
         [HttpGet("[action]")]
-            public async Task<SearchEhrByIdCardResult> getphrIdByIdCard(string idCard)
-            {
-                var search = new SearchEhrByIdCardInput();
-                search.setIdCard(idCard);
-                var httpClient = utilService.createDefaultRequestHeaderHttpClient();
-                var rtn = await httpClient.PostAsJsonAsync(utilService.remoteServerUrl + "?start=0&limit=50", search);
-                return await rtn.Content.ReadFromJsonAsync<SearchEhrByIdCardResult>();
+        public async Task<SearchEhrByIdCardResult> getphrIdByIdCard(string idCard)
+        {
+            var search = new SearchEhrByIdCardInput();
+            search.setIdCard(idCard);
+            var httpClient = utilService.createDefaultRequestHeaderHttpClient();
+            var rtn = await httpClient.PostAsJsonAsync(utilService.remoteServerUrl + "?start=0&limit=50", search);
+            return await rtn.Content.ReadFromJsonAsync<SearchEhrByIdCardResult>();
 
 
-            }
-            /// <summary>
-            /// 测试异常处理
-            /// </summary>
-            /// <returns></returns>
-            [HttpGet("[action]")]
-            public async Task<object> test()
-            {
-                throw new Exception("测试异常处理");
-            }
+        }
+        /// <summary>
+        /// 测试异常处理
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("[action]")]
+        public async Task<object> test()
+        {
+            throw new Exception("测试异常处理");
         }
     }
+}

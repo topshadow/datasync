@@ -1,27 +1,356 @@
 {
-    "code": 200,
-    "body": {
-        "inputUnit": {
-            "text": "榕城区榕东社区卫生服务中心",
-            "key": "445202605"
-        },
-        "lastModifyUser": {
-            "text": "榕东社管理员",
-            "key": "605999"
-        },
-        "visitId": "0000000000267255",
-        "groupAlarm": -1,
-        "inputUser": {
-            "text": "榕东社管理员",
-            "key": "605999"
-        },
-        "lastModifyDate": "2023-06-01 12:23:18",
-        "inputDate": "2023-06-01 12:23:18",
-        "needReferral": false,
-        "lastModifyUnit": {
-            "text": "榕城区榕东社区卫生服务中心",
-            "key": "445202605"
-        },
-        "needGroup": false
+    "status": 200,
+    "message": "11111111111",
+    "data": {
+        "body": [
+            {
+                "pubRecordInfo": {
+                    "riskFactors": null,
+                    "fbs": 12,
+                    "hbA1c": 13,
+                    "jzsmq": "无母亲疾病史",
+                    "inputUser": {
+                        "key": "605100",
+                        "text": "魏晓东"
+                    },
+                    "empiId": "875f62096e46447780fb11473f9b912f",
+                    "jzszn": "无子女疾病史",
+                    "manaUnitId": {
+                        "key": "445202605",
+                        "text": "榕城区榕东社区卫生服务中心"
+                    },
+                    "visitDate": null,
+                    "lastModifyDate": "2023-05-26 17:43:26",
+                    "height": 158,
+                    "jzsfq": "无父亲疾病史",
+                    "endCheck": {
+                        "key": "1",
+                        "text": "待核实"
+                    },
+                    "weight": 56,
+                    "inputDate": "2023-05-10 15:16:46",
+                    "unit": {
+                        "key": "1",
+                        "text": "mmol\/L"
+                    },
+                    "diabetesGroup": {
+                        "key": "01",
+                        "text": "一组"
+                    },
+                    "createUnit": {
+                        "key": "445202605",
+                        "text": "榕城区榕东社区卫生服务中心"
+                    },
+                    "visitEffect": {
+                        "key": "1",
+                        "text": "继续随访"
+                    },
+                    "status": {
+                        "key": "0",
+                        "text": "正常"
+                    },
+                    "lastModifyUnit": {
+                        "key": "445202605",
+                        "text": "榕城区榕东社区卫生服务中心"
+                    },
+                    "pbs": 11,
+                    "jzsxdjm": "无兄弟姐妹疾病史",
+                    "dangerLevel": {
+                        "key": "2",
+                        "text": "中危"
+                    },
+                    "inputUnit": {
+                        "key": "445202605",
+                        "text": "榕城区榕东社区卫生服务中心"
+                    },
+                    "createDate": "2023-05-10",
+                    "op": "update",
+                    "planTypeCode": "03",
+                    "diagnosisDate": "2023-03-01",
+                    "diagnosisUnit": "aa",
+                    "diagnosisSymptom": "确诊症状",
+                    "diabetesType": {
+                        "key": "1",
+                        "text": "1型糖尿病"
+                    },
+                    "phrId": "44520200621302093",
+                    "lastModifyUser": {
+                        "key": "605999",
+                        "text": "榕东社 管理员"
+                    },
+                    "_actions": {
+                        "update": true
+                    },
+                    "manaDoctorId": {
+                        "key": "605100",
+                        "text": "魏晓东"
+                    },
+                    "createUser": {
+                        "key": "605100",
+                        "text": "魏晓东"
+                    }
+                },
+                "hypertensionResult": {
+                    "afterMedicine": null,
+                    "clinicAddress": null,
+                    "jzsmq": "无母亲疾病史",
+                    "inputUser": null,
+                    "empiId": "4D8608061BA73B4BE05010AC32141F56",
+                    "jzszn": "无子女疾病史",
+                    "manaUnitId": {
+                        "key": "445202605",
+                        "text": "榕城区榕东社区卫生服务中心"
+                    },
+                    "visitDate": "2023-05-12",
+                    "lastModifyDate": "2023-05-12 16:08:11",
+                    "height": 165,
+                    "jzsfq": "无父亲疾病史",
+                    "endCheck": null,
+                    "weight": 50,
+                    "inputDate": "2023-04-24 15:16:31",
+                    "diastolic": 72,
+                    "targetHurt": null,
+                    "createUnit": null,
+                    "visitEffect": null,
+                    "status": null,
+                    "lastModifyUnit": null,
+                    "complication": null,
+                    "jzsxdjm": "无兄弟姐妹疾病史",
+                    "viability": null,
+                    "constriction": 123,
+                    "inputUnit": null,
+                    "recordSource": null,
+                    "createDate": "2023-04-24 00:00:00",
+                    "op": "create",
+                    "planTypeCode": "-1",
+                    "phrId": "44520200620207607",
+                    "lastModifyUser": null,
+                    "confirmDate": null,
+                    "confirmText": null,
+                    "_actions": {
+                        "create": true,
+                        "update": false
+                    },
+                    "manaDoctorId": {
+                        "key": "605112",
+                        "text": "林奕波"
+                    },
+                    "createUser": null,
+                    "chis.application.hy.schemas.MDC_HypertensionMedicine_list": [],
+                    "mdC_HypertensionRecord_actions": null
+                },
+                "gao": null,
+                "pid": null,
+                "pkrk": null,
+                "tang": null,
+                "a_qt1": null,
+                "address": "广东省揭阳市榕城区榕东街道西林村",
+                "birthday": "1978-10-15",
+                "bloodTypeCode": {
+                    "key": "5",
+                    "text": "不详"
+                },
+                "cardType": "01",
+                "contact": "陈苏琴",
+                "contactPhone": "无",
+                "createDate": "2017-06-09 00:00:00",
+                "createTime": "2012-01-05 00:00:00",
+                "createUnit": {
+                    "key": "445202605",
+                    "text": "榕城区榕东社区卫生服务中心"
+                },
+                "createUser": {
+                    "key": "605112",
+                    "text": "林奕波"
+                },
+                "deadDate": null,
+                "deadFlag": {
+                    "key": "n",
+                    "text": "否"
+                },
+                "deadReason": null,
+                "educationCode": {
+                    "key": "60",
+                    "text": "普通高级中学教育"
+                },
+                "diseasetextCheckCJ": {
+                    "key": "1101",
+                    "text": "无残疾"
+                },
+                "cjqk_qtcj1": null,
+                "qt_zn1": null,
+                "diseasetextCheckMQ": {
+                    "key": "0801",
+                    "text": "无母亲疾病 史"
+                },
+                "qt_mq1": null,
+                "qt_fq1": null,
+                "diseasetextCheckXDJM": {
+                    "key": "0901",
+                    "text": "无兄弟姐妹疾病史"
+                },
+                "diseasetext_zyb": null,
+                "confirmdate_zyb": null,
+                "confirmdate_yzjsza": null,
+                "qtrqdesc": null,
+                "confirmdate_jhb": null,
+                "diseasetextCheckZN": {
+                    "key": "1001",
+                    "text": "无子女疾病史"
+                },
+                "diseasetextRedioCJ": "1101",
+                "diseasetextRedioMQ": "0801",
+                "diseasetextRedioXDJM": "0901",
+                "diseasetextRedioYCBS": {
+                    "key": "0501",
+                    "text": "无遗传病史"
+                },
+                "diseasetextYCBS": "无家族遗传病史",
+                "diseasetext_check_bl": {
+                    "key": "1201",
+                    "text": "无暴露史"
+                },
+                "diseasetext_check_fq": {
+                    "key": "0701",
+                    "text": "无父亲疾病史"
+                },
+                "diseasetext_check_gm": {
+                    "key": "0101",
+                    "text": "无药物过敏史"
+                },
+                "diseasetext_check_jb": {
+                    "key": "0201",
+                    "text": "无疾病史"
+                },
+                "diseasetext_radio_bl": "12",
+                "diseasetext_radio_gm": "01",
+                "diseasetext_radio_jb": {
+                    "key": "0201",
+                    "text": ""
+                },
+                "confirmdate_gxb": null,
+                "confirmdate_exzl": null,
+                "confirmdate_tnb": null,
+                "confirmdate_gxy": null,
+                "confirmdate_mxzsxfjb": null,
+                "confirmdate_nzz": null,
+                "confirmdate_qtfdcrb": null,
+                "confirmdate_qt": null,
+                "diseasetext_qt": null,
+                "diseasetext_redio_fq": "0701",
+                "diseasetext_exzl": null,
+                "diseasetext_ss": {
+                    "key": "0301",
+                    "text": "无手术史"
+                },
+                "diseasetext_ss0": "无手术史",
+                "diseasetext_sx": {
+                    "key": "0401",
+                    "text": "无输血史"
+                },
+                "diseasetext_sx0": "无输血情况",
+                "diseasetext_sx1": null,
+                "diseasetext_ws": {
+                    "key": "0601",
+                    "text": "无外伤史"
+                },
+                "diseasetext_ws0": "无外伤",
+                "email": null,
+                "empiId": "4D8608061BA73B4BE05010AC32141F56",
+                "homePlace": "广东省揭阳市榕城区榕东街道西林村",
+                "idCard": "445202197810158021",
+                "insuranceCode": {
+                    "key": "02",
+                    "text": "城镇居民基本医疗保险"
+                },
+                "insuranceType": null,
+                "manaDoctorId": {
+                    "key": "605112",
+                    "text": "林奕波"
+                },
+                "manaUnitId": {
+                    "key": "445202605",
+                    "text": "榕城区榕东社区卫生服务中心"
+                },
+                "maritalStatusCode": {
+                    "key": "20",
+                    "text": "已婚"
+                },
+                "masterFlag": {
+                    "key": "n",
+                    "text": "否"
+                },
+                "middleId": "44520200621000602",
+                "mobileNumber": "8676962",
+                "nationCode": {
+                    "key": "01",
+                    "text": "汉族"
+                },
+                "nationalityCode": "CN",
+                "personName": "林卫佳",
+                "peryage": 44,
+                "phoneNumber": "8676962",
+                "photo": null,
+                "phrId": "44520200621000975",
+                "regionCode": {
+                    "key": "445202006210",
+                    "text": "西林村"
+                },
+                "regionCode_text": "西林村",
+                "registeredPermanent": {
+                    "key": "1",
+                    "text": "户籍"
+                },
+                "rhBloodCode": {
+                    "key": "3",
+                    "text": "不详"
+                },
+                "sexCode": {
+                    "key": "2",
+                    "text": "女性"
+                },
+                "personGroup": {
+                    "key": "01",
+                    "text": "一般人群"
+                },
+                "shhjCheckCFPFSS": {
+                    "key": "2",
+                    "text": "油烟机"
+                },
+                "shhjCheckCS": {
+                    "key": "1",
+                    "text": "卫生厕所"
+                },
+                "shhjCheckQCL": {
+                    "key": "2",
+                    "text": "单设"
+                },
+                "shhjCheckRLLX": {
+                    "key": "1",
+                    "text": "液化气"
+                },
+                "shhjCheckYS": {
+                    "key": "1",
+                    "text": "自来水"
+                },
+                "signFlag": {
+                    "key": "y",
+                    "text": "是"
+                },
+                "startdate_ss0": null,
+                "startdate_ss1": null,
+                "startdate_sx0": null,
+                "startdate_sx1": null,
+                "startdate_ws0": null,
+                "status": "0",
+                "versionNumber": null,
+                "workCode": {
+                    "key": "Y",
+                    "text": "不便分类的其他从业人员"
+                },
+                "workPlace": "无固定工作单位(做零工)",
+                "zipCode": null
+            }
+        ]
     }
 }

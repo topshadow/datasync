@@ -253,3 +253,30 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 F
 "visitUnit":"445202605","waistLine":"",
 "weight":"11.00","drugNames1":"Sabin株脊灰灭活疫苗","drugId1":"11425",
 "medicineType1":"22","everyDayTime1":"1","oneDosage1":"1.00","medicineUnit1":"6",     "standard": 0}}
+
+###
+POST http://localhost:81/EHR/eHR_HealthRecordQueryByTimespan
+Content-Type: application/json
+account: 605999
+
+{
+  "start": "2013-01-01",
+  "end": "2023-01-01",
+  "pageNo": 1,
+  "pageSize": 20
+}
+
+
+###
+POST http://ph01.gd.xianyuyigongti.com:9002/chis/*.jsonRequest?start0&limit=20
+Content-Type: application/json
+Cookie: JSESSIONID=7E3F8C0335852E9D5936914FF0E44065;
+Origin: http://ph01.gd.xianyuyigongti.com:9002
+Referer: http://ph01.gd.xianyuyigongti.com:9002/chis/index.html
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0
+
+{"cnd":
+["or",["and",["gt",
+["$","to_char(b.createTime,'yyyy-MM-dd')"],["s","2013-01-01"]],
+["lt",["$","to_char(b.createTime,'yyyy-MM-dd')"],["s","2023-01-01"]]],
+["and",["eq",["$","a.status"],["s","0"]],["gt",["$","to_char(b.lastModifyTime,'yyyy-MM-dd')"],["s","2013-01-01"]],["lt",["$","to_char(b.lastModifyTime,'yyyy-MM-dd')"],["s","2023-01-01"]]]],"schema":"chis.application.hr.schemas.EHR_HealthRecordAndMPIList","action":"","serviceId":"chis.listSqlQuery","method":"execute","pageNo":1,"pageSize":20}
